@@ -32,9 +32,16 @@
     @endforeach
     <!--end::Vendor Stylesheets-->
 
+    <!--begin::Custom Stylesheets(Imported)-->
+    
+    <!-- For slider-->
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
 
+    <!-- For animation-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    
+    <!--end::Custom Stylesheets-->
 
     <!--begin::Custom Stylesheets(optional)-->
     @foreach(getCustomCss() as $path)

@@ -1,12 +1,12 @@
-<div class="container-fluid">
+<div class="container-fluid p-0">
     @php
      $nr = 4.2;   
     @endphp
-    <div class="row mt-5">
+    <div class="row mt-5 g-0">
         <div class="col-md-12 p-0">
             <div class="card text-bg-dark border-0 rounded-0">
-                <img src="{{asset('assets/media/stock/900x600/77.jpg')}}" class="card-img hero-section" alt="...">
-                <div class="row card-img-overlay p-0 align-items-center">
+                <img src="{{asset('assets/media/stock/900x600/77.jpg')}}" class="card-img rounded-0 hero-section" alt="...">
+                <div class="row card-img-overlay align-items-center g-0">
                     <div class="col-3 container">
                         <p class="fs-3x text-white fw-bolder">Smart automotive for smart peoples</p>
                         <p class="text-white mb-10"> dolor sit amet consectet adipisci at totam fuga quibusdam Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>

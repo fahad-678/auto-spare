@@ -1,5 +1,6 @@
 <div class="position-relative">
-    <nav class="navbar navbar-expand-md bg-body-tertiary custom-navbar shadow-lg rounded">
+   <div class="custom-navbar">
+    <nav class="navbar navbar-expand-md bg-body-tertiary shadow-lg rounded">
       <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -31,11 +32,12 @@
               <a class="nav-link {{ Request::is('contact-us') ? 'active' : '' }}" href="/contact-us">Contact US</a>
             </li>
           </ul>
-          <form class="d-flex" role="search">
+          <form class="d-flex ms-md-10" role="search">
             <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success" type="submit">Search</button>
           </form>
         </div>
       </div>
     </nav>
+  </div>
 </div>
