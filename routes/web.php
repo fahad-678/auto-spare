@@ -18,19 +18,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware(['auth', 'verified'])->group(function () {
+// Route::middleware(['auth', 'verified'])->group(function () {
 
-    Route::get('/', [DashboardController::class, 'index']);
 
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+//     Route::name('user-management.')->group(function () {
+//         Route::resource('/user-management/users', UserManagementController::class);
+//         Route::resource('/user-management/roles', RoleManagementController::class);
+//         Route::resource('/user-management/permissions', PermissionManagementController::class);
+//     });
 
-    Route::name('user-management.')->group(function () {
-        Route::resource('/user-management/users', UserManagementController::class);
-        Route::resource('/user-management/roles', RoleManagementController::class);
-        Route::resource('/user-management/permissions', PermissionManagementController::class);
-    });
+// });
 
-});
+Route::get('/', [DashboardController::class, 'index'])->name('landing');
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
 
 Route::get('/error', function () {
     abort(500);

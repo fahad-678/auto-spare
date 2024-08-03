@@ -32,10 +32,6 @@
     @endforeach
     <!--end::Vendor Stylesheets-->
 
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
-    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
-
-
     <!--begin::Custom Stylesheets(optional)-->
     @foreach(getCustomCss() as $path)
         {!! sprintf('<link rel="stylesheet" href="%s">', asset($path)) !!}
@@ -49,13 +45,10 @@
 <!--begin::Body-->
 <body {!! printHtmlClasses('body') !!} {!! printHtmlAttributes('body') !!}>
 
-{{-- @include('partials/theme-mode/_init') --}}
-
-@include('layout.partials.header-layout._navbar')
+@include('partials/theme-mode/_init')
 
 @yield('content')
 
-@include('layout.partials.footer-layout._footer')
 <!--begin::Javascript-->
 <!--begin::Global Javascript Bundle(mandatory for all pages)-->
 @foreach(getGlobalAssets() as $path)
@@ -68,8 +61,6 @@
     {!! sprintf('<script src="%s"></script>', asset($path)) !!}
 @endforeach
 <!--end::Vendors Javascript-->
-
-<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
 <!--begin::Custom Javascript(optional)-->
 @foreach(getCustomJs() as $path)

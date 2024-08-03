@@ -1,4 +1,4 @@
-<!--begin::Modals-->
+ w<!--begin::Modals-->
 @include('partials/modals/_upgrade-plan')
 
 @include('partials/modals/create-app/_main')

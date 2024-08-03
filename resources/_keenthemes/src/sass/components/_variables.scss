@@ -50,18 +50,18 @@ $grays: (
 
 // Bootstrap contextual colors
 // Primary colors
-$primary:						#1B84FF !default;
-$primary-active:				#056EE9 !default;
-$primary-light: 				#E9F3FF !default;
-$primary-clarity: 				rgba(#1B84FF, 0.2) !default;
-$primary-inverse: 				$white !default; 
+$primary:                     #FF5E3A !default; // Primary color set to the extracted color from the image
+$primary-active:              #E65333 !default; // A darker shade for active states
+$primary-light:               #FFD7C8 !default; // A lighter variant of the primary color
+$primary-clarity:             rgba(#FF5E3A, 0.2) !default; // Primary color with transparency
+$primary-inverse:             $white !default; // Inverse color, typically white for contrast
 
 // Secondary colors
-$secondary: 						$gray-200 !default;
-$secondary-active: 				$gray-400 !default;
-$secondary-light: 				#F9F9F9 !default;
-$secondary-clarity:				rgba(#F9F9F9, 0.2) !default; 
-$secondary-inverse:				$gray-800 !default; 
+$secondary:                   #A9A9A9 !default; // Dark grey for secondary
+$secondary-active:            #696969 !default; // Darker grey for active state
+$secondary-light:             #F9F9F9 !default; // Light grey
+$secondary-clarity:           rgba(#A9A9A9, 0.2) !default; // Secondary color with transparency
+$secondary-inverse:           $gray-800 !default; // Darker grey for inverse
 
 // Light colors
 $light: 						$gray-100 !default;

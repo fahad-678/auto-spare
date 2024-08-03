@@ -1,0 +1,119 @@
+:root {
+  --bs-primary: #ff5e3a;
+  --bs-secondary: #a9a9a9;
+  --bs-red: #f61e1e;
+}
+
+.navbar {
+  background-color: white;
+}
+.navbar-brand {
+  display: flex;
+  align-items: center;
+}
+.navbar-brand img {
+  max-height: 30px;
+  margin-right: 10px;
+}
+.navbar-nav .nav-link {
+  color: black;
+  font-weight: bold;
+  margin-right: 10px;
+}
+.navbar-nav .nav-link.active {
+  color: darkorange;
+}
+.custom-navbar {
+  @media (min-width: 768px) {
+    position: absolute;
+    top: 20px;
+    margin-inline: 200px;
+    width: 75%;
+  }
+  z-index: 10;
+}
+.hero-section {
+  /* background-image: url('public/assets/media/stock/1600x800/img-2.jpg'); */
+  /* background-size: cover;  */
+  /* background-repeat: no-repeat;  */
+  /* background-position: center; */
+  overflow: hidden;
+  height: 75vh; 
+}
+
+.hero-text {
+  z-index: 10;
+  top: 30vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* .hot-items-row > * {
+  padding-inline: 2px;
+} */
+
+.hot-items-img {
+  height: 220px;
+  overflow: hidden;
+}
+.flash-sale-img {
+  height: 400px;
+}
+
+.new-arrival-text {
+  z-index: 10;
+  top: 10vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.new-arrival-text p {
+  margin: 0;
+}
+.web-margin{
+  margin-inline: 90px;
+}
+
+.footer-links li {
+  margin-bottom: 5px;
+  color: lightgrey !important; 
+}
+.footer-links li :hover {
+  color: var(--bs-primary) !important; 
+}
+.footer-links a {
+  color: lightgrey !important; 
+}
+.footer-links a :hover {
+  color: var(--bs-primary) !important; 
+} 
+.footer-links li a {
+  color: lightgrey !important; 
+}
+.footer-links li a :hover {
+  color: var(--bs-primary) !important; 
+} 
+
+footer .footer-container {
+  padding-block: 50px;
+}
+.testimonial-card .customer-info {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+.testimonial-card .customer-info img {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+.slider-item{
+  padding-inline: 20px;
+}
