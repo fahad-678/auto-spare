@@ -58,7 +58,7 @@
     </div>
     <div class="text-center container">
         <p class="fs-2qx fw-bolder animate" data-animate="left">New Arrivals Parts</p>
-        @for ($i = 1; $i < 5; $i++)
+        @for ($i = 1; $i < 3; $i++)
         <div class="row mb-3 animate">
             @for ($j = 0; $j < 4; $j++)
             <div class="col-3">

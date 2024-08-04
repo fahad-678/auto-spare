@@ -10,4 +10,12 @@ class DashboardController extends Controller
 
         return view('pages/dashboard.index');
     }
+
+    public function aboutUs(){
+        return view('pages/dashboard.about-us');
+    }
+
+    public function contactUs(){
+        return view('pages/dashboard.contact-us');
+    }
 }

@@ -30,7 +30,9 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/', [DashboardController::class, 'index'])->name('landing');
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+Route::get('/about-us', [DashboardController::class, 'aboutUs'])->name('about-us');
+Route::get('/contact-us', [DashboardController::class, 'contactUs'])->name('contact-us');
+// Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
 
 Route::get('/error', function () {

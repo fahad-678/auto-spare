@@ -1,6 +1,6 @@
 <div class="position-relative">
-   <div class="custom-navbar">
-    <nav class="navbar navbar-expand-md bg-body-tertiary shadow-lg rounded">
+   <div class="custom-navbar {{ Request::is('/') ? '' : 'position-md-relative' }}">
+    <nav class="navbar navbar-expand-md bg-body-tertiary  {{ Request::is('/') ? 'shadow-lg' : 'shadow-sm' }}  rounded">
       <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>

@@ -63,6 +63,7 @@
 @yield('content')
 
 @include('layout.partials.footer-layout._footer')
+@include('layout.partials._whatsapp')
 <!--begin::Javascript-->
 <!--begin::Global Javascript Bundle(mandatory for all pages)-->
 @foreach(getGlobalAssets() as $path)

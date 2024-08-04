@@ -129,3 +129,19 @@ footer .footer-container {
 .img-dark{
   filter: brightness(50%);
 }
+.about-us section h2 {
+  text-align: center;
+}
+.about-us .card .card-header,
+.contact-us .card .card-header {
+  min-height: auto;
+  text-align: center;
+  padding-bottom: 10px;
+  display: block;
+}
+.about-us .card p {
+  padding: 7px 5px;
+}
+.about-us .accordion-body {
+  font-weight: 500;
+}
