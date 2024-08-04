@@ -1,11 +1,11 @@
 <div class="container my-10">
-    <h1 class="text-center fs-2tx fs-bolder mb-4">Our Latest News & Article</h1>
-    <p class="text-center text-gray-600 mb-7 fs-5">
+    <h1 class="text-center fs-2tx fs-bolder mb-4 animate" data-animate="bottom">Our Latest News & Article</h1>
+    <p class="text-center text-gray-600 mb-7 fs-5 animate" data-animate="bottom">
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper<br>
       mattis, pulvinar dapibus leo.
     </p>
   
-    <div class="row">
+    <div class="row animate">
       <div class="col-md-4 mb-4">
         <div class="card h-100">
           <img src="{{asset('assets/media/stock/900x600/14.jpg')}}" class="card-img-top" alt="AC Compressor">

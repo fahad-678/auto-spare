@@ -23,6 +23,7 @@
         "@shopify/draggable": "^1.1.3",
         "@yaireo/tagify": "^4.27.0",
         "acorn": "^8.11.3",
+        "animate.css": "^4.1.1",
         "apexcharts": "3.45.1",
         "autosize": "^6.0.1",
         "axios": "^1.6.5",

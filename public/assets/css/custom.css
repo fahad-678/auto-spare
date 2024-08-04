@@ -2,10 +2,14 @@
   --bs-primary: #ff5e3a;
   --bs-secondary: #a9a9a9;
   --bs-red: #f61e1e;
+  --animate-delay: 2s;
 }
 
 .navbar {
   background-color: white;
+}
+.navbar .dropdown-item:hover {
+  color: var(--bs-primary);
 }
 .navbar-brand {
   display: flex;
@@ -121,4 +125,7 @@ footer .footer-container {
 }
 .slider-item{
   padding-inline: 20px;
+}
+.img-dark{
+  filter: brightness(50%);
 }
