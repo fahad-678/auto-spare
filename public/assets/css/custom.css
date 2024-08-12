@@ -127,13 +127,12 @@ footer .footer-container {
   padding-inline: 20px;
 }
 .img-dark{
-  filter: brightness(50%);
+  filter: brightness(30%);
 }
 .about-us section h2 {
   text-align: center;
 }
-.about-us .card .card-header,
-.contact-us .card .card-header {
+.card .card-header{
   min-height: auto;
   text-align: center;
   padding-bottom: 10px;
@@ -144,4 +143,11 @@ footer .footer-container {
 }
 .about-us .accordion-body {
   font-weight: 500;
+}
+.form-select{
+  min-height: 44px;
+}
+
+.pointer :hover{
+  cursor: pointer;
 }

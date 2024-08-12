@@ -4,7 +4,10 @@ use App\Http\Controllers\Apps\PermissionManagementController;
 use App\Http\Controllers\Apps\RoleManagementController;
 use App\Http\Controllers\Apps\UserManagementController;
 use App\Http\Controllers\Auth\SocialiteController;
+use App\Http\Controllers\BrandController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,6 +36,11 @@ Route::get('/', [DashboardController::class, 'index'])->name('landing');
 Route::get('/about-us', [DashboardController::class, 'aboutUs'])->name('about-us');
 Route::get('/contact-us', [DashboardController::class, 'contactUs'])->name('contact-us');
 // Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+// Route::middleware(['web'])->group(function () {
+    Route::get('/products/autocomplete', [ProductController::class, 'autocomplete'])->name('products.autocomplete');
+    Route::resource('/products', ProductController::class);
+// });
 
 
 Route::get('/error', function () {

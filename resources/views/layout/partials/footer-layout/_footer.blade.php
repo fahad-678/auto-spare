@@ -28,7 +28,7 @@
             <div class="col-md-3">
                 <h5 class="mb-4 text-white fw-bold fs-6">Information</h5>
                 <ul class="list-unstyled footer-links">
-                    <li><a href="#" class="text-white">About Us</a></li>
+                    <li><a href="/about-us" class="text-white">About Us</a></li>
                     <li><a href="#" class="text-white">Legal Notice</a></li>
                     <li><a href="#" class="text-white">Customer Reviews</a></li>
                     <li><a href="#" class="text-white">Guides & Articles</a></li>
@@ -51,14 +51,14 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6 text-md-start">
-                    © 2023 Otoplaza, All rights reserved. Powered by MoxCreative.
+                    © 2023 <span class="text-primary fw-bold">Nafees AutoParts</span>, All rights reserved. Powered by <span class="text-primary fw-bold">WebWaveSolutions</span>
                 </div>
                 <div class="col-md-6 text-md-end footer-links">
-                    <a href="#" class="pe-2 border-end border-secondary-subtle">All Products</a>
+                    <a href="/login" class="pe-2 border-end border-secondary-subtle">Login</a>
                     <a href="#" class="px-2 border-end border-secondary-subtle">Brands</a>
                     <a href="#" class="px-2 border-end border-secondary-subtle">Special Offers</a>
-                    <a href="#" class="px-2 border-end border-secondary-subtle">About Us</a>
-                    <a href="#" class="ps-2">Contact</a>
+                    <a href="/about-us" class="px-2 border-end border-secondary-subtle">About Us</a>
+                    <a href="/contact-us" class="ps-2">Contact Us</a>
                 </div>
             </div>
         </div>

@@ -58,24 +58,46 @@
     </div>
     <div class="text-center container">
         <p class="fs-2qx fw-bolder animate" data-animate="left">New Arrivals Parts</p>
-        @for ($i = 1; $i < 3; $i++)
         <div class="row mb-3 animate">
-            @for ($j = 0; $j < 4; $j++)
-            <div class="col-3">
-                <div class="card border border-5 text-center position-relative">
-                    <img src="{{asset('assets/media/stock/600x400/img-'.$i.'' .$j.'.jpg')}}" class="card-img-top" alt="...">
-                    <span class="position-absolute top-0 end-0 p-2 badge text-bg-warning">
-                        Sale!
-                    </span>
-                    <div class="card-body">
-                    <h5 class="card-title">Alloy rim blue</h5>
-                    <p class="card-text text-primary"><span class="text-decoration-line-through text-secondary">$439.00</span>$415.00</p>
-                    <a href="#" class="btn btn-primary">Add to Cart</a>
+            @foreach ($products as $product)
+                <div class="col-md-3 mb-4 pointer" >
+                    <div class="card h-100 border border-2 text-center position-relative">
+                        <a href="{{ route('products.show', $product->id) }}" class="text-decoration-none">
+                            <img src="{{ asset('storage/products/' . basename($product->image)) }}" class="card-img-top" alt="{{ $product->name }}">
+                        </a>
+                        @if ($product->discount > 0)
+                            <span class="position-absolute top-0 end-0 p-2 badge text-bg-warning">
+                                Sale!
+                            </span>
+                        @endif
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">
+                                <a href="{{ route('products.show', $product->id) }}" class="text-decoration-none text-dark">
+                                    {{ $product->name }}
+                                </a>
+                            </h5>
+                            <p class="card-text text-primary">
+                                @if ($product->discount > 0)
+                                    <span class="text-decoration-line-through text-secondary">
+                                        ${{ number_format($product->price, 2) }}
+                                    </span>
+                                @endif
+                                ${{ number_format($product->price * (1 - $product->discount / 100), 2) }}
+                            </p>                        
+                            <div class="mt-auto">
+                                <a href="#" class="btn btn-primary mb-2">Add to Cart</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            @endfor
+                @if ($loop->iteration % 4 == 0)
+                    </div><div class="row">
+                @endif
+            @endforeach
         </div>
-        @endfor
+        <!-- Pagination Controls -->
+        <div class="d-flex justify-content-end my-4 align-items-center">
+            {{ $products->appends(request()->input())->links('pagination::bootstrap-5') }}
+        </div>
     </div>
 </div>

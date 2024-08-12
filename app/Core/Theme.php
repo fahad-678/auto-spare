@@ -23,7 +23,7 @@ class Theme
      *
      * @var array
      */
-    public static $javascriptFiles = [];
+    public static $javascriptFiles = ['assets/js/custom/utilities/select2/select2.js'];
     public static $cssFiles = ['assets/css/custom.css'];
     public static $vendorFiles = [];
 

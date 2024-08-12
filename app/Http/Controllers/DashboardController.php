@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
+
 class DashboardController extends Controller
 {
     public function index()
     {
-        // addVendors(['amcharts', 'amcharts-maps', 'amcharts-stock']);
-
-        return view('pages/dashboard.index');
+        $products = Product::orderBy('created_at', 'desc')->paginate(8);
+        return view('pages/dashboard.index')->with('products', $products);
     }
 
     public function aboutUs(){

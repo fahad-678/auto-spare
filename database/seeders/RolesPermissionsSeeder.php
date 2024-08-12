@@ -1,5 +1,4 @@
 <?php
-
 namespace Database\Seeders;
 
 use App\Models\User;
@@ -31,6 +30,9 @@ class RolesPermissionsSeeder extends Seeder
                 'api controls',
                 'database management',
                 'repository management',
+                'category',
+                'brand',
+                'products',
             ],
             'developer' => [
                 'api controls',
@@ -50,12 +52,17 @@ class RolesPermissionsSeeder extends Seeder
             ],
         ];
 
+        // Create permissions with the guard name
         foreach ($permissions_by_role['administrator'] as $permission) {
             foreach ($abilities as $ability) {
-                Permission::create(['name' => $ability . ' ' . $permission]);
+                Permission::create([
+                    'name' => $ability . ' ' . $permission,
+                    'guard_name' => 'web',
+                ]);
             }
         }
 
+        // Create roles and assign permissions with the guard name
         foreach ($permissions_by_role as $role => $permissions) {
             $full_permissions_list = [];
             foreach ($abilities as $ability) {
@@ -63,9 +70,11 @@ class RolesPermissionsSeeder extends Seeder
                     $full_permissions_list[] = $ability . ' ' . $permission;
                 }
             }
-            Role::create(['name' => $role])->syncPermissions($full_permissions_list);
+
+            Role::create(['name' => $role, 'guard_name' => 'web'])->syncPermissions($full_permissions_list);
         }
 
+        // Assign roles to users
         User::find(1)->assignRole('administrator');
         User::find(2)->assignRole('developer');
     }

@@ -19,8 +19,8 @@
                 Product
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item {{ Request::is('products/list') ? 'active' : '' }}" href="products/list">List Product</a></li>
-                <li><a class="dropdown-item {{ Request::is('products/add') ? 'active' : '' }}" href="products/add">Add Product</a></li>
+                <li><a class="dropdown-item {{ Request::is('products') ? 'active' : '' }}" href="{{route('products.index')}}">List Product</a></li>
+                <li><a class="dropdown-item {{ Request::is('products/create') ? 'active' : '' }}" href="{{route('products.create')}}">Add Product</a></li>
                 {{-- <li><hr class="dropdown-divider"></li> --}}
                 {{-- <li><a class="dropdown-item" href="#">Something else here</a></li> --}}
               </ul>
@@ -32,12 +32,46 @@
               <a class="nav-link {{ Request::is('contact-us') ? 'active' : '' }}" href="/contact-us">Contact US</a>
             </li>
           </ul>
-          <form class="d-flex ms-md-10" role="search">
-            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
+          <form class="d-flex ms-md-10" role="search" action="{{ route('products.index') }}" method="GET">
+              <div class="position-relative ms-md-10">
+                  <input type="text" id="searchInputNav" name="nav_search" class="form-control" placeholder="Search products..." value="{{ request('nav_search') }}">
+                  <div id="autocompleteResultsNav" class="position-absolute w-100 bg-white border rounded-bottom" style="display:none; z-index: 1000;"></div>
+              </div>
+              <button class="btn btn-outline-success" type="submit">Search</button>
           </form>
         </div>
       </div>
     </nav>
   </div>
 </div>
+
+<script>
+  $(document).ready(function() {
+      function setupAutocomplete(inputId, resultsId, routeName) {
+          $('#' + inputId).on('input', function() {
+              var query = $(this).val();
+              if(query != '') {
+                  $.ajax({
+                      url: "{{ route('products.autocomplete') }}",
+                      method: 'GET',
+                      data: {query:query},
+                      success: function(data) {
+                          $('#' + resultsId).html(data);
+                          $('#' + resultsId).show();
+                      }
+                  });
+              } else {
+                  $('#' + resultsId).hide();
+              }
+          });
+  
+          $(document).on('click', '#' + resultsId + ' .autocomplete-item', function() {
+              $('#' + inputId).val($(this).text());
+              $('#' + resultsId).hide();
+          });
+      }
+  
+      setupAutocomplete('searchInput', 'autocompleteResults', 'products.autocomplete');
+      setupAutocomplete('searchInputNav', 'autocompleteResultsNav', 'products.autocomplete');
+  });
+  </script>
