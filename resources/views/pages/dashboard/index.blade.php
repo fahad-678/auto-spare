@@ -14,10 +14,10 @@
         </div>
         <div class="carousel-inner">
           <div class="carousel-item active" data-bs-interval="3000">
-            <img src="{{asset('assets/media/stock/1600x800/img-2.jpg')}}" class="d-block w-100 img-dark" alt="....">
+            <img src="{{asset('assets/media/stock/1600x800/simage1.jpg')}}" class="d-block w-100 img-dark" alt="....">
           </div>
           <div class="carousel-item" data-bs-interval="3000">
-            <img src="{{asset('assets/media/stock/1600x800/img-3.jpg')}}" class="d-block w-100 img-dark" alt="....">
+            <img src="{{asset('assets/media/stock/1600x800/simage.jpg')}}" class="d-block w-100 img-dark" alt="....">
           </div>
           <div class="carousel-item" data-bs-interval="3000">
             <img src="{{asset('assets/media/stock/1600x800/img-4.jpg')}}" class="d-block w-100 img-dark" alt="....">

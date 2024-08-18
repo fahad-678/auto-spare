@@ -23,14 +23,14 @@ class StoreProductRequest extends FormRequest
     {
         return [
             'name' => 'required|string|max:255',
-            'description' => 'required|string',
-            'price' => 'required|numeric|min:0',
+            'description' => 'nullable|string',
+            'price' => 'nullable|numeric|min:0',
             'discount' => 'nullable|numeric|min:0|max:100',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'category_id' => 'required|exists:categories,id',
-            'brand_id' => 'required|exists:brands,id',
-            'stock' => 'required|integer|min:0',
-            'status' => 'required',
+            'category_id' => 'nullable|exists:categories,id',
+            'brand_id' => 'nullable|exists:brands,id',
+            'stock' => 'nullable|integer|min:0',
+            'status' => 'nullable',
         ];
     }
 }

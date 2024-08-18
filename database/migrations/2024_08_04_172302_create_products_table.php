@@ -15,12 +15,13 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('description')->nullable();
-            $table->float('price');
-            $table->float('discount');
-            $table->string('image');
+            $table->float('price')->nullable();;
+            $table->float('discount')->nullable();;
+            $table->string('image')->nullable();
             $table->string('category_id')->nullable();
             $table->string('brand_id')->nullable();
-            $table->integer('stock');
+            $table->integer('stock')->nullable();
+            $table->boolean('hot_item')->default(false);
             $table->enum('status',['AVAILABLE','UNAVAILABLE'])->default('AVAILABLE');
             $table->timestamps();
         });

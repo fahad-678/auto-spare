@@ -71,7 +71,7 @@ class ProductController extends Controller
     }
 
     /**
-     * Display the specified resource.
+ * Display the specified resource.
      */
     public function show(Product $product)
     {
@@ -96,9 +96,9 @@ class ProductController extends Controller
             $imagePath = $request->file('image')->store('products', 'public');
             $validatedData['image'] = $imagePath;
         }
-
+        // dd($validatedData);
         $product->update($validatedData);
-
+        // dd($product);
         return redirect()->route('products.index')->with('success', 'Product Updated successfully.');;
     }
 

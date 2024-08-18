@@ -15,11 +15,11 @@
                     <x-forms.input-text name="name" label="Product Name" :value="$product->name" />
                 </div>
                 <div class="row pb-2 ps-2">
-                    <x-forms.textarea name="description" label="Description" rows="3" :value="$product->description" />           
+                    <x-forms.textarea name="description" label="Description" rows="3" :value="$product->description" nullable="true" />           
                 </div>
 
                 <div class="row pb-2 ps-2">
-                    <x-forms.input-numeric name="price" label="Price" :value="$product->price" allow-float/>
+                    <x-forms.input-numeric name="price" label="Price" :value="$product->price" allow-float nullable="true"/>
                 </div>
 
                 <div class="row pb-2 ps-2">
@@ -28,7 +28,7 @@
 
                 <div class="row pb-2 ps-2">
                     <div class="col-3 d-flex align-items-center">
-                        <x-forms.input-label text="Category"/>
+                        <x-forms.input-label text="Category" required=""/>
                     </div>
                     <div class="col-9">
                         <select class="form-control form-select" id="category_id" name="category_id">
@@ -39,7 +39,7 @@
 
                 <div class="row pb-2 ps-2">
                     <div class="col-3 d-flex align-items-center">
-                        <x-forms.input-label text="Brand"/>
+                        <x-forms.input-label text="Brand" required=""/>
                     </div>
                     <div class="col-9">
                         <select class="form-control form-select" id="brand_id" name="brand_id">
@@ -49,7 +49,7 @@
                 </div>
 
                 <div class="row pb-2 ps-2">
-                    <x-forms.input-numeric name="stock" label="Stock" :value="$product->stock"/>
+                    <x-forms.input-numeric name="stock" label="Stock" :value="$product->stock" nullable="true"/>
                 </div>
 
                 <div class="row pb-2 ps-2">
@@ -60,8 +60,15 @@
                 </div>
 
                 <div class="row pb-2 ps-2">
+                    <div class="col-3 d-flex align-items-center">
+                        <x-forms.input-label text="Hot Item" required=""/>
+                    </div>
+                    <x-forms.switch name="hot_item" label="hot_item" hide-label :checked="$product->hot_item"/>
+                </div>
+
+                <div class="row pb-2 ps-2">
                     <div class="col-3 d-flex align-items-center ">
-                        <x-forms.input-label text="Image"/>
+                        <x-forms.input-label text="Image" required=""/>
                     </div>
                     <div class="col-9">
                         <label for="image" class="btn btn-secondary">

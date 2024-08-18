@@ -11,11 +11,11 @@
                     <x-forms.input-text name="name" label="Product Name" />
                 </div>
                 <div class="row pb-2 ps-2">
-                    <x-forms.textarea name="description" label="Description" rows="3" />
+                    <x-forms.textarea name="description" label="Description" nullable="true" rows="3" />
                 </div>
 
                 <div class="row pb-2 ps-2">
-                    <x-forms.input-numeric name="price" label="Price"  allow-float/>
+                    <x-forms.input-numeric name="price" label="Price" nullable="true" allow-float/>
                 </div>
 
                 <div class="row pb-2 ps-2">
@@ -24,7 +24,7 @@
 
                 <div class="row pb-2 ps-2">
                     <div class="col-3 d-flex align-items-center">
-                        <x-forms.input-label text="Category"/>
+                        <x-forms.input-label text="Category" required=""/>
                     </div>
                     <div class="col-9">
                         <select class="form-control form-select" id="category_id" name="category_id"></select>
@@ -33,7 +33,7 @@
 
                 <div class="row pb-2 ps-2">
                     <div class="col-3 d-flex align-items-center">
-                        <x-forms.input-label text="Brand"/>
+                        <x-forms.input-label text="Brand" required=""/>
                     </div>
                     <div class="col-9">
                         <select class="form-control form-select" id="brand_id" name="brand_id"></select>
@@ -41,18 +41,26 @@
                 </div>
 
                 <div class="row pb-2 ps-2">
-                    <x-forms.input-numeric name="stock" label="Stock"/>
+                    <x-forms.input-numeric name="stock" label="Stock" nullable="true"/>
                 </div>
-
+                
                 <div class="row pb-2 ps-2">
-                    <x-forms.select name="status" label="Status">
+                    <x-forms.select name="status" label="Status" nullable="true">
                         <option value="AVAILABLE">Available</option>
                         <option value="UNAVAILABLE">Unavailable</option>
                     </x-forms.select>
                 </div>
+
                 <div class="row pb-2 ps-2">
-                    <div class="col-3 d-flex align-items-center ">
-                        <x-forms.input-label text="Image"/>
+                    <div class="col-3 d-flex align-items-center">
+                        <x-forms.input-label text="Hot Item" required="" />
+                    </div>
+                    <x-forms.switch name="hot_item" label="hot_item" hide-label/>
+                </div>
+
+                <div class="row pb-2 ps-2">
+                    <div class="col-3 d-flex align-items-center">
+                        <x-forms.input-label text="Image" required="" />
                     </div>
                     <div class="col-9">
                         <label for="image" class="btn btn-secondary">

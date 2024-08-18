@@ -23,14 +23,15 @@ class UpdateProductRequest extends FormRequest
     {
         return [
             'name' => 'sometimes|required|string|max:255',
-            'description' => 'sometimes|required|string',
-            'price' => 'sometimes|required|numeric|min:0',
+            'description' => 'sometimes|nullable|string',
+            'price' => 'sometimes|nullable|numeric|min:0',
             'discount' => 'nullable|numeric|min:0|max:100',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'category_id' => 'sometimes|required|exists:categories,id',
-            'brand_id' => 'sometimes|required|exists:brands,id',
-            'stock' => 'sometimes|required|integer|min:0',
-            'status' => 'sometimes|required',
+            'category_id' => 'sometimes|nullable|exists:categories,id',
+            'brand_id' => 'sometimes|nullable|exists:brands,id',
+            'stock' => 'sometimes|nullable|integer|min:0',
+            'status' => 'sometimes|nullable',
+            'hot_item' => 'sometimes|boolean',
         ];
     }
 }

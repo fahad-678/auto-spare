@@ -32,15 +32,21 @@ use Illuminate\Support\Facades\Route;
 
 // });
 
-Route::get('/', [DashboardController::class, 'index'])->name('landing');
-Route::get('/about-us', [DashboardController::class, 'aboutUs'])->name('about-us');
-Route::get('/contact-us', [DashboardController::class, 'contactUs'])->name('contact-us');
-// Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-// Route::middleware(['web'])->group(function () {
+// Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+Route::middleware(['auth'])->group(function () {
+    Route::resource('/products', ProductController::class)->except(['index', 'show']);
+});
+
+Route::middleware(['web'])->group(function () {
+    Route::get('/', [DashboardController::class, 'index'])->name('landing');
     Route::get('/products/autocomplete', [ProductController::class, 'autocomplete'])->name('products.autocomplete');
-    Route::resource('/products', ProductController::class);
-// });
+    Route::get('/products', [ProductController::class, 'index'])->name('products.index');
+    Route::get('/products/{product}', [ProductController::class, 'show'])->name('products.show');
+    Route::get('/about-us', [DashboardController::class, 'aboutUs'])->name('about-us');
+    Route::get('/contact-us', [DashboardController::class, 'contactUs'])->name('contact-us');
+});
+
 
 
 Route::get('/error', function () {

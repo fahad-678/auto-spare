@@ -5,12 +5,17 @@
             <!-- Logo and Description -->
             <div class="col-md-3">
                 <h5 class="mb-4 text-primary ">OTO<span class="text-white">PLAZA</h5>
-                <p style="color: lightgray">Leo felis sodales sed convallis purus accumsan tempus dis pellentesque class orci. Si cras dis imperdiet tempor primis vehicula.</p>
+                <p style="color: lightgray">Leo felis sodales sed convallis purus accumsan tempus dis pellentesque class
+                    orci. Si cras dis imperdiet tempor primis vehicula.</p>
                 <div class="my-4">
-                    <img src="{{asset('assets/media/svg/card-logos/visa.svg')}}" alt="Visa" class="img-fluid" style="max-width: 30px;">
-                    <img src="{{asset('assets/media/svg/card-logos/mastercard.svg')}}" alt="MasterCard" class="img-fluid" style="max-width: 30px;">
-                    <img src="{{asset('assets/media/svg/card-logos/american-express.svg')}}" alt="Amex" class="img-fluid" style="max-width: 30px;">
-                    <img src="{{asset('assets/media/svg/card-logos/american-express-dark.svg')}}" alt="PayPal" class="img-fluid" style="max-width: 30px;">
+                    <img src="{{ asset('assets/media/svg/card-logos/visa.svg') }}" alt="Visa" class="img-fluid"
+                        style="max-width: 30px;">
+                    <img src="{{ asset('assets/media/svg/card-logos/mastercard.svg') }}" alt="MasterCard"
+                        class="img-fluid" style="max-width: 30px;">
+                    <img src="{{ asset('assets/media/svg/card-logos/american-express.svg') }}" alt="Amex"
+                        class="img-fluid" style="max-width: 30px;">
+                    <img src="{{ asset('assets/media/svg/card-logos/american-express-dark.svg') }}" alt="PayPal"
+                        class="img-fluid" style="max-width: 30px;">
                 </div>
             </div>
             <!-- Customer Service -->
@@ -51,10 +56,21 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6 text-md-start">
-                    © 2023 <span class="text-primary fw-bold">Nafees AutoParts</span>, All rights reserved. Powered by <span class="text-primary fw-bold">WebWaveSolutions</span>
+                    © 2023 <span class="text-primary fw-bold">Nafees AutoParts</span>, All rights reserved. Powered by
+                    <span class="text-primary fw-bold">WebWaveSolutions</span>
                 </div>
                 <div class="col-md-6 text-md-end footer-links">
-                    <a href="/login" class="pe-2 border-end border-secondary-subtle">Login</a>
+                    @if (Auth::check())
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-inline">
+                            @csrf
+                            <a href="#" class="pe-2 border-end border-secondary-subtle"
+                                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                Logout
+                            </a>
+                        </form>
+                    @else
+                        <a href="/login" class="pe-2 border-end border-secondary-subtle">Login</a>
+                    @endif
                     <a href="#" class="px-2 border-end border-secondary-subtle">Brands</a>
                     <a href="#" class="px-2 border-end border-secondary-subtle">Special Offers</a>
                     <a href="/about-us" class="px-2 border-end border-secondary-subtle">About Us</a>

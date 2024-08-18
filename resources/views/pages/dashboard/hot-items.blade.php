@@ -120,3 +120,27 @@
         </div>
     </div>
 </div>
+
+@push('scripts')
+<script>
+   $(document).ready(function(){
+    $('.hot-items-slider').slick({
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 2000,
+        arrows: false,
+        dots: false,
+        responsive: [
+            {
+                breakpoint: 992,
+                settings: {
+                    slidesToShow: 2
+                }
+            }
+        ]
+    });
+});
+      
+</script>
+@endpush
