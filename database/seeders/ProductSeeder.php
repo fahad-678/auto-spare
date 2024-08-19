@@ -21,7 +21,7 @@ class ProductSeeder extends Seeder
         $brands = Brand::all();
         $categories = Category::all();
 
-        for ($i = 0; $i < 50; $i++) {
+        for ($i = 0; $i < 20; $i++) {
             Product::create([
                 'name' => $faker->words(3, true),
                 'description' => $faker->sentence(),
