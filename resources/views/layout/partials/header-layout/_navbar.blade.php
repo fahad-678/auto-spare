@@ -10,9 +10,9 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
                     <a class="navbar-brand" href="#">
-                        <img src="{{ asset('assets/media/logos/custom-2.svg') }}" alt="Logo" width="30"
-                            height="24" class="d-inline-block align-text-top">
-                        <span>Auto Spare</span>
+                        <img src="{{ config('settings.KT_THEME_ASSETS.favicon') }}" alt="Logo" width="30"
+                            height="24" class="d-inline-block align-text-top mb-2 me-1">
+                        <span>{{ config('app.name') }}</span>
                     </a>
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">

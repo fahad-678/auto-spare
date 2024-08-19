@@ -42,19 +42,19 @@
                             <div class="card-body d-flex flex-column align-items-start justify-content-center">
                             <p class="fs-2x fw-bolder animate" data-animate="bounceIn">Flash <span class="text-primary">SALE</span></p>
                             <p class="card-text fs-4 text-break">Get the best offer on our exclusive Part</p>
-                            <div class="d-flex justify-content-between w-100">
-                                <div class="text-bg-primary py-2 px-3" style="max-width: 18rem; min-width: 65px;">
-                                    <p class="card-text text-center text-white fw-bolder fs-1 mb-0">13</p> 
-                                    <p class="card-text text-center text-white fs-7 p-0">Hours</p> 
+                            <div class="d-flex justify-content-center w-100">
+                                <div class="text-bg-primary py-2 px-3 fs-4 fw-bold text-center text-white" style="max-width: 18rem; min-width: 65px;">
+                                    <p class="card-text mb-0">NK BEST/HOT</p> 
+                                    <p class="card-text p-0">RUNNING ITEMS</p> 
                                 </div>
-                                <div class="text-bg-primary py-2 px-3" style="max-width: 18rem;  min-width: 65px">
+                                {{-- <div class="text-bg-primary py-2 px-3" style="max-width: 18rem;  min-width: 65px">
                                     <p class="card-text text-center text-white fw-bolder fs-1 mb-0">6</p> 
                                     <p class="card-text text-center text-white fs-7 p-0">Minutes</p> 
                                 </div>
                                 <div class="text-bg-primary py-2 px-3" style="max-width: 18rem;  min-width: 65px">
                                     <p class="card-text text-center text-white fw-bolder fs-1 mb-0">45</p> 
                                     <p class="card-text text-center text-white fs-7 p-0">Seconds</p> 
-                                </div>
+                                </div> --}}
                             </div>
                             </div>
                         </div>
@@ -68,7 +68,7 @@
                                         Sale!
                                     </span>
                                     <div class="card-body">
-                                      <h5 class="card-title">Alloy rim blue</h5>
+                                      <h5 class="card-title">NK Turbo Charger</h5>
                                       <p class="card-text text-primary"><span class="text-decoration-line-through text-secondary">$439.00</span>$415.00</p>
                                       <a href="#" class="btn btn-primary animate" data-animate="bounce">Add to Cart</a>
                                     </div>
@@ -81,7 +81,7 @@
                                         Sale!
                                     </span>
                                     <div class="card-body">
-                                      <h5 class="card-title">Alloy rim blue</h5>
+                                      <h5 class="card-title">Steering Rack</h5>
                                       <p class="card-text text-primary"><span class="text-decoration-line-through text-secondary">$439.00</span>$415.00</p>
                                       <a href="#" class="btn btn-primary animate" data-animate="bounce">Add to Cart</a>
                                     </div>
@@ -94,7 +94,7 @@
                                         Sale!
                                     </span>
                                     <div class="card-body">
-                                      <h5 class="card-title">Alloy rim blue</h5>
+                                      <h5 class="card-title">Cylinder Head</h5>
                                       <p class="card-text text-primary"><span class="text-decoration-line-through text-secondary">$439.00</span>$415.00</p>
                                       <a href="#" class="btn btn-primary animate" data-animate="bounce">Add to Cart</a>
                                     </div>
@@ -107,7 +107,7 @@
                                         Sale!
                                     </span>
                                     <div class="card-body">
-                                      <h5 class="card-title">Alloy rim blue</h5>
+                                      <h5 class="card-title">Starter Alternator</h5>
                                       <p class="card-text text-primary"><span class="text-decoration-line-through text-secondary">$439.00</span>$415.00</p>
                                       <a href="#" class="btn btn-primary animate" data-animate="bounce">Add to Cart</a>
                                     </div>

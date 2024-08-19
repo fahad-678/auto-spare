@@ -44,14 +44,14 @@
                         <p class="counter mb-0" data-count="120"></p>
                         <span class="text-primary">+</span>
                     </div>
-                    <p class="fs-4 text-gray-600">Offline Store</p>
+                    <p class="fs-4 text-gray-600">Offline/Online Store</p>
                 </div>
                 <div class="col-3 text-center">
                     <div class="fs-3x fw-bolder d-flex justify-content-center">
                         <p class="counter mb-0" data-count="75"></p>
                         <span class="text-primary">+</span>
                     </div>
-                    <p class="fs-4 text-gray-600">Professional Team</p>
+                    <p class="fs-4 text-gray-600">Satisfied Services</p>
                 </div>
             </div>
         </div>

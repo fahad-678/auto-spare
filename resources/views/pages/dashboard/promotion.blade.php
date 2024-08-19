@@ -25,10 +25,10 @@
           </div>
           <div class="col ps-6">
             <div class="card-body py-0">
-                <p class="card-text fst-italic fs-2x animate" data-animate="zoomIn">About Us</p>
+                {{-- <p class="card-text fst-italic fs-2x animate" data-animate="zoomIn">About Us</p> --}}
                 <div class="animate" data-animate="bottom">
-                  <h5 class="card-title fs-2tx fw-bolder mb-0">The Essence of Engineering,</h5>
-                  <h5 class="card-title fs-2tx fw-bolder mb-4">Fueled by Passion</h5>
+                  <h5 class="card-title fs-2hx fw-bolder mb-0 mt-2">Make Best Deals With Us</h5>
+                  <h5 class="card-title fs-2x fw-bolder mb-4">Fueled by Passion</h5>
                 </div>
                 <p class="card-text text-body-secondary mb-4">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                 <div class="row animate">
@@ -38,10 +38,10 @@
                               <div class="col-md-2">
                                 <img src="{{asset('assets/media/stock/600x600/img-40.jpg')}}" class="img-fluid" alt="...">
                               </div>
-                              <div class="col ps-4">
+                              <div class="col ps-4 d-flex align-items-center">
                                 <div class="card-body p-1 pt-5">
-                                    <h5 class="card-title fs-5 fw-bold">Auto Part Store</h5>
-                                    <p class="card-text text-body-secondary">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                    <h5 class="card-title fs-1 fw-bold">Grow With NK Auto Part</h5>
+                                    {{-- <p class="card-text text-body-secondary">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> --}}
                                 </div>
                               </div>
                             </div>
@@ -55,10 +55,10 @@
                               <div class="col-md-2">
                                 <img src="{{asset('assets/media/stock/600x600/img-41.jpg')}}" class="img-fluid" alt="...">
                               </div>
-                              <div class="col ps-4">
+                              <div class="col ps-4 d-flex align-items-center">
                                 <div class="card-body p-1 pt-5">
-                                    <h5 class="card-title fs-5 fw-bold">Auto Part Store</h5>
-                                    <p class="card-text text-body-secondary">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                    <h5 class="card-title fs-1 fw-bold">Best B2B Partner For You</h5>
+                                    {{-- <p class="card-text text-body-secondary">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> --}}
                                 </div>
                               </div>
                             </div>
@@ -71,7 +71,7 @@
       </div>
     <div class="bg-body-secondary py-10 mt-10">
         <div class="d-flex flex-column justify-content-center align-items-center">
-            <p class="fs-2x py-2 fw-bold animate" data-animate="zoomIn" data-delay="0s">Our Authorized Dealers</p>
+            <p class="fs-2x py-2 fw-bold animate" data-animate="zoomIn" data-delay="0s">Brands We Deal In</p>
             <p class="border-bottom border-warning border-2" style="width: 70px;"> </p>
         </div>
         @foreach (array_chunk($brands, 4) as $rowIndex => $brandRow)

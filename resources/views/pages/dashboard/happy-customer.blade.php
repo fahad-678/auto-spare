@@ -8,8 +8,8 @@
                 <img src="{{asset('assets/media/stock/900x600/77.jpg')}}" class="card-img rounded-0 hero-section" alt="...">
                 <div class="row card-img-overlay align-items-center g-0">
                     <div class="col-3 container">
-                        <p class="fs-3x text-white fw-bolder animate" data-animate="bottom">Smart automotive for smart peoples</p>
-                        <p class="text-white mb-10 animate" data-animate="bottom"> dolor sit amet consectet adipisci at totam fuga quibusdam Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
+                        <p class="fs-3x text-white fw-bolder mb-6 animate" data-animate="bottom">Smart automotive for smart peoples</p>
+                        {{-- <p class="text-white mb-10 animate" data-animate="bottom"> dolor sit amet consectet adipisci at totam fuga quibusdam Lorem ipsum dolor sit amet consectetur adipisicing elit. </p> --}}
                         <button class="btn btn-primary animate" data-animate="bounce" >Go To Shop!</button>
                     </div>
                     <div class="col-md-7 container">

@@ -4,8 +4,8 @@
         <div class="row mb-3">
             <!-- Logo and Description -->
             <div class="col-md-3">
-                <h5 class="mb-4 text-primary ">OTO<span class="text-white">PLAZA</h5>
-                <p style="color: lightgray">Leo felis sodales sed convallis purus accumsan tempus dis pellentesque class
+                <h5 class="mb-4 text-primary ">{{ config('app.name', 'Laravel') }}</h5>
+                {{-- <p style="color: lightgray">Leo felis sodales sed convallis purus accumsan tempus dis pellentesque class
                     orci. Si cras dis imperdiet tempor primis vehicula.</p>
                 <div class="my-4">
                     <img src="{{ asset('assets/media/svg/card-logos/visa.svg') }}" alt="Visa" class="img-fluid"
@@ -16,13 +16,13 @@
                         class="img-fluid" style="max-width: 30px;">
                     <img src="{{ asset('assets/media/svg/card-logos/american-express-dark.svg') }}" alt="PayPal"
                         class="img-fluid" style="max-width: 30px;">
-                </div>
+                </div> --}}
             </div>
             <!-- Customer Service -->
             <div class="col-md-3">
                 <h5 class="mb-4 text-white fw-bold fs-6">Customer Service</h5>
                 <ul class="list-unstyled footer-links">
-                    <li><a href="#" class="text-white">My Account</a></li>
+                    {{-- <li><a href="#" class="text-white">My Account</a></li> --}}
                     <li><a href="#" class="text-white">Help Center</a></li>
                     <li><a href="#" class="text-white">Track My Order</a></li>
                     <li><a href="#" class="text-white">Shipping & Returns</a></li>
@@ -44,10 +44,12 @@
             <div class="col-md-3">
                 <h5 class="mb-4 text-white fw-bold fs-6">Contact Us</h5>
                 <ul class="list-unstyled footer-links">
-                    <li><i class="fas fa-map-marker-alt text-primary"></i> Cempaka Wangi No 22 Jakarta - Indonesia</li>
-                    <li><i class="fas fa-envelope text-primary"></i> hello@yourdomain.tld</li>
-                    <li><i class="fas fa-phone text-primary"></i> +6221-2002-2012</li>
-                    <li><i class="fas fa-clock text-primary"></i> 7 Days a week from 10 am to 6 pm</li>
+                    <li><i class="fas fa-map-marker-alt text-primary"></i> Shop#6, Fah Hotel Building, Baniyas Metro Station, Deira Dubai, Dubai, UAE</li>
+                    <li><i class="fas fa-envelope text-primary"></i> info@nkautopart.com</li>
+                    <li><i class="fas fa-phone text-primary"></i> {{ env('LANDLINE_NUMBER') }}</li>
+                    <li><i class="fas fa-whatsapp text-primary"></i> {{ env('WHATSAPP_NUMBER') }}</li>
+                    <li><i class="fas fa-clock text-primary"></i> 8:30 am to 1:30 pm <br /> <span class="ms-5">4:00 pm
+                            to 8:30 pm</span> </li>
                 </ul>
             </div>
         </div>

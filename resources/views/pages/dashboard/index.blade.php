@@ -31,45 +31,45 @@
         <div class="row px-2 w-100">
             <div class="col-md-3 d-flex animate"  data-delay="0.2s">
               <div class="col-md-6">
-                <img src="{{asset('assets/media/email/img-3.jpg')}}" class="rounded-circle" width="140px" height="140px" alt="...">
+                <img src="{{asset('assets/media/img/bestquality.jpg')}}" class="rounded-circle shadow" width="140px" height="140px" alt="...">
               </div>
               <div class="col-md-6 d-flex align-items-center">
                 <div class="card-body p-2 justify-content-center">
-                  <h5 class="card-title">Free Shipping</h5>
-                  <p class="card-text text-secondary">On all over $99.00</p>
+                  <h5 class="card-title">Best Quality</h5>
+                  {{-- <p class="card-text text-secondary">On all over $99.00</p> --}}
                 </div>
               </div>
             </div>
             <div class="col-md-3 d-flex animate" data-delay="0.5s">
               <div class="col-md-6">
-                <img src="{{asset('assets/media/email/img-4.jpg')}}" class="rounded-circle" width="140px" height="140px" alt="...">
+                <img src="{{asset('assets/media/img/bestprice.jpeg')}}" class="rounded-circle shadow" width="140px" height="140px" alt="...">
               </div>
               <div class="col-md-6 d-flex align-items-center">
                 <div class="card-body p-2">
-                  <h5 class="card-title">Free Shipping</h5>
-                  <p class="card-text text-secondary">On all over $99.00</p>
+                  <h5 class="card-title">Best Price</h5>
+                  {{-- <p class="card-text text-secondary">On all over $99.00</p> --}}
                 </div>
               </div>
             </div>
             <div class="col-md-3 d-flex animate" data-delay="0.7s">
               <div class="col-md-6">
-                <img src="{{asset('assets/media/email/img-5.jpg')}}" class="rounded-circle" width="140px" height="140px" alt="...">
+                <img src="{{asset('assets/media/img/wideparts.jpg')}}" class="rounded-circle shadow" width="140px" height="140px" alt="...">
               </div>
               <div class="col-md-6 d-flex align-items-center">
                 <div class="card-body p-2">
-                  <h5 class="card-title">Free Shipping</h5>
-                  <p class="card-text text-secondary">On all over $99.00</p>
+                  <h5 class="card-title">Wide Range Parts</h5>
+                  {{-- <p class="card-text text-secondary">On all over $99.00</p> --}}
                 </div>
               </div>
             </div>
             <div class="col-md-3 d-flex animate" data-delay="0.9s">
               <div class="col-md-6">
-                <img src="{{asset('assets/media/email/img-6.jpg')}}" class="rounded-circle" width="140px" height="140px" alt="...">
+                <img src="{{asset('assets/media/img/worldwideshipment.jpg')}}" class="rounded-circle shadow" width="140px" height="140px" alt="...">
               </div>
               <div class="col-md-6 d-flex align-items-center">
                 <div class="card-body p-2">
-                  <h5 class="card-title">Free Shipping</h5>
-                  <p class="card-text text-secondary">On all over $99.00</p>
+                  <h5 class="card-title">WorldWide Shipments</h5>
+                  {{-- <p class="card-text text-secondary">On all over $99.00</p> --}}
                 </div>
               </div>
             </div>
