@@ -10,7 +10,8 @@ class DashboardController extends Controller
     public function index()
     {
         $products = Product::orderBy('created_at', 'desc')->paginate(8);
-        return view('pages/dashboard.index')->with('products', $products);
+        $hotItems = Product::where('hot_item', 1)->orderBy('created_at', 'desc')->get();
+        return view('pages/dashboard.index')->with(['products' => $products, 'hotItems' => $hotItems]);
     }
 
     public function aboutUs(){

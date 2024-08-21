@@ -31,6 +31,7 @@ class StoreProductRequest extends FormRequest
             'brand_id' => 'nullable|exists:brands,id',
             'stock' => 'nullable|integer|min:0',
             'status' => 'nullable',
+            'hot_item' => 'nullable|boolean',
         ];
     }
 }

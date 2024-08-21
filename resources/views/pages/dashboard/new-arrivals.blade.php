@@ -63,7 +63,7 @@
                 <div class="col-md-3 mb-4 pointer" >
                     <div class="card h-100 border border-2 text-center position-relative">
                         <a href="{{ route('products.show', $product->id) }}" class="text-decoration-none">
-                            <img src="{{ asset('storage/products/' . basename($product->image)) }}" class="card-img-top" alt="{{ $product->name }}">
+                            <img src="{{ asset('storage/products/' . basename($product->image)) }}" class="card-img-top" height="205" width="305" alt="{{ $product->name }}">
                         </a>
                         @if ($product->discount > 0)
                             <span class="position-absolute top-0 end-0 p-2 badge text-bg-warning">

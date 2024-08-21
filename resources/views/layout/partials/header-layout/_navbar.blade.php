@@ -9,7 +9,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-                    <a class="navbar-brand" href="#">
+                    <a class="navbar-brand" href="{{ route('landing') }}">
                         <img src="{{ config('settings.KT_THEME_ASSETS.favicon') }}" alt="Logo" width="30"
                             height="24" class="d-inline-block align-text-top mb-2 me-1">
                         <span>{{ config('app.name') }}</span>
