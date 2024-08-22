@@ -8,25 +8,25 @@
     <div class="row animate">
       <div class="col-md-6 mb-4">
         <div class="card h-100">
-          <img src="{{asset('assets/media/stock/900x600/14.jpg')}}" class="card-img-top" alt="AC Compressor">
-          <div class="position-absolute top-0 end-0 bg-primary text-white px-2 py-1">Auto Maintenance</div>
+          <img src="{{asset('assets/media/blog/nkasp.jpg')}}" class="card-img-top" alt="AC Compressor">
+          {{-- <div class="position-absolute top-0 end-0 bg-primary text-white px-2 py-1">Auto Maintenance</div> --}}
           <div class="card-body">
-            <h5 class="card-title">Nafees Auto Parts</h5>
-            <p class="card-text">Eros accumsan proin aliquet in mi sociosqu. Volutpat eu quam praesent ad ante. Commodo augue faucibus felis vulputate leo ante sodales elementum blandit tempus. Nulla semper faucibus sit consectetuer libero.</p>
+            <h5 class="card-title">Nafees Khan Auto Spare Parts Co L.L.C</h5>
+            <p class="card-text">Nafees Auto Spare Parts Co. LLC is your trusted partner in providing high-quality automotive parts and accessories. With a commitment to excellence and customer satisfaction, we offer a wide range of genuine and aftermarket products to meet all your vehicle needs. Our experienced team ensures fast, reliable service, helping you keep your vehicles running smoothly.</p>
           </div>
           <div class="card-footer bg-white py-4">
             <small class="text-primary">August 27, 2023 • No Comments</small>
           </div>
+          
         </div>
       </div>
-  
       <div class="col-md-6 mb-4">
         <div class="card h-100">
-          <img src="{{asset('assets/media/stock/900x600/15.jpg')}}" class="card-img-top" alt="Recycling Cars">
-          <div class="position-absolute top-0 end-0 bg-primary text-white px-2 py-1">NK Brand</div>
+          <img src="{{asset('assets/media/blog/logo.jpg')}}" class="card-img-top" alt="Recycling Cars">
+          {{-- <div class="position-absolute top-0 end-0 bg-primary text-white px-2 py-1">NK Brand</div> --}}
           <div class="card-body">
             <h5 class="card-title">NK Brand</h5>
-            <p class="card-text">Eros accumsan proin aliquet in mi sociosqu. Volutpat eu quam praesent ad ante. Commodo augue faucibus felis vulputate leo ante sodales elementum blandit tempus. Nulla semper faucibus sit consectetuer libero.</p>
+            <p class="card-text">NK is a leading brand in the aftermarket auto parts industry, dedicated to delivering high-quality, affordable, and reliable solutions for a wide range of vehicles. With a focus on innovation and customer satisfaction, NK ensures that every part meets the highest standards of performance and durability, helping you keep your vehicle in top condition</p>
           </div>
           <div class="card-footer bg-white py-4">
             <small class="text-primary">August 27, 2023 • No Comments</small>

@@ -42,54 +42,7 @@
 
         <div class="row">
             @foreach ($products as $product)
-                <div class="col-md-3 mb-4 pointer">
-                    <div class="card h-100 border border-2 text-center position-relative">
-                        <a href="{{ route('products.show', $product->id) }}" class="text-decoration-none">
-                            <img src="{{ asset('storage/products/' . basename($product->image)) }}" class="card-img-top" height="205" width="305"
-                                alt="{{ $product->name }}">
-                        </a>
-                        @if ($product->discount > 0)
-                            <span class="position-absolute top-0 end-0 p-2 badge text-bg-warning">
-                                Sale!
-                            </span>
-                        @endif
-                        <div class="card-body d-flex flex-column">
-                            <h5 class="card-title">
-                                <a href="{{ route('products.show', $product->id) }}"
-                                    class="text-decoration-none text-dark">
-                                    {{ $product->name }}
-                                </a>
-                            </h5>
-                            <p class="card-text text-primary">
-                                @if ($product->price > 0)
-                                    @if ($product->discount > 0)
-                                        <span class="text-decoration-line-through text-secondary">
-                                            ${{ number_format($product->price, 2) }}
-                                        </span>
-                                    @endif
-                                    ${{ number_format($product->price * (1 - $product->discount / 100), 2) }}
-                                @else
-                                    N/A
-                                @endif
-                            </p>
-                            <div class="mt-auto">
-                                <a href="#" class="btn btn-primary mb-2">Add to Cart</a>
-                                @if (Auth::check())
-                                    <div class="btn-group w-100" role="group">
-                                        <a href="{{ route('products.edit', $product->id) }}"
-                                            class="btn btn-outline-secondary">
-                                            <i class="fas fa-edit"></i> Edit
-                                        </a>
-                                        <button type="button" class="btn btn-outline-danger delete-product"
-                                            data-product-id="{{ $product->id }}">
-                                            <i class="fas fa-trash"></i> Delete
-                                        </button>
-                                    </div>
-                                @endif
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <x-product.card :product="$product" viewType="list" />
                 @if ($loop->iteration % 4 == 0)
         </div>
         <div class="row">

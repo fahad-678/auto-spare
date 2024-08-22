@@ -74,7 +74,7 @@
 
 .new-arrival-text {
   z-index: 10;
-  top: 10vh;
+  top: 20vh;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -127,7 +127,7 @@ footer .footer-container {
   padding-inline: 20px;
 }
 .img-dark{
-  filter: brightness(30%);
+  filter: brightness(40%);
 }
 .about-us section h2 {
   text-align: center;
@@ -150,4 +150,12 @@ footer .footer-container {
 
 .pointer :hover{
   cursor: pointer;
+}
+.two-line-title {
+  min-height: 2.4em;  /* Adjust this value as needed */
+  line-height: 1.2em; /* Adjust for your desired line height */
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }

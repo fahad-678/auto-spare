@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="row">
+    {{-- <div class="row">
         <div class="col-5 animate" data-animate="left">
             <div class="card text-bg-dark">
                 <img src="{{ asset('assets/media/stock/900x600/80.jpg') }}" class="card-img hot-items-img" alt="...">
@@ -33,7 +33,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
     <div class="row mt-5">
         <div class="col-12">
@@ -69,41 +69,7 @@
                         <div class="hot-items-slider">
                             @foreach ($hotItems as $item)
                                 <div class="slider-item">
-                                    <div class="card border-0 text-center position-relative">
-                                        <a href="{{ route('products.show', $item->id) }}"
-                                            class="text-decoration-none">
-                                            <img src="{{ asset('storage/products/' . basename($item->image)) }}"
-                                                class="card-img-top" height="135" width="200" alt="{{ $item->name }}">
-                                        </a>
-                                        @if ($item->discount > 0)
-                                            <span class="position-absolute top-0 end-0 p-2 badge text-bg-warning">
-                                                Sale!
-                                            </span>
-                                        @endif
-                                        <div class="card-body d-flex flex-column">
-                                            <h5 class="card-title">
-                                                <a href="{{ route('products.show', $item->id) }}"
-                                                    class="text-decoration-none text-dark">
-                                                    {{ $item->name }}
-                                                </a>
-                                            </h5>
-                                            <p class="card-text text-primary">
-                                                @if ($item->price > 0)
-                                                    @if ($item->discount > 0)
-                                                        <span class="text-decoration-line-through text-secondary">
-                                                            ${{ number_format($item->price, 2) }}
-                                                        </span>
-                                                    @endif
-                                                    ${{ number_format($item->price * (1 - $item->discount / 100), 2) }}
-                                                @else
-                                                    N/A
-                                                @endif
-                                            </p>
-                                            <div class="mt-auto">
-                                                <a href="#" class="btn btn-primary mb-2 animate" data-animate="bounce" >Add to Cart</a>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <x-product.card :product="$item" viewType="hot_item" />
                                 </div>
                             @endforeach
                         </div>
