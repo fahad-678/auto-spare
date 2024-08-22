@@ -47,10 +47,10 @@
                                 <p class="fs-2x fw-bolder animate" data-animate="bounceIn">Flash <span
                                         class="text-primary">SALE</span></p>
                                 <p class="card-text fs-4 text-break">Get the best offer on our exclusive Part</p>
-                                <div class="d-flex justify-content-center w-100">
-                                    <div class="text-bg-primary py-2 px-3 fs-4 fw-bold text-center text-white"
+                                <div class="d-flex w-100">
+                                    <div class="text-bg-primary py-2 px-3 fs-4 fw-bold text-white"
                                         style="max-width: 18rem; min-width: 65px;">
-                                        <p class="card-text mb-0">NK BEST/HOT</p>
+                                        <p class="card-text mb-0">NK BEST</p>
                                         <p class="card-text p-0">RUNNING ITEMS</p>
                                     </div>
                                     {{-- <div class="text-bg-primary py-2 px-3" style="max-width: 18rem;  min-width: 65px">

@@ -152,8 +152,8 @@ footer .footer-container {
   cursor: pointer;
 }
 .two-line-title {
-  min-height: 2.4em;  /* Adjust this value as needed */
-  line-height: 1.2em; /* Adjust for your desired line height */
+  min-height: 2.4em;  
+  line-height: 1.2em;
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 2;
