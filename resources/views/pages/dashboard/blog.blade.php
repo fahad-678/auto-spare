@@ -11,8 +11,8 @@
           <img src="{{asset('assets/media/blog/nkasp.jpg')}}" class="card-img-top" alt="AC Compressor">
           {{-- <div class="position-absolute top-0 end-0 bg-primary text-white px-2 py-1">Auto Maintenance</div> --}}
           <div class="card-body">
-            <h5 class="card-title">Nafees Khan Auto Spare Parts Co L.L.C</h5>
-            <p class="card-text">Nafees Auto Spare Parts Co. LLC is your trusted partner in providing high-quality automotive parts and accessories. With a commitment to excellence and customer satisfaction, we offer a wide range of genuine and aftermarket products to meet all your vehicle needs. Our experienced team ensures fast, reliable service, helping you keep your vehicles running smoothly.</p>
+            <h5 class="card-title">{{ config('app.name') }}</h5>
+            <p class="card-text">{{ config('app.name') }} is your trusted partner in providing high-quality automotive parts and accessories. With a commitment to excellence and customer satisfaction, we offer a wide range of genuine and aftermarket products to meet all your vehicle needs. Our experienced team ensures fast, reliable service, helping you keep your vehicles running smoothly.</p>
           </div>
           <div class="card-footer bg-white py-4">
             <small class="text-primary">August 27, 2023 • No Comments</small>
