@@ -17,7 +17,7 @@
                         <div class="card-body pt-4">
                             <h5 class="card-header text-center fs-2 fw-bolder">Company Description</h5>
                             <div class="d-flex">
-                                <p class="card-text pe-3">Welcome to Nafees Auto Spare Parts Co LLC, your trusted source for
+                                <p class="card-text pe-3">Welcome to {{ config('app.name') }}, your trusted source for
                                     top-quality auto parts in Dubai. Since 2014, we've been dedicated to supplying genuine
                                     parts
                                     for Nissan and Toyota vehicles, ensuring peak performance and reliability. Alongside our
@@ -29,13 +29,13 @@
                                 <img src="{{ asset('assets/media/logos/oldnklogo.png') }}" class="mt-5 rounded-start"
                                     width="200px" height="130px" alt="...">
                             </div>
-                            <p class="card-text">At Nafees Auto Spare Parts Co LLC, our commitment to customer satisfaction
+                            <p class="card-text">At {{ config('app.name') }}, our commitment to customer satisfaction
                                 and product excellence is unmatched. Whether you're a mechanic, auto enthusiast, or business
                                 owner, we meet your needs with competitive pricing, fast delivery, and exceptional service.
                                 Our reputation as a trusted brand is built on years of reliability, expertise, and a genuine
                                 passion for automobiles.</p>
                             <p class="card-text">Discover our extensive inventory online or visit our showroom to see why
-                                Nafees Auto Spare Parts Co LLC is the preferred choice for auto parts in Dubai and beyond.
+                               {{ config('app.name') }} is the preferred choice for auto parts in Dubai and beyond.
                                 Join us in driving excellence and reliability on every road.</p>
                             {{-- <p class="card-text">Experience the Gaolian difference today and discover why we are the preferred choice for auto parts in Dubai. Let us assist you in finding the perfect solution for all of your automotive needs.</p> --}}
                         </div>
@@ -152,7 +152,7 @@
 
         <section class="mb-5 card shadow p-4">
             <h2 class="card-header fs-2 fw-bolder">The NK Advantage</h2>
-            <p>Our objectives at Gaolian Auto Spare Parts Co L.L.C. are aligned with our mission to provide top-tier auto
+            <p>Our objectives at {{ config('app.name') }} are aligned with our mission to provide top-tier auto
                 parts and exceptional service to our customers. Key objectives include:</p>
             <div class="accordion" id="objectivesAccordion">
                 <div class="accordion-item">
@@ -254,12 +254,12 @@
                     A Commitment to Quality and Excellence
                 </p>
                 <p>
-                    Welcome to Nafees Auto Spare Parts Co LLC. I am Obbaid Khan, and I am honored to serve as the CEO of
+                    Welcome to {{ config('app.name') }}. I am Obaid Khan, and I am honored to serve as the CEO of
                     this esteemed company. Since our inception in 2014, our mission has been clear: to provide our customers
                     with the highest quality auto parts, ensuring their vehicles perform at their best.
                 </p>
                 <p>
-                    At Nafees Auto Spare Parts, we understand the crucial role that reliable auto parts play in the
+                    At {{ config('app.name') }}, we understand the crucial role that reliable auto parts play in the
                     performance and safety of your vehicle. That's why we've dedicated ourselves to offering a comprehensive
                     range of original parts for Nissan and Toyota, alongside our premium aftermarket brand, NK. Our NK
                     products cater to a variety of vehicles, including SUBARU, SUZUKI, DAIHATSU, KIA, NISSAN, HYUNDAI,
@@ -285,7 +285,7 @@
                 </p>
                 <p>
                     As we continue to grow and innovate, we remain steadfast in our mission to be your trusted partner for
-                    all your auto parts needs. Thank you for choosing Nafees Auto Spare Parts Co LLC. Together, let's drive
+                    all your auto parts needs. Thank you for choosing {{ config('app.name') }}. Together, let's drive
                     towards a future of reliability and excellence.
                 </p>
                 <p>
@@ -293,7 +293,7 @@
                 </p>
                 <footer class="blockquote-footer">
                     <p class="mb-0">Obaid Khan</p>
-                    <p>Ms. Cherry, CEO, Gaolian Auto Spare Parts Co L.L.C.</p>
+                    <p>CEO, {{ config('app.name') }}</p>
                 </footer>
             </blockquote>
         </section>
