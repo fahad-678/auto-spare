@@ -2,12 +2,16 @@
 
 @section('content')
     <div class="position-relative">
-
+        <div id="nkoldlogo" class="position-fixed nkoldlogo-transition" style="z-index: 1; top: 0px; right: 30px;">
+            <img src="{{ asset('assets/media/logos/oldnklogo.png') }}" class="mt-5 rounded-start" width="170px" height="100px"
+                alt="...">
+        </div>
         <div id="carouselExampleSlidesOnly" class="carousel slide hero-section" data-bs-ride="carousel">
             <div class="position-absolute hero-text">
                 <p class="fs-2hx fst-italic fw-bold text-white animate" data-animate="left">Welcome to <span
-                        class="text-primary">Nafees Khan Auto Spare Parts Co L.L.C</span></p>
-                <p class="fs-3x text-white fw-bolder animate">The Best <span class="text-primary">Auto Spare Parts </span> Company</p>
+                        class="text-primary">{{ config('app.name') }}</span></p>
+                <p class="fs-3x text-white fw-bolder animate">The Best <span class="text-primary">Auto Spare Parts </span>
+                    Company</p>
                 {{-- <p class="text-white animate">Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
                 <p class="text-white animate"> adipisci at totam fuga quibusdam</p> --}}
                 <button class="btn btn-primary animate" data-animate="bottom">Explore More</button>
@@ -167,6 +171,27 @@
             $(".counter").each(function() {
                 observer.observe(this);
             });
+        });
+    </script>
+    <script>
+        window.addEventListener('scroll', function() {
+            const logo = document.getElementById('nkoldlogo');
+            const img = logo.querySelector('img');
+            if (window.scrollY > 100) { 
+                img.classList.remove('mt-5');
+                logo.style.top = 'auto'; 
+                logo.style.bottom = '120px';
+                logo.style.right = '36px';
+                img.style.width = '66px';
+                img.style.height = '66px';
+            } else {
+                img.classList.add('mt-5');
+                logo.style.top = '0'; 
+                logo.style.right = '30px';
+                logo.style.bottom = 'auto';
+                img.style.width = '170px';
+                img.style.height = '100px';
+            }
         });
     </script>
 @endpush

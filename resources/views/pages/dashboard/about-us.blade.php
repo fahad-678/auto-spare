@@ -3,25 +3,32 @@
 @section('content')
     <div class="container mt-md-20 about-us fs-5 card shadow">
         <header class="text-center mb-5 pt-7 ">
-            <h1 class="fs-2x fw-bolder">About {{ config('app.name') }} Co L.L.C.</h1>
+            <h1 class="fs-2x fw-bolder">About {{ config('app.name') }}</h1>
         </header>
 
         <section class="mb-5">
             <div class="card mb-3">
                 <div class="row g-0">
-                    <div class="col-md-4">
-                        <img src="{{ asset('assets/media/stock/600x600/img-17.jpg') }}" class="img-fluid rounded-start"
+                    <div class="col-md-4 py-5">
+                        <img src="{{ asset('assets/media/about-us/aboutUsLogo.jpg') }}" class="img-fluid rounded-start"
                             alt="...">
                     </div>
                     <div class="col-md-8">
                         <div class="card-body pt-4">
                             <h5 class="card-header text-center fs-2 fw-bolder">Company Description</h5>
-                            <p class="card-text">Welcome to Nafees Auto Spare Parts Co LLC, your trusted source for
-                                top-quality auto parts in Dubai. Since 2014, we've been dedicated to supplying genuine parts
-                                for Nissan and Toyota vehicles, ensuring peak performance and reliability. Alongside our
-                                original parts, we proudly offer a wide range of aftermarket products under our renowned NK
-                                brand, catering to SUBARU, SUZUKI, DAIHATSU, KIA, NISSAN, HYUNDAI, HONDA, MITSUBISHI, MAZDA,
-                                and TOYOTA.</p>
+                            <div class="d-flex">
+                                <p class="card-text pe-3">Welcome to Nafees Auto Spare Parts Co LLC, your trusted source for
+                                    top-quality auto parts in Dubai. Since 2014, we've been dedicated to supplying genuine
+                                    parts
+                                    for Nissan and Toyota vehicles, ensuring peak performance and reliability. Alongside our
+                                    original parts, we proudly offer a wide range of aftermarket products under our renowned
+                                    NK
+                                    brand, catering to SUBARU, SUZUKI, DAIHATSU, KIA, NISSAN, HYUNDAI, HONDA, MITSUBISHI,
+                                    MAZDA,
+                                    and TOYOTA.</p>
+                                <img src="{{ asset('assets/media/logos/oldnklogo.png') }}" class="mt-5 rounded-start"
+                                    width="200px" height="130px" alt="...">
+                            </div>
                             <p class="card-text">At Nafees Auto Spare Parts Co LLC, our commitment to customer satisfaction
                                 and product excellence is unmatched. Whether you're a mechanic, auto enthusiast, or business
                                 owner, we meet your needs with competitive pricing, fast delivery, and exceptional service.
@@ -194,7 +201,9 @@
                     <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
                         data-bs-parent="#objectivesAccordion">
                         <div class="accordion-body">
-                            We’re not just committed to our customers; we’re committed to the planet. NK adopts eco-friendly manufacturing practices and sustainable sourcing to reduce our environmental impact. By choosing NK, you’re supporting a brand that prioritizes environmental stewardship.
+                            We’re not just committed to our customers; we’re committed to the planet. NK adopts eco-friendly
+                            manufacturing practices and sustainable sourcing to reduce our environmental impact. By choosing
+                            NK, you’re supporting a brand that prioritizes environmental stewardship.
                         </div>
                     </div>
                 </div>
@@ -209,7 +218,10 @@
                     <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
                         data-bs-parent="#objectivesAccordion">
                         <div class="accordion-body">
-                            When you choose NK, you’re joining a community of auto enthusiasts and professionals who demand the best for their vehicles. Experience the NK difference today and see why we’re the preferred choice for aftermarket auto parts. Visit our website or your nearest authorized dealer to explore our full range of products.
+                            When you choose NK, you’re joining a community of auto enthusiasts and professionals who demand
+                            the best for their vehicles. Experience the NK difference today and see why we’re the preferred
+                            choice for aftermarket auto parts. Visit our website or your nearest authorized dealer to
+                            explore our full range of products.
                         </div>
                     </div>
                 </div>
@@ -242,22 +254,39 @@
                     A Commitment to Quality and Excellence
                 </p>
                 <p>
-                    Welcome to Nafees Auto Spare Parts Co LLC. I am Obbaid Khan, and I am honored to serve as the CEO of this esteemed company. Since our inception in 2014, our mission has been clear: to provide our customers with the highest quality auto parts, ensuring their vehicles perform at their best.
+                    Welcome to Nafees Auto Spare Parts Co LLC. I am Obbaid Khan, and I am honored to serve as the CEO of
+                    this esteemed company. Since our inception in 2014, our mission has been clear: to provide our customers
+                    with the highest quality auto parts, ensuring their vehicles perform at their best.
                 </p>
                 <p>
-                    At Nafees Auto Spare Parts, we understand the crucial role that reliable auto parts play in the performance and safety of your vehicle. That's why we've dedicated ourselves to offering a comprehensive range of original parts for Nissan and Toyota, alongside our premium aftermarket brand, NK. Our NK products cater to a variety of vehicles, including SUBARU, SUZUKI, DAIHATSU, KIA, NISSAN, HYUNDAI, HONDA, MITSUBISHI, MAZDA, and TOYOTA.
+                    At Nafees Auto Spare Parts, we understand the crucial role that reliable auto parts play in the
+                    performance and safety of your vehicle. That's why we've dedicated ourselves to offering a comprehensive
+                    range of original parts for Nissan and Toyota, alongside our premium aftermarket brand, NK. Our NK
+                    products cater to a variety of vehicles, including SUBARU, SUZUKI, DAIHATSU, KIA, NISSAN, HYUNDAI,
+                    HONDA, MITSUBISHI, MAZDA, and TOYOTA.
                 </p>
                 <p>
-                    Our journey has been marked by a relentless pursuit of excellence. We prioritize quality in every aspect of our operations, from product selection to customer service. Each part we offer undergoes stringent quality control measures to ensure it meets our exacting standards. This commitment to quality has earned us the trust and loyalty of our customers, making us a leading name in the automotive parts industry.
+                    Our journey has been marked by a relentless pursuit of excellence. We prioritize quality in every aspect
+                    of our operations, from product selection to customer service. Each part we offer undergoes stringent
+                    quality control measures to ensure it meets our exacting standards. This commitment to quality has
+                    earned us the trust and loyalty of our customers, making us a leading name in the automotive parts
+                    industry.
                 </p>
                 <p>
-                    In addition to quality, we believe in providing value. Our products are competitively priced, ensuring you get the best possible parts without breaking the bank. We also understand the importance of timely delivery and efficient service, which is why we strive to meet and exceed our customers' expectations every day.
+                    In addition to quality, we believe in providing value. Our products are competitively priced, ensuring
+                    you get the best possible parts without breaking the bank. We also understand the importance of timely
+                    delivery and efficient service, which is why we strive to meet and exceed our customers' expectations
+                    every day.
                 </p>
                 <p>
-                    Our success is driven by our dedicated team, whose passion and expertise are the backbone of our company. They share my commitment to excellence and are always ready to assist you with their knowledge and professionalism.
+                    Our success is driven by our dedicated team, whose passion and expertise are the backbone of our
+                    company. They share my commitment to excellence and are always ready to assist you with their knowledge
+                    and professionalism.
                 </p>
                 <p>
-                    As we continue to grow and innovate, we remain steadfast in our mission to be your trusted partner for all your auto parts needs. Thank you for choosing Nafees Auto Spare Parts Co LLC. Together, let's drive towards a future of reliability and excellence.
+                    As we continue to grow and innovate, we remain steadfast in our mission to be your trusted partner for
+                    all your auto parts needs. Thank you for choosing Nafees Auto Spare Parts Co LLC. Together, let's drive
+                    towards a future of reliability and excellence.
                 </p>
                 <p>
                     Warm regards,

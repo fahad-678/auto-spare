@@ -44,7 +44,7 @@
             <div class="col-md-3">
                 <h5 class="mb-4 text-white fw-bold fs-6">Contact Us</h5>
                 <ul class="list-unstyled footer-links">
-                    <li><i class="fas fa-map-marker-alt text-primary"></i> Shop#6, Fah Hotel Building, Baniyas Metro Station, Deira Dubai, Dubai, UAE</li>
+                    <li><i class="fas fa-map-marker-alt text-primary"></i> Shop#6, Fal Hotel Building, Baniyas Metro Station, Deira Dubai, Dubai, UAE</li>
                     <li><i class="fas fa-envelope text-primary"></i> info@nkautopart.com</li>
                     <li><i class="fas fa-phone text-primary"></i> {{ env('LANDLINE_NUMBER') }}</li>
                     <li><i class="fas fa-whatsapp text-primary"></i> {{ env('WHATSAPP_NUMBER') }}</li>
@@ -58,7 +58,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6 text-md-start">
-                    © 2023 <span class="text-primary fw-bold">Nafees AutoParts</span>, All rights reserved. Powered by
+                    © 2023 <span class="text-primary fw-bold">{{ config('app.name') }}</span>, All rights reserved. Powered by
                     <span class="text-primary fw-bold">WebWaveSolutions</span>
                 </div>
                 <div class="col-md-6 text-md-end footer-links">

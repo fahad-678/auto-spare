@@ -19,7 +19,7 @@
                     {{ $product->name }}
                 </a>
             </h5>
-            <p class="card-text text-primary">
+            {{-- <p class="card-text text-primary">
                 @if ($product->price > 0)
                     @if ($product->discount > 0)
                         <span class="text-decoration-line-through text-secondary">
@@ -30,17 +30,14 @@
                 @else
                     N/A
                 @endif
-            </p>
+            </p> --}}
             <div class="mt-auto">
                 {{-- <a href="https://wa.me/{{ env('WHATSAPP_NUMBER') }}" class="float-whatsapp bg-success" target="_blank">
                     <img src="{{ asset('assets/media/svg/social-logos/whatsapp.svg') }}" width="60px" height="60px" alt="whatsapp">
                 </a> --}}
-                <a href="https://wa.me/{{ env('WHATSAPP_NUMBER') }}" target="_blank"
-                    class="btn btn-success mb-2 p-0 {{ $viewType === 'new_arrival' ? 'animate' : '' }}"
-                    data-animate="{{ $viewType === 'new_arrival' ? 'bounce' : '' }}">
-                    <img src="{{ asset('assets/media/svg/social-logos/whatsapp.svg') }}" width="100px" height="50px"
-                        alt="whatsapp">
-                </a>
+                @if ($viewType !== 'list')
+                <button class="btn btn-primary">More</button>
+                @endif
                 @if ($viewType === 'list' && Auth::check())
                     <div class="btn-group w-100" role="group">
                         <a href="{{ route('products.edit', $product->id) }}" class="btn btn-outline-secondary">

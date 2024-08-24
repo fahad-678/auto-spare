@@ -1,12 +1,12 @@
 <div class="container my-10">
-    <h1 class="text-center fs-2tx fs-bolder mb-4 animate" data-animate="bottom">Who Are We</h1>
+    <h1 class="text-center fs-2tx fw-bolder mb-4 animate" data-animate="bottom">Who Are We</h1>
     {{-- <p class="text-center text-gray-600 mb-7 fs-5 animate" data-animate="bottom">
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper<br>
       mattis, pulvinar dapibus leo.
     </p> --}}
   
-    <div class="row animate">
-      <div class="col-md-6 mb-4">
+    <div class="row animate mb-4" onclick="window.location.href='/about-us'">
+      <div class="col-md-6 cursor-pointer">
         <div class="card h-100">
           <img src="{{asset('assets/media/blog/nkasp.jpg')}}" class="card-img-top" alt="AC Compressor">
           {{-- <div class="position-absolute top-0 end-0 bg-primary text-white px-2 py-1">Auto Maintenance</div> --}}
@@ -20,7 +20,7 @@
           
         </div>
       </div>
-      <div class="col-md-6 mb-4">
+      <div class="col-md-6 cursor-pointer">
         <div class="card h-100">
           <img src="{{asset('assets/media/blog/logo.jpg')}}" class="card-img-top" alt="Recycling Cars">
           {{-- <div class="position-absolute top-0 end-0 bg-primary text-white px-2 py-1">NK Brand</div> --}}
