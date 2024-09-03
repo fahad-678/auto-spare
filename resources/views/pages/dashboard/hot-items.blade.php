@@ -69,7 +69,7 @@
                         <div class="hot-items-slider">
                             @foreach ($hotItems as $item)
                                 <div class="slider-item">
-                                    <x-product.card :product="$item" viewType="hot_item" />
+                                    <x-product.card :product="$item" viewType="hot_item" route="category" />
                                 </div>
                             @endforeach
                         </div>

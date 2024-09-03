@@ -7,6 +7,7 @@ use App\Http\Requests\UpdateProductRequest;
 use App\Models\Brand;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\SubCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -20,36 +21,43 @@ class ProductController extends Controller
     public function index(Request $request)
     {
         $query = Product::query();
-    
+        $sub_categories_query = SubCategory::query();
+
         if ($request->filled('category_id')) {
-            $query->where('category_id', $request->category_id);
+            $categoryId = $request->category_id;
+            $query->whereHas('subCategory', function ($subQuery) use ($categoryId) {
+                $subQuery->where('category_id', $categoryId);
+            });
+            $sub_categories_query->where('category_id', $categoryId);
         }
-    
+
+        if ($request->filled('sub_category_id')) {
+            $query->where('sub_category_id', $request->sub_category_id);
+        }
+
         if ($request->filled('brand_id')) {
             $query->where('brand_id', $request->brand_id);
         }
-    
+
         $searchTerm = $request->filled('nav_search') ? $request->nav_search : $request->product_search;
-    
+
         if ($searchTerm) {
-            $query->where(function($q) use ($searchTerm) {
-                $q->where('name', 'LIKE', "%{$searchTerm}%")
-                  ->orWhere('description', 'LIKE', "%{$searchTerm}%");
+            $query->where(function ($q) use ($searchTerm) {
+                $q->where('name', 'LIKE', "%{$searchTerm}%");
             });
         }
-    
+
         $products = $query->orderBy('created_at', 'desc')->paginate(12);
-        $categories = Category::all();
-        $brands = Brand::all();
-    
-        return view('pages.product.list', compact('products', 'categories', 'brands'));
+        $sub_categories = $sub_categories_query->get();
+
+        return view('pages.product.list', compact('products', 'sub_categories'));
     }
-        
+
     /**
      * Show the form for creating a new resource.
      */
     public function create()
-    {   
+    {
         // dd(Auth::user()->permissions()->get())
         return view('pages.product.create');
     }
@@ -67,14 +75,15 @@ class ProductController extends Controller
 
         Product::create($validatedData);
 
-        return redirect()->route('products.index')->with('success', 'Product Added successfully.');;
+        return redirect()->route('products.index')->with('success', 'Product Added successfully.');
     }
 
     /**
- * Display the specified resource.
+     * Display the specified resource.
      */
     public function show(Product $product)
     {
+        $product->load('subCategory.category');
         return view('pages.product.show')->with('product', $product);
     }
 
@@ -83,6 +92,7 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
+        $product->load('subCategory');
         return view('pages.product.edit')->with('product', $product);
     }
 
@@ -96,10 +106,9 @@ class ProductController extends Controller
             $imagePath = $request->file('image')->store('products', 'public');
             $validatedData['image'] = $imagePath;
         }
-        // dd($validatedData);
         $product->update($validatedData);
-        // dd($product);
-        return redirect()->route('products.index')->with('success', 'Product Updated successfully.');;
+
+        return redirect()->route('products.index')->with('success', 'Product Updated successfully.');
     }
 
     /**
@@ -113,18 +122,17 @@ class ProductController extends Controller
         $product->delete();
         return redirect()->route('products.index')->with('success', 'Product deleted successfully.');
     }
-    
+
     public function autocomplete(Request $request)
     {
         $query = $request->get('query');
         $products = Product::where('name', 'LIKE', "%{$query}%")
-                        ->orWhere('description', 'LIKE', "%{$query}%")
-                        ->take(5)
-                        ->get();
+            ->take(5)
+            ->get();
 
         $output = '';
         foreach ($products as $product) {
-            $output .= '<div class="autocomplete-item p-2 border-bottom">'.$product->name.'</div>';
+            $output .= '<div class="autocomplete-item p-2 border-bottom">' . $product->name . '</div>';
         }
 
         return $output;

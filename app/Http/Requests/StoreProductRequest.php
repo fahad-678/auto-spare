@@ -23,15 +23,16 @@ class StoreProductRequest extends FormRequest
     {
         return [
             'name' => 'required|string|max:255',
-            'description' => 'nullable|string',
+            'part_number' => 'nullable|string|max:255',
+            'oem' => 'nullable|string|max:255',
+            'description' => 'nullable|string|max:1000',
             'price' => 'nullable|numeric|min:0',
             'discount' => 'nullable|numeric|min:0|max:100',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'category_id' => 'nullable|exists:categories,id',
+            'sub_category_id' => 'nullable|exists:sub_categories,id',
             'brand_id' => 'nullable|exists:brands,id',
             'stock' => 'nullable|integer|min:0',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'status' => 'nullable',
-            'hot_item' => 'nullable|boolean',
         ];
     }
 }

@@ -5,16 +5,33 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
 use App\Models\Category;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $category = Category::all();
-        return response()->json($category);
+        if (request()->ajax()) {
+            $categories = Category::all();
+            return response()->json($categories);
+        }
+        
+        $query = Category::query();
+
+        $searchTerm = $request->category_search;
+        if ($searchTerm) {
+            $query->where(function ($q) use ($searchTerm) {
+                $q->where('name', 'LIKE', "%{$searchTerm}%");
+            });
+        }
+
+        $categories = $query->orderBy('created_at', 'desc')->paginate(12);
+
+        return view('pages.category.list')->with('categories', $categories);
     }
 
     /**
@@ -22,7 +39,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.category.create');
     }
 
     /**
@@ -30,8 +47,15 @@ class CategoryController extends Controller
      */
     public function store(StoreCategoryRequest $request)
     {
-        $category = Category::create(['name' => $request->name]);
-        return response()->json($category);
+        $validatedData = $request->validated();
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('products', 'public');
+            $validatedData['image'] = $imagePath;
+        }
+
+        Category::create($validatedData);
+
+        return redirect()->route('category.index')->with('success', 'category Added successfully.');
     }
 
     /**
@@ -39,15 +63,20 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        return response()->json($category);
+        if (request()->ajax()) {
+            return response()->json($category);
+        }
+
+        return view('pages.category.show', compact('category'));
     }
+
 
     /**
      * Show the form for editing the specified resource.
      */
     public function edit(Category $category)
     {
-        //
+        return view('pages.category.edit')->with('category', $category);
     }
 
     /**
@@ -55,15 +84,40 @@ class CategoryController extends Controller
      */
     public function update(UpdateCategoryRequest $request, Category $category)
     {
-        //
+        $validatedData = $request->validated();
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image')->store('products', 'public');
+            $validatedData['image'] = $imagePath;
+        }
+        $category->update($validatedData);
+
+        return redirect()->route('category.index')->with('success', 'Category Updated successfully.');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy($id)
+    public function destroy(Category $category)
     {
-        Category::find($id)->delete();
-        return response()->json(['success' => true]);
+        if ($category->image) {
+            Storage::disk('public')->delete($category->image);
+        }
+        $category->delete();
+        return redirect()->route('category.index')->with('success', 'Category deleted successfully.');
+    }
+
+    public function autocomplete(Request $request)
+    {
+        $query = $request->get('query');
+        $categories = Category::where('name', 'LIKE', "%{$query}%")
+            ->take(5)
+            ->get();
+
+        $output = '';
+        foreach ($categories as $category) {
+            $output .= '<div class="autocomplete-item p-2 border-bottom">' . $category->name . '</div>';
+        }
+
+        return $output;
     }
 }

@@ -47,7 +47,7 @@
                     <li><i class="fas fa-map-marker-alt text-primary"></i> Shop#6, Fal Hotel Building, Baniyas Metro Station, Deira Dubai, Dubai, UAE</li>
                     <li><i class="fas fa-envelope text-primary"></i> info@nkautopart.com</li>
                     <li><i class="fas fa-phone text-primary"></i> {{ env('LANDLINE_NUMBER') }}</li>
-                    <li><i class="fas fa-whatsapp text-primary"></i> {{ env('WHATSAPP_NUMBER') }}</li>
+                    <li><i class="fa-brands fa-whatsapp text-primary fs-4"></i> {{ env('WHATSAPP_NUMBER') }}</li>
                     <li><i class="fas fa-clock text-primary"></i> 8:30 am to 1:30 pm <br /> <span class="ms-5">4:00 pm
                             to 8:30 pm</span> </li>
                 </ul>

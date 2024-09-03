@@ -14,15 +14,16 @@ return new class extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('part_number')->nullable();
+            $table->string('oem')->nullable();
             $table->string('description')->nullable();
-            $table->float('price')->nullable();;
-            $table->float('discount')->nullable();;
-            $table->string('image')->nullable();
-            $table->string('category_id')->nullable();
+            $table->float('price')->nullable();
+            $table->float('discount')->nullable();
+            $table->string('sub_category_id')->nullable();
             $table->string('brand_id')->nullable();
             $table->integer('stock')->nullable();
-            $table->boolean('hot_item')->default(false);
             $table->enum('status',['AVAILABLE','UNAVAILABLE'])->default('AVAILABLE');
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }

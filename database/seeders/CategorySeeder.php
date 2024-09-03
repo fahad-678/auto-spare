@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Category;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Faker\Factory as Faker;
 
 class CategorySeeder extends Seeder
 {
@@ -13,15 +14,16 @@ class CategorySeeder extends Seeder
      */
     public function run(): void
     {
+        $faker = Faker::create();
         $categories = [
-            'Electronics', 'Clothing', 'Books', 'Home & Garden', 'Sports & Outdoors',
-            'Toys & Games', 'Beauty & Personal Care', 'Automotive', 'Health & Household',
-            'Food & Grocery', 'Pet Supplies', 'Office Products', 'Arts & Crafts'
+            'Electronics', 'Clothing'
         ];
-        
-        foreach ($categories as $category) {
-            Category::create(['name' => $category]);
-        }
 
+        foreach ($categories as $category) {
+            Category::create([
+                'name' => $category,
+                'image' => $faker->imageUrl(640, 480, 'products', true)
+            ]);
+        }
     }
 }

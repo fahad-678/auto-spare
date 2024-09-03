@@ -23,6 +23,8 @@ class StoreCategoryRequest extends FormRequest
     {
         return [
             "name" => "required|unique:categories,name|max:255",
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'hot_item' => 'nullable',
         ];
     }
 }

@@ -35,6 +35,20 @@
                                 {{-- <li><a class="dropdown-item" href="#">Something else here</a></li> --}}
                             </ul>
                         </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle {{ Request::is('category*') ? 'active' : '' }}"
+                                href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Category
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item {{ Request::is('category') ? 'active' : '' }}"
+                                        href="{{ route('category.index') }}">List Category</a></li>
+                                @if (Auth::check())
+                                    <li><a class="dropdown-item {{ Request::is('category/create') ? 'active' : '' }}"
+                                            href="{{ route('category.create') }}">Add Category</a></li>
+                                @endif
+                            </ul>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link {{ Request::is('about-us') ? 'active' : '' }}" href="/about-us">About
                                 Us</a>
@@ -44,8 +58,8 @@
                                 href="/contact-us">Contact US</a>
                         </li>
                     </ul>
-                    <form class="d-flex ms-md-10" role="search" action="{{ route('products.index') }}" method="GET">
-                        <div class="position-relative ms-md-10">
+                    <form class="d-flex" role="search" action="{{ route('products.index') }}" method="GET">
+                        <div class="position-relative">
                             <input type="text" id="searchInputNav" name="nav_search" class="form-control"
                                 placeholder="Search products..." value="{{ request('nav_search') }}">
                             <div id="autocompleteResultsNav"

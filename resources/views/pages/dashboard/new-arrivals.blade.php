@@ -67,8 +67,8 @@
     <div class="text-center container">
         <p class="fs-2qx fw-bolder animate" data-animate="left">New Arrivals Parts</p>
         <div class="row mb-3 animate">
-            @foreach ($products as $product)
-                <x-product.card :product="$product" viewType="new_arrival" />
+            @foreach ($categories as $category)
+                <x-product.card :product="$category" viewType="new_arrival" route="category" />
                 @if ($loop->iteration % 4 == 0)
         </div>
         <div class="row">
@@ -77,7 +77,7 @@
         </div>
         <!-- Pagination Controls -->
         <div class="d-flex justify-content-end my-4 align-items-center">
-            {{ $products->appends(request()->input())->links('pagination::bootstrap-5') }}
+            {{ $categories->appends(request()->input())->links('pagination::bootstrap-5') }}
         </div>
     </div>
 </div>

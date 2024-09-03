@@ -6,6 +6,14 @@
             <div class="col-6 card">
                 <h2 class="card-header my-4">{{ $product->name }}</h2>
                 <div class="row pb-2 ps-2">
+                    <strong>Part Name:</strong>
+                    <p>{{ $product->part_number }}</p>
+                </div>
+                <div class="row pb-2 ps-2">
+                    <strong>OEM:</strong>
+                    <p>{{ $product->oem }}</p>
+                </div>
+                <div class="row pb-2 ps-2">
                     <strong>Description:</strong>
                     <p>{{ $product->description }}</p>
                 </div>
@@ -25,7 +33,11 @@
                 </div>
                 <div class="row pb-2 ps-2">
                     <strong>Category:</strong>
-                    <p>{{ $product->category?->name }}</p>
+                    <p>{{ $product->subCategory->category?->name }}</p>
+                </div>
+                <div class="row pb-2 ps-2">
+                    <strong>Sub Category:</strong>
+                    <p>{{ $product->subCategory?->name }}</p>
                 </div>
                 <div class="row pb-2 ps-2">
                     <strong>Brand:</strong>

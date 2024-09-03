@@ -3,33 +3,12 @@
 @section('content')
     <div class="container mt-20">
         <!-- Filter Section -->
-        <form id="filterForm" action="{{ route('products.index') }}" method="GET">
+        <form id="filterForm" action="{{ route('category.index') }}" method="GET">
             <div class="row mb-10 d-flex justify-content-center">
                 <div class="col-md-2">
-                    <select id="filterCategory" name="category_id" class="form-control form-select">
-                        <option value="">All Categories</option>
-                    </select>
-                </div>
-                <div class="col-md-2">
-                    <select id="filterSubCategory" name="sub_category_id" class="form-control form-select">
-                        <option value="">All Subcategories</option>
-                        @foreach ($sub_categories as $sub_category)
-                            <option value="{{ $sub_category->id }}"
-                                {{ request('sub_category_id') == $sub_category->id ? 'selected' : '' }}>
-                                {{ $sub_category->name }}
-                            </option>
-                        @endforeach
-                    </select>
-                </div>
-                <div class="col-md-2">
-                    <select id="filterBrand" name="brand_id" class="form-control form-select">
-                        <option value="">All Brands</option>
-                    </select>
-                </div>
-                <div class="col-md-2">
                     <div class="position-relative">
-                        <input type="text" id="searchInput" name="product_search" class="form-control"
-                            placeholder="Search products..." value="{{ request('product_search') }}">
+                        <input type="text" id="searchInput" name="category_search" class="form-control"
+                            placeholder="Search Categories..." value="{{ request('category_search') }}">
                         <div id="autocompleteResults" class="position-absolute w-100 bg-white border rounded-bottom"
                             style="display:none; z-index: 1000;"></div>
                     </div>
@@ -39,10 +18,9 @@
                 </div>
             </div>
         </form>
-
         <div class="row">
-            @foreach ($products as $product)
-                <x-product.card :product="$product" viewType="list" />
+            @foreach ($categories as $category)
+                <x-product.card :product="$category" viewType="list" route="category" />
                 @if ($loop->iteration % 4 == 0)
         </div>
         <div class="row">
@@ -51,9 +29,9 @@
         </div>
 
         <!-- Pagination Controls -->
-        <div class="d-flex justify-content-end my-4 align-items-center">
-            {{ $products->appends(request()->input())->links('pagination::bootstrap-5') }}
-        </div>
+        {{-- <div class="d-flex justify-content-end my-4 align-items-center">
+            {{ $categories->appends(request()->input())->links('pagination::bootstrap-5') }}
+        </div> --}}
     </div>
 @endsection
 
@@ -76,7 +54,7 @@
                         if (result.isConfirmed) {
                             const form = document.createElement('form');
                             form.method = 'POST';
-                            form.action = `{{ url('/products') }}/${productId}`;
+                            form.action = `{{ url('/category') }}/${productId}`;
                             form.innerHTML = `
                             @csrf
                             @method('DELETE')
@@ -89,18 +67,6 @@
             });
         });
     </script>
-    <script type="text/javascript">
-        $(document).ready(function() {
-            populateSelect('category_id', "{{ route('category.index') }}", 'id', 'name', 'All Categories');
-            populateSelect('brand_id', "{{ route('brand.index') }}", 'id', 'name');
-            var $categorySelect = $('select[name="category_id"]');
-            var $subCategorySelect = $('select[name="sub_category_id"]');
-            var subCategoryUrl = "{{ route('sub-category.index') }}";
-
-            populateSubCategory($categorySelect, $subCategorySelect, subCategoryUrl, null, false);
-            $('#filterCategory, #filterSubCategory, #filterBrand').select2();
-        });
-    </script>
     <script>
         $(document).ready(function() {
             function setupAutocomplete(inputId, resultsId, routeName) {
@@ -108,7 +74,7 @@
                     var query = $(this).val();
                     if (query != '') {
                         $.ajax({
-                            url: "{{ route('products.autocomplete') }}",
+                            url: "{{ route('category.autocomplete') }}",
                             method: 'GET',
                             data: {
                                 query: query
@@ -129,8 +95,8 @@
                 });
             }
 
-            setupAutocomplete('searchInput', 'autocompleteResults', 'products.autocomplete');
-            setupAutocomplete('searchInputNav', 'autocompleteResultsNav', 'products.autocomplete');
+            setupAutocomplete('searchInput', 'autocompleteResults', 'category.autocomplete');
+            setupAutocomplete('searchInputNav', 'autocompleteResultsNav', 'category.autocomplete');
         });
     </script>
 @endpush

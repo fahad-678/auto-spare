@@ -23,15 +23,17 @@ class UpdateProductRequest extends FormRequest
     {
         return [
             'name' => 'sometimes|required|string|max:255',
-            'description' => 'sometimes|nullable|string',
+            'part_number' => 'sometimes|nullable|string|max:255',
+            'oem' => 'sometimes|nullable|string|max:255',
+            'description' => 'sometimes|nullable|string|max:1000',
             'price' => 'sometimes|nullable|numeric|min:0',
-            'discount' => 'nullable|numeric|min:0|max:100',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'category_id' => 'sometimes|nullable|exists:categories,id',
+            'discount' => 'sometimes|nullable|numeric|min:0|max:100',
+            'sub_category_id' => 'sometimes|nullable|exists:sub_categories,id',
             'brand_id' => 'sometimes|nullable|exists:brands,id',
             'stock' => 'sometimes|nullable|integer|min:0',
+            'image' => 'sometimes|nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             'status' => 'sometimes|nullable',
-            'hot_item' => 'sometimes|boolean',
         ];
+        
     }
 }

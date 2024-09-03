@@ -6,6 +6,7 @@ use App\Actions\SampleUserApi;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\SearchController;
+use App\Http\Controllers\SubCategoryController;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -110,6 +111,7 @@ Route::prefix('v1')->group(function () {
     Route::delete('/permissions/{id}', function ($id) {
         return app(SamplePermissionApi::class)->delete($id);
     });
-    Route::resource('/category', CategoryController::class);
+
+    Route::resource('/sub-category', SubCategoryController::class);
     Route::resource('/brand', BrandController::class);
 });

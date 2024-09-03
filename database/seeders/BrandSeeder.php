@@ -17,7 +17,7 @@ class BrandSeeder extends Seeder
     {
         $faker = Faker::create();
         
-        for ($i = 0; $i < 10; $i++) { 
+        for ($i = 0; $i < 2; $i++) { 
             Brand::create([
                 'name' => $faker->company(),
             ]);

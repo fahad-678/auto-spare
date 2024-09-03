@@ -1,11 +1,13 @@
-@props(['product', 'viewType' => 'default'])
+@props(['product', 'viewType' => 'default', 'route' => 'products'])
 
 <div class="{{ $viewType === 'hot_item' ? 'col-md-12' : 'col-md-3' }} mb-4 pointer">
     <div class="card h-100 border border-2 text-center position-relative">
-        <a href="{{ route('products.show', $product->id) }}" class="text-decoration-none">
+        <a href="{{ $route == 'category' ? route('products.index') : route($route . '.show', $product->id) }}"
+            class="text-decoration-none"
+            @if ($route == 'category') onclick="event.preventDefault(); window.location.href=this.href + '?category_id={{ $product->id }}';" @endif>
             <img src="{{ asset('storage/products/' . basename($product->image)) }}"
                 class="card-img-top {{ $viewType === 'new_arrival' ? 'new-arrival-img' : ($viewType === 'list' ? 'list-img' : '') }}"
-                {{ $viewType === 'hot_item' ? 'height="135px" width="200px"' : 'height="205px" width="305px"' }}
+                {{ $viewType === 'hot_item' ? 'height=135 width=200' : 'height=205 width=305' }}
                 alt="{{ $product->name }}">
         </a>
         @if ($product->discount > 0)
@@ -15,7 +17,9 @@
         @endif
         <div class="card-body d-flex flex-column">
             <h5 class="card-title two-line-title">
-                <a href="{{ route('products.show', $product->id) }}" class="text-decoration-none text-dark">
+                <a href="{{ $route == 'category' ? route('products.index') : route($route . '.show', $product->id) }}"
+                    class="text-decoration-none text-dark"
+                    @if ($route == 'category') onclick="event.preventDefault(); window.location.href=this.href + '?category_id={{ $product->id }}';" @endif>
                     {{ $product->name }}
                 </a>
             </h5>
@@ -36,11 +40,14 @@
                     <img src="{{ asset('assets/media/svg/social-logos/whatsapp.svg') }}" width="60px" height="60px" alt="whatsapp">
                 </a> --}}
                 @if ($viewType !== 'list')
-                <button class="btn btn-primary">More</button>
+                    <a href="{{ route('products.index') }}" class="btn btn-primary"
+                        onclick="event.preventDefault(); window.location.href=this.href + '?category_id={{ $product->id }}';">
+                        More
+                    </a>
                 @endif
                 @if ($viewType === 'list' && Auth::check())
                     <div class="btn-group w-100" role="group">
-                        <a href="{{ route('products.edit', $product->id) }}" class="btn btn-outline-secondary">
+                        <a href="{{ route($route . '.edit', $product->id) }}" class="btn btn-outline-secondary">
                             <i class="fas fa-edit"></i> Edit
                         </a>
                         <button type="button" class="btn btn-outline-danger delete-product"
