@@ -1,36 +1,21 @@
 <!-- Footer -->
 <footer class="text-white" style="background-color: #2C3E50;">
     <div class="container footer-container">
-        <div class="row mb-3">
-            <!-- Logo and Description -->
-            <div class="col-md-3">
+        <div class="row mb-3 justify-content-center">
+            <div class="col-md-3 text-center text-md-start">
                 <h5 class="mb-4 text-primary ">{{ config('app.name', 'Laravel') }}</h5>
-                {{-- <p style="color: lightgray">Leo felis sodales sed convallis purus accumsan tempus dis pellentesque class
-                    orci. Si cras dis imperdiet tempor primis vehicula.</p>
-                <div class="my-4">
-                    <img src="{{ asset('assets/media/svg/card-logos/visa.svg') }}" alt="Visa" class="img-fluid"
-                        style="max-width: 30px;">
-                    <img src="{{ asset('assets/media/svg/card-logos/mastercard.svg') }}" alt="MasterCard"
-                        class="img-fluid" style="max-width: 30px;">
-                    <img src="{{ asset('assets/media/svg/card-logos/american-express.svg') }}" alt="Amex"
-                        class="img-fluid" style="max-width: 30px;">
-                    <img src="{{ asset('assets/media/svg/card-logos/american-express-dark.svg') }}" alt="PayPal"
-                        class="img-fluid" style="max-width: 30px;">
-                </div> --}}
+                
             </div>
-            <!-- Customer Service -->
-            <div class="col-md-3">
+            <div class="col-md-3 text-center text-md-start">
                 <h5 class="mb-4 text-white fw-bold fs-6">Customer Service</h5>
                 <ul class="list-unstyled footer-links">
-                    {{-- <li><a href="#" class="text-white">My Account</a></li> --}}
                     <li><a href="#" class="text-white">Help Center</a></li>
                     <li><a href="#" class="text-white">Track My Order</a></li>
                     <li><a href="#" class="text-white">Shipping & Returns</a></li>
                     <li><a href="#" class="text-white">Store Location</a></li>
                 </ul>
             </div>
-            <!-- Information -->
-            <div class="col-md-3">
+            <div class="col-md-3 text-center text-md-start">
                 <h5 class="mb-4 text-white fw-bold fs-6">Information</h5>
                 <ul class="list-unstyled footer-links">
                     <li><a href="/about-us" class="text-white">About Us</a></li>
@@ -40,8 +25,7 @@
                     <li><a href="#" class="text-white">Coupon Codes</a></li>
                 </ul>
             </div>
-            <!-- Contact Us -->
-            <div class="col-md-3">
+            <div class="col-md-3 text-center text-md-start">
                 <h5 class="mb-4 text-white fw-bold fs-6">Contact Us</h5>
                 <ul class="list-unstyled footer-links">
                     <li><i class="fas fa-map-marker-alt text-primary"></i> Shop#6, Fal Hotel Building, Baniyas Metro Station, Deira Dubai, Dubai, UAE</li>

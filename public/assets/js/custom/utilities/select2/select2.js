@@ -222,6 +222,7 @@ function populateSubCategory(
 ) {
     $categorySelect.on("change", function () {
         var categoryId = $(this).val();
+        $subCategorySelect.empty();
         if (categoryId) {
             $subCategorySelect
                 .select2({

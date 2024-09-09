@@ -1,6 +1,6 @@
 @props(['product', 'viewType' => 'default', 'route' => 'products'])
 
-<div class="{{ $viewType === 'hot_item' ? 'col-md-12' : 'col-md-3' }} mb-4 pointer">
+<div class="{{ $viewType === 'hot_item' ? 'col-md-12' : 'col-md-3 col-6' }} mb-4 pointer">
     <div class="card h-100 border border-2 text-center position-relative">
         <a href="{{ $route == 'category' ? route('products.index') : route($route . '.show', $product->id) }}"
             class="text-decoration-none"

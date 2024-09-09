@@ -6,93 +6,92 @@
             <img src="{{ asset('assets/media/logos/oldnklogo.png') }}" class="mt-5 rounded-start" width="170px" height="100px"
                 alt="...">
         </div>
+
+        <!-- Carousel Section -->
         <div id="carouselExampleSlidesOnly" class="carousel slide hero-section" data-bs-ride="carousel">
-            <div class="position-absolute hero-text">
-                <p class="fs-2hx fst-italic fw-bold text-white animate" data-animate="left">Welcome to <span
-                        class="text-primary">{{ config('app.name') }}</span></p>
-                <p class="fs-3x text-white fw-bolder animate">The Best <span class="text-primary">Auto Spare Parts </span>
-                    Company</p>
-                {{-- <p class="text-white animate">Lorem ipsum dolor sit amet consectetur adipisicing elit. </p>
-                <p class="text-white animate"> adipisci at totam fuga quibusdam</p> --}}
+            <div class="position-absolute hero-text text-center text-md-start px-3 px-md-0">
+                <p class="fs-3 fs-md-2hx fst-italic fw-bold animate text-center text-md-start text-color-responsive"
+                    data-animate="left">
+                    Welcome to <span class="text-primary">{{ config('app.name') }}</span>
+                </p>
+                <p class="fs-4 fs-md-3x fw-bolder animate text-color-responsive">
+                    The Best <span class="text-primary">Auto Spare Parts</span> Company
+                </p>
                 <button class="btn btn-primary animate" data-animate="bottom">Explore More</button>
             </div>
+
+
             <div class="carousel-inner">
-                @for ($i = 0; $i < 4; $i++)
-                    <div class="carousel-item active" data-bs-interval="3000">
-                        <img src="{{ asset('assets/media/hero-section/simage' . $i . '.jpg') }}"
-                            class="d-block w-100 img-dark" alt="....">
-                    </div>
-                @endfor
-                {{-- <div class="carousel-item active" data-bs-interval="3000">
-                    <img src="{{ asset('assets/media/hero-section/simage.jpg') }}" class="d-block w-100 img-dark"
-                        alt="....">
+                <div class="carousel-item active" data-bs-interval="3000">
+                    <img src="{{ asset('assets/media/hero-section/simage0.jpg') }}" class="d-block w-100 img-dark"
+                        alt="...">
                 </div>
                 <div class="carousel-item" data-bs-interval="3000">
                     <img src="{{ asset('assets/media/hero-section/simage1.jpg') }}" class="d-block w-100 img-dark"
-                        alt="....">
+                        alt="...">
                 </div>
                 <div class="carousel-item" data-bs-interval="3000">
                     <img src="{{ asset('assets/media/hero-section/simage2.jpg') }}" class="d-block w-100 img-dark"
-                        alt="....">
-                </div> --}}
+                        alt="...">
+                </div>
+                <div class="carousel-item" data-bs-interval="3000">
+                    <img src="{{ asset('assets/media/hero-section/simage3.jpg') }}" class="d-block w-100 img-dark"
+                        alt="...">
+                </div>
             </div>
         </div>
-        {{-- <div class="card overflow-hidden ">
-        <img src="{{asset('assets/media/icons/duotune/general/gen001.svg')}}" alt="Logo" class="d-inline-block align-text-top">
-    </div> --}}
-        <div class="d-md-flex container my-lg-10">
-            <div class="row px-2 w-100">
-                <div class="col-md-3 d-flex animate" data-delay="0.2s">
+
+        <!-- Features Section -->
+        <div class="d-md-flex container my-lg-10 my-4">
+            <div class="row px-2 w-100 g-3 g-md-0">
+                <div class="col-6 col-md-3 d-flex animate" data-delay="0.2s">
                     <div class="col-md-6">
-                        <img src="{{ asset('assets/media/img/bestquality.jpg') }}" class="rounded-circle shadow"
+                        <img src="{{ asset('assets/media/img/bestquality.jpg') }}" class="rounded-circle shadow hero-section-img-round"
                             width="140px" height="140px" alt="...">
                     </div>
                     <div class="col-md-6 d-flex align-items-center">
                         <div class="card-body p-2 justify-content-center">
                             <h5 class="card-title">Best Quality</h5>
-                            {{-- <p class="card-text text-secondary">On all over $99.00</p> --}}
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3 d-flex animate" data-delay="0.5s">
+                <div class="col-6 col-md-3 d-flex animate" data-delay="0.5s">
                     <div class="col-md-6">
-                        <img src="{{ asset('assets/media/img/bestprice.jpeg') }}" class="rounded-circle shadow"
+                        <img src="{{ asset('assets/media/img/bestprice.jpeg') }}" class="rounded-circle shadow hero-section-img-round"
                             width="140px" height="140px" alt="...">
                     </div>
                     <div class="col-md-6 d-flex align-items-center">
                         <div class="card-body p-2">
                             <h5 class="card-title">Best Price</h5>
-                            {{-- <p class="card-text text-secondary">On all over $99.00</p> --}}
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3 d-flex animate" data-delay="0.7s">
+                <div class="col-6 col-md-3 d-flex animate" data-delay="0.7s">
                     <div class="col-md-6">
-                        <img src="{{ asset('assets/media/img/wideparts.jpg') }}" class="rounded-circle shadow"
+                        <img src="{{ asset('assets/media/img/wideparts.jpg') }}" class="rounded-circle shadow hero-section-img-round"
                             width="140px" height="140px" alt="...">
                     </div>
                     <div class="col-md-6 d-flex align-items-center">
                         <div class="card-body p-2">
                             <h5 class="card-title">Wide Range Parts</h5>
-                            {{-- <p class="card-text text-secondary">On all over $99.00</p> --}}
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3 d-flex animate" data-delay="0.9s">
+                <div class="col-6 col-md-3 d-flex animate" data-delay="0.9s">
                     <div class="col-md-6">
-                        <img src="{{ asset('assets/media/img/worldwideshipment.jpg') }}" class="rounded-circle shadow"
+                        <img src="{{ asset('assets/media/img/worldwideshipment.jpg') }}" class="rounded-circle shadow hero-section-img-round"
                             width="140px" height="140px" alt="...">
                     </div>
                     <div class="col-md-6 d-flex align-items-center">
                         <div class="card-body p-2">
                             <h5 class="card-title">WorldWide Shipments</h5>
-                            {{-- <p class="card-text text-secondary">On all over $99.00</p> --}}
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
     @include('pages.dashboard.hot-items')
     @include('pages.dashboard.new-arrivals')
     @include('pages.dashboard.promotion')
@@ -177,16 +176,16 @@
         window.addEventListener('scroll', function() {
             const logo = document.getElementById('nkoldlogo');
             const img = logo.querySelector('img');
-            if (window.scrollY > 100) { 
+            if (window.scrollY > 100) {
                 img.classList.remove('mt-5');
-                logo.style.top = 'auto'; 
+                logo.style.top = 'auto';
                 logo.style.bottom = '120px';
                 logo.style.right = '36px';
                 img.style.width = '66px';
                 img.style.height = '66px';
             } else {
                 img.classList.add('mt-5');
-                logo.style.top = '0'; 
+                logo.style.top = '0';
                 logo.style.right = '30px';
                 logo.style.bottom = 'auto';
                 img.style.width = '170px';
