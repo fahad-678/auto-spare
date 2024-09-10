@@ -1,16 +1,16 @@
 @extends('layout.master')
 
 @section('content')
-    <div class="container mt-20">
+    <div class="container mt-md-20 mt-10">
         <!-- Filter Section -->
         <form id="filterForm" action="{{ route('products.index') }}" method="GET">
             <div class="row mb-10 d-flex justify-content-center">
-                <div class="col-md-2">
+                <div class="col-md-2 col-6">
                     <select id="filterCategory" name="category_id" class="form-control form-select">
                         <option value="">All Categories</option>
                     </select>
                 </div>
-                <div class="col-md-2">
+                <div class="col-md-2 col-6">
                     <select id="filterSubCategory" name="sub_category_id" class="form-control form-select">
                         <option value="">All Subcategories</option>
                         @foreach ($sub_categories as $sub_category)
@@ -21,12 +21,12 @@
                         @endforeach
                     </select>
                 </div>
-                <div class="col-md-2">
+                <div class="col-md-2 col-6">
                     <select id="filterBrand" name="brand_id" class="form-control form-select">
                         <option value="">All Brands</option>
                     </select>
                 </div>
-                <div class="col-md-2">
+                <div class="col-md-2 col-6">
                     <div class="position-relative">
                         <input type="text" id="searchInput" name="product_search" class="form-control"
                             placeholder="Search products..." value="{{ request('product_search') }}">
@@ -34,7 +34,7 @@
                             style="display:none; z-index: 1000;"></div>
                     </div>
                 </div>
-                <div class="col-md-1">
+                <div class="col-md-1 col-3 mt-3 mt-md-0">
                     <button type="submit" id="filterButton" class="btn btn-primary">Search</button>
                 </div>
             </div>

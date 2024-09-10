@@ -1,7 +1,7 @@
 @extends('layout.master')
 
 @section('content')
-    <div class="container mt-20 card p-4 mb-3">
+    <div class="container mt-md-20 mt-10 card p-4 mb-3">
         <div class="row">
             <div class="col-6 card">
                 <h2 class="card-header my-4">{{ $category->name }}</h2>

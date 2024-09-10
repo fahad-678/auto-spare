@@ -1,11 +1,11 @@
 @extends('layout.master')
 
 @section('content')
-    <div class="container mt-20">
+    <div class="container mt-md-20 mt-10">
         <!-- Filter Section -->
         <form id="filterForm" action="{{ route('category.index') }}" method="GET">
             <div class="row mb-10 d-flex justify-content-center">
-                <div class="col-md-2">
+                <div class="col-md-2 col-6">
                     <div class="position-relative">
                         <input type="text" id="searchInput" name="category_search" class="form-control"
                             placeholder="Search Categories..." value="{{ request('category_search') }}">
@@ -13,7 +13,7 @@
                             style="display:none; z-index: 1000;"></div>
                     </div>
                 </div>
-                <div class="col-md-1">
+                <div class="col-md-1 col-3">
                     <button type="submit" id="filterButton" class="btn btn-primary">Search</button>
                 </div>
             </div>

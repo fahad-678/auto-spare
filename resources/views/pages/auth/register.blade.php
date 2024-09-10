@@ -1,7 +1,7 @@
 @extends('layout.master')
 
 @section('content')
-<div class="container mt-20">
+<div class="container mt-md-20 mt-10">
     <!--begin::Form-->
     <form class="form w-100" novalidate="novalidate" id="kt_sign_up_form" data-kt-redirect-url="{{ route('login') }}" action="{{ route('register') }}">
         @csrf

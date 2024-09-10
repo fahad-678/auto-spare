@@ -219,4 +219,13 @@ footer .footer-container {
   .text-color-responsive {
     color: #fff !important;
   }
+
+  #imagePreviewSection {
+    order: 2;
+  }
+
+  #imagePreview {
+    display: block;
+    margin-top: 20px;
+  }
 }

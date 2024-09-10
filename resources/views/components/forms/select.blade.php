@@ -15,11 +15,11 @@
     $required = !$nullable;
 @endphp
 
-<div class="col-3 d-flex align-items-center">
+<div class="col-md-3 d-flex align-items-center">
     <x-forms.input-label :name :text="$label" :required="$required" :for="$id"/>
 </div>
 
-<div class="col-9">
+<div class="col-md-9">
     <select class="form-select @error($name) is-invalid @enderror"
         data-control="select2" name="{{ $name }}"
         @if ($value) data-autocomplete-value="{{ $autocompleteApi ? json_encode($value) : $value }}" @endif

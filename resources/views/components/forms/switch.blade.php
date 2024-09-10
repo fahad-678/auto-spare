@@ -14,7 +14,7 @@
     $required = !$nullable;
 @endphp
 
-<div class="col-9">
+<div class="col-md-9 col-6">
     <div class="form-check form-switch form-check-custom form-check-solid">
         <input type="hidden" name="{{ $name }}" value="0" />
         <input class="form-check-input @error($name) is-invalid @enderror"

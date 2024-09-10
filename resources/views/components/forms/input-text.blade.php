@@ -16,11 +16,11 @@
     $required = !$nullable;
 @endphp
 
-<div class="col-3 d-flex align-items-center">
+<div class="col-md-3 d-flex align-items-center">
     <x-forms.input-label :name :text="$label" :required="$required" :class="$labelClass" :for="$id"/>
 </div>
 <!--begin::Input-->
-<div class="col-9">
+<div class="col-md-9">
     <input 
         type="{{ $type }}" 
         name="{{ $name }}" 

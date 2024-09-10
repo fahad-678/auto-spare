@@ -17,12 +17,12 @@
 @endphp
 
 @if (!$attributes->has('hide-label'))
-    <div class="col-3 d-flex align-items-center">
+    <div class="col-md-3 d-flex align-items-center">
         <x-forms.input-label :name :text="$label" :required="$required" :for="$id"/>
     </div>
 @endif
 
-<div class="col-9">
+<div class="col-md-9">
     <!--begin::Input-->
     <input 
         type="text" 
