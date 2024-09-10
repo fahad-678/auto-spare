@@ -50,7 +50,7 @@
                         </div>
                     </div>
                     <div class="row animate ms-4 ms-md-0" data-delay="0.2s">
-                        <div class="col-md-12 p-2 p-md-0">
+                        <div class="col-md-12 p-md-0">
                             <div class="card border-0 shadow-none">
                                 <div class="row g-0">
                                     <div class="col-md-2">

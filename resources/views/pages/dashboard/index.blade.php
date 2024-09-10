@@ -1,10 +1,10 @@
 @extends('layout.master')
 
 @section('content')
-    <div class="position-relative">
+    <div class="position-relative hero-top-section">
         <div id="nkoldlogo" class="position-fixed nkoldlogo-transition" style="z-index: 1; top: 0px; right: 30px;">
-            <img src="{{ asset('assets/media/logos/oldnklogo.png') }}" class="mt-5 rounded-start" width="170px" height="100px"
-                alt="...">
+            <img src="{{ asset('assets/media/logos/oldnklogo.png') }}" class="mt-5 rounded-start" id="logoImage" width="170px"
+                height="100px" alt="...">
         </div>
 
         <!-- Carousel Section -->
@@ -46,8 +46,9 @@
             <div class="row px-2 w-100 g-3 g-md-0">
                 <div class="col-6 col-md-3 d-flex animate" data-delay="0.2s">
                     <div class="col-md-6">
-                        <img src="{{ asset('assets/media/img/bestquality.jpg') }}" class="rounded-circle shadow hero-section-img-round"
-                            width="140px" height="140px" alt="...">
+                        <img src="{{ asset('assets/media/img/bestquality.jpg') }}"
+                            class="rounded-circle shadow hero-section-img-round" width="140px" height="140px"
+                            alt="...">
                     </div>
                     <div class="col-md-6 d-flex align-items-center">
                         <div class="card-body p-2 justify-content-center">
@@ -57,8 +58,9 @@
                 </div>
                 <div class="col-6 col-md-3 d-flex animate" data-delay="0.5s">
                     <div class="col-md-6">
-                        <img src="{{ asset('assets/media/img/bestprice.jpeg') }}" class="rounded-circle shadow hero-section-img-round"
-                            width="140px" height="140px" alt="...">
+                        <img src="{{ asset('assets/media/img/bestprice.jpeg') }}"
+                            class="rounded-circle shadow hero-section-img-round" width="140px" height="140px"
+                            alt="...">
                     </div>
                     <div class="col-md-6 d-flex align-items-center">
                         <div class="card-body p-2">
@@ -68,8 +70,9 @@
                 </div>
                 <div class="col-6 col-md-3 d-flex animate" data-delay="0.7s">
                     <div class="col-md-6">
-                        <img src="{{ asset('assets/media/img/wideparts.jpg') }}" class="rounded-circle shadow hero-section-img-round"
-                            width="140px" height="140px" alt="...">
+                        <img src="{{ asset('assets/media/img/wideparts.jpg') }}"
+                            class="rounded-circle shadow hero-section-img-round" width="140px" height="140px"
+                            alt="...">
                     </div>
                     <div class="col-md-6 d-flex align-items-center">
                         <div class="card-body p-2">
@@ -79,8 +82,9 @@
                 </div>
                 <div class="col-6 col-md-3 d-flex animate" data-delay="0.9s">
                     <div class="col-md-6">
-                        <img src="{{ asset('assets/media/img/worldwideshipment.jpg') }}" class="rounded-circle shadow hero-section-img-round"
-                            width="140px" height="140px" alt="...">
+                        <img src="{{ asset('assets/media/img/worldwideshipment.jpg') }}"
+                            class="rounded-circle shadow hero-section-img-round" width="140px" height="140px"
+                            alt="...">
                     </div>
                     <div class="col-md-6 d-flex align-items-center">
                         <div class="card-body p-2">
@@ -173,23 +177,30 @@
         });
     </script>
     <script>
+        const logo = document.getElementById('nkoldlogo');
+        const img = logo.querySelector('img');
+        const isMobile = window.innerWidth <= 768;
+        logo.style.top = isMobile ? '40px' : '0px';
+        img.style.width = isMobile ? '150px' : '170px';
+        img.style.height = isMobile ? '90px' : '100px';
+        logo.style.right = isMobile ? '20px' : '30px';
+
         window.addEventListener('scroll', function() {
-            const logo = document.getElementById('nkoldlogo');
-            const img = logo.querySelector('img');
+
             if (window.scrollY > 100) {
                 img.classList.remove('mt-5');
                 logo.style.top = 'auto';
-                logo.style.bottom = '120px';
-                logo.style.right = '36px';
-                img.style.width = '66px';
-                img.style.height = '66px';
+                logo.style.bottom = isMobile ? '80px' : '120px';
+                logo.style.right = isMobile ? '17px' : '39px';
+                img.style.width = isMobile ? '50px' : '66px';
+                img.style.height = isMobile ? '50px' : '66px';
             } else {
                 img.classList.add('mt-5');
-                logo.style.top = '0';
-                logo.style.right = '30px';
+                logo.style.top = isMobile ? '40px' : '0';
+                logo.style.right = isMobile ? '20px' : '30px';
                 logo.style.bottom = 'auto';
-                img.style.width = '170px';
-                img.style.height = '100px';
+                img.style.width = isMobile ? '150px' : '170px';
+                img.style.height = isMobile ? '90px' : '100px';
             }
         });
     </script>
