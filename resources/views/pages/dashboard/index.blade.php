@@ -2,9 +2,9 @@
 
 @section('content')
     <div class="position-relative hero-top-section">
-        <div id="nkoldlogo" class="position-fixed nkoldlogo-transition" style="z-index: 1; top: 0px; right: 30px;">
-            <img src="{{ asset('assets/media/logos/oldnklogo.png') }}" class="mt-5 rounded-start" id="logoImage" width="170px"
-                height="100px" alt="...">
+        <div id="nkoldlogo" class="nkoldlogo initial">
+            <img src="{{ asset('assets/media/logos/oldnklogo.png') }}" class="mt-5 rounded-start" id="logoImage"
+                alt="NK Old Logo">
         </div>
 
         <!-- Carousel Section -->
@@ -177,31 +177,26 @@
         });
     </script>
     <script>
-        const logo = document.getElementById('nkoldlogo');
-        const img = logo.querySelector('img');
-        const isMobile = window.innerWidth <= 768;
-        logo.style.top = isMobile ? '40px' : '0px';
-        img.style.width = isMobile ? '150px' : '170px';
-        img.style.height = isMobile ? '90px' : '100px';
-        logo.style.right = isMobile ? '20px' : '30px';
+        document.addEventListener('DOMContentLoaded', function() {
+            const logo = document.getElementById('nkoldlogo');
+            const img = logo.querySelector('img');
 
-        window.addEventListener('scroll', function() {
-
-            if (window.scrollY > 100) {
-                img.classList.remove('mt-5');
-                logo.style.top = 'auto';
-                logo.style.bottom = isMobile ? '80px' : '120px';
-                logo.style.right = isMobile ? '17px' : '39px';
-                img.style.width = isMobile ? '50px' : '66px';
-                img.style.height = isMobile ? '50px' : '66px';
-            } else {
-                img.classList.add('mt-5');
-                logo.style.top = isMobile ? '40px' : '0';
-                logo.style.right = isMobile ? '20px' : '30px';
-                logo.style.bottom = 'auto';
-                img.style.width = isMobile ? '150px' : '170px';
-                img.style.height = isMobile ? '90px' : '100px';
+            function updateLogoPosition() {
+                if (window.scrollY > 100) {
+                    logo.classList.remove('initial');
+                    logo.classList.add('scrolled');
+                    img.classList.remove('mt-5');
+                } else {
+                    logo.classList.remove('scrolled');
+                    logo.classList.add('initial');
+                    img.classList.add('mt-5');
+                }
             }
+
+            window.addEventListener('scroll', updateLogoPosition);
+            window.addEventListener('resize', updateLogoPosition);
+
+            updateLogoPosition();
         });
     </script>
 @endpush

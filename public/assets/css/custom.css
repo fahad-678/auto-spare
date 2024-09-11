@@ -99,20 +99,124 @@
 
 .flash-sale-img {
   height: 400px;
+  object-fit: cover;
+}
+
+.flash-sale-overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.flash-sale-content {
+  max-width: 300px;
+}
+
+.hot-items-slider {
+  overflow-x: auto;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.hot-items-slider::-webkit-scrollbar {
+  display: none;
+}
+
+.slider-item {
+  display: inline-block;
+  width: 250px;
+  margin-right: 10px;
+}
+
+@media (max-width: 767px) {
+  .flash-sale-img {
+    height: 500px;
+  }
+
+  .flash-sale-content {
+    max-width: 100%;
+  }
+
+  /* .new-arrival-img {
+    height: 50vh;
+  } */
+}
+
+.new-arrival-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.new-arrival-img {
+  height: 75vh;
+  object-fit: cover;
 }
 
 .new-arrival-text {
+  position: absolute;
   z-index: 10;
-  top: 20vh;
+  top: 40%;
+  transform: translate(-50%, -50%);
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  text-align: center;
+  padding: 0 15px;
 }
 
 .new-arrival-text p {
   margin: 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.stats-container {
+  position: relative;
+  margin-top: -75px;
+  z-index: 2;
+}
+
+.stats-box {
+  background-color: white;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  padding: 2rem 1rem;
+}
+
+.stat-item {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+}
+
+.stat-text {
+  font-size: 1rem;
+  color: #6c757d;
+}
+
+@media (max-width: 767px) {
+  .new-arrival-img {
+    height: 50vh;
+  }
+
+  .new-arrival-text p {
+    font-size: 1.5rem !important;
+  }
+
+  .stats-container {
+    margin-top: -50px;
+  }
+
+  .stat-number {
+    font-size: 2rem;
+  }
+
+  .stat-text {
+    font-size: 0.875rem;
+  }
 }
 
 .web-margin {
@@ -227,5 +331,58 @@ footer .footer-container {
   #imagePreview {
     display: block;
     margin-top: 20px;
+  }
+}
+
+.nkoldlogo {
+  position: fixed;
+  z-index: 10;
+  transition: all 0.3s ease-in-out;
+}
+
+.nkoldlogo img {
+  transition: all 0.3s ease-in-out;
+}
+
+.nkoldlogo.initial {
+  top: 0;
+  right: 30px;
+}
+
+.nkoldlogo.initial img {
+  width: 170px;
+  height: 100px;
+}
+
+.nkoldlogo.scrolled {
+  top: auto;
+  bottom: 120px;
+  right: 39px;
+}
+
+.nkoldlogo.scrolled img {
+  width: 66px;
+  height: 66px;
+}
+
+@media (max-width: 768px) {
+  .nkoldlogo.initial {
+    top: 40px;
+    right: 20px;
+  }
+
+  .nkoldlogo.initial img {
+    width: 150px;
+    height: 90px;
+  }
+
+  .nkoldlogo.scrolled {
+    bottom: 80px;
+    right: 17px;
+  }
+
+  .nkoldlogo.scrolled img {
+    width: 50px;
+    height: 50px;
   }
 }

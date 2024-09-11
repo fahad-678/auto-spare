@@ -6,7 +6,7 @@
             class="text-decoration-none"
             @if ($route == 'category') onclick="event.preventDefault(); window.location.href=this.href + '?category_id={{ $product->id }}';" @endif>
             <img src="{{ asset('storage/products/' . basename($product->image)) }}"
-                class="card-img-top {{ $viewType === 'new_arrival' ? 'new-arrival-img' : ($viewType === 'list' ? 'list-img' : '') }}"
+                class="card-img-top {{ $viewType === 'new_arrival' ? '' : ($viewType === 'list' ? 'list-img' : '') }}"
                 {{ $viewType === 'hot_item' ? 'height=135 width=200' : 'height=205 width=305' }}
                 alt="{{ $product->name }}">
         </a>
