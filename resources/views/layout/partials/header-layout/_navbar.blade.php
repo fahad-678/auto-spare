@@ -14,7 +14,7 @@
                             height="28" class="d-inline-block align-text-top mb-1 me-1">
                         <span>{{ config('app.name') }}</span>
                     </a>
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 align-items-center">
                         <li class="nav-item">
                             <a class="nav-link {{ Request::is('/') ? 'active' : '' }}" aria-current="page"
                                 href="/">Home</a>

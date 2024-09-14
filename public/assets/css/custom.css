@@ -52,13 +52,15 @@
 
 .hero-section {
   overflow: hidden;
-  height: 75vh;
+  height: 550px;
 }
 
 .hero-text {
   z-index: 10;
-  top: 30vh;
+  top: 65%;
+  left: 50%;
   width: 100%;
+  transform: translate(-50%, -50%);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -67,11 +69,11 @@
 
 @media (max-width: 767.98px) {
   .hero-section {
-    height: 39vh;
+    height: 300px;
   }
 
   .hero-text {
-    top: 25vh;
+    top: 65%;
   }
 
   .flash-sale-img {
@@ -148,7 +150,7 @@
 }
 
 .new-arrival-img {
-  height: 75vh;
+  height: 560px;
   object-fit: cover;
 }
 
@@ -199,7 +201,7 @@
 
 @media (max-width: 767px) {
   .new-arrival-img {
-    height: 50vh;
+    height: 370px;
   }
 
   .new-arrival-text p {

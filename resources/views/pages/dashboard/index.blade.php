@@ -8,34 +8,34 @@
         </div>
 
         <!-- Carousel Section -->
-        <div id="carouselExampleSlidesOnly" class="carousel slide hero-section" data-bs-ride="carousel">
-            <div class="position-absolute hero-text text-center text-md-start px-3 px-md-0">
-                <p class="fs-3 fs-md-2hx fst-italic fw-bold animate text-center text-md-start text-color-responsive"
+        <div id="carouselExampleSlidesOnly" class="carousel slide hero-section position-relative" data-bs-ride="carousel">
+            <div class="position-absolute hero-text text-center text-md-start px-3 px-md-0 text-white">
+                <p class="fs-3 fs-md-2hx fst-italic fw-bold animate text-center text-md-start "
                     data-animate="left">
                     Welcome to <span class="text-primary">{{ config('app.name') }}</span>
                 </p>
-                <p class="fs-4 fs-md-3x fw-bolder animate text-color-responsive">
+                <p class="fs-4 fs-md-3x fw-bolder animate">
                     The Best <span class="text-primary">Auto Spare Parts</span> Company
                 </p>
                 <button class="btn btn-primary animate" data-animate="bottom">Explore More</button>
             </div>
 
 
-            <div class="carousel-inner">
-                <div class="carousel-item active" data-bs-interval="3000">
-                    <img src="{{ asset('assets/media/hero-section/simage0.jpg') }}" class="d-block w-100 img-dark"
+            <div class="carousel-inner h-100">
+                <div class="carousel-item h-100 active" data-bs-interval="3000">
+                    <img src="{{ asset('assets/media/hero-section/simage0.jpg') }}" class="d-block w-100 img-dark h-100"
                         alt="...">
                 </div>
-                <div class="carousel-item" data-bs-interval="3000">
-                    <img src="{{ asset('assets/media/hero-section/simage1.jpg') }}" class="d-block w-100 img-dark"
+                <div class="carousel-item h-100" data-bs-interval="3000">
+                    <img src="{{ asset('assets/media/hero-section/simage1.jpg') }}" class="d-block w-100 img-dark h-100"
                         alt="...">
                 </div>
-                <div class="carousel-item" data-bs-interval="3000">
-                    <img src="{{ asset('assets/media/hero-section/simage2.jpg') }}" class="d-block w-100 img-dark"
+                <div class="carousel-item h-100" data-bs-interval="3000">
+                    <img src="{{ asset('assets/media/hero-section/simage2.jpg') }}" class="d-block w-100 img-dark h-100"
                         alt="...">
                 </div>
-                <div class="carousel-item" data-bs-interval="3000">
-                    <img src="{{ asset('assets/media/hero-section/simage3.jpg') }}" class="d-block w-100 img-dark"
+                <div class="carousel-item h-100" data-bs-interval="3000">
+                    <img src="{{ asset('assets/media/hero-section/simage3.jpg') }}" class="d-block w-100 img-dark h-100"
                         alt="...">
                 </div>
             </div>
