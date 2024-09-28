@@ -73,7 +73,7 @@
   }
 
   .hero-text {
-    top: 65%;
+    top: 60%;
   }
 
   .flash-sale-img {
@@ -367,6 +367,14 @@ footer .footer-container {
   height: 66px;
 }
 
+
+@media (max-width: 1400px) {
+  .nkoldlogo.initial {
+    top: 80px;
+    right: 20px;
+  }
+}
+
 @media (max-width: 768px) {
   .nkoldlogo.initial {
     top: 40px;
@@ -374,8 +382,8 @@ footer .footer-container {
   }
 
   .nkoldlogo.initial img {
-    width: 150px;
-    height: 90px;
+    width: 110px;
+    height: 70px;
   }
 
   .nkoldlogo.scrolled {
@@ -387,4 +395,15 @@ footer .footer-container {
     width: 50px;
     height: 50px;
   }
+}
+
+.testimonial-slider .slick-list .slick-track {
+  display: flex;
+  align-items: center;
+}
+
+.happy-customer-card-body {
+  height: 185px;
+  display: flex;
+  align-items: center;
 }

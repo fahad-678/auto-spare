@@ -1,13 +1,15 @@
 <div class="container-fluid p-0">
     @php
-     $nr = 4.2;   
+        $nr = 4.2;
     @endphp
     <div class="row mt-5 g-0">
         <div class="col-md-12 p-0">
             <div class="card text-bg-dark border-0 rounded-0">
-                <img src="{{asset('assets/media/stock/900x600/77.jpg')}}" class="card-img rounded-0 hero-section" alt="...">
+                <img src="{{ asset('assets/media/stock/900x600/77.jpg') }}" class="card-img rounded-0 hero-section"
+                    alt="...">
                 <div class="row card-img-overlay align-items-center g-0">
-                    <div class="col-md-3 d-flex d-md-block justify-content-center container fs-2hx fs-md-4hx text-white fw-bolder mb-md-6 animate" data-animate="bottom">
+                    <div class="col-md-3 d-flex d-md-block justify-content-center container fs-2hx fs-md-4hx text-white fw-bolder mb-md-6 animate"
+                        data-animate="bottom">
                         <p class="mb-0">Our</p>
                         <p class="mb-0 ms-2 ms-md-0">Happy</p>
                         <p class="mb-0 ms-2 ms-md-0">Customers</p>
@@ -28,14 +30,24 @@
                                                 @endif
                                             @endfor
                                         </div>
-                                        <p class="card-text fs-3 text-gray-600">With supporting text below as a natural lead-in to additional content. With supporting text below. Additional content. With supporting text below.</p>
-                                        <div class="d-flex customer-info my-7">
-                                            <img src="{{asset('assets/media/stock/900x600/81.jpg')}}" alt="Customer Image" class="border border-5">
+                                        <div>
+                                            <p class="card-text fs-7 text-gray-600">As a long-term customer of Nafees
+                                                Khan Auto Spare Parts, I have been working with their products,
+                                                especially the NK brand, for over 7 years. The NK brand has consistently
+                                                impressed me with its reliability, top-notch quality, and competitive
+                                                pricing. It's a brand I trust for all my auto parts needs, and I highly
+                                                recommend it to others. Nafees Khan Auto Spare Parts has been a valuable
+                                                partner in ensuring our customers receive the best products available.
+                                            </p>
+                                        </div>
+                                        <div class="d-flex customer-info mt-7">
+                                            <img src="{{ asset('assets/media/stock/900x600/81.jpg') }}"
+                                                alt="Customer Image" class="border border-5">
                                             <div>
-                                                <h6>George D. Coffey</h6>
-                                                <p class="mb-0 text-gray-600">Jakarta</p>
+                                                <h6>Zaman</h6>
+                                                <p class="mb-0 text-gray-600">Ghana</p>
                                             </div>
-                                        </div>    
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -55,14 +67,20 @@
                                                 @endif
                                             @endfor
                                         </div>
-                                        <p class="card-text fs-3 text-gray-600">With supporting text below as a natural lead-in to additional content. With supporting text below. Additional content. With supporting text below.</p>
-                                        <div class="d-flex customer-info my-7">
-                                            <img src="{{asset('assets/media/stock/900x600/81.jpg')}}" alt="Customer Image" class="border border-5">
+                                        <div class="happy-customer-card-body">
+                                            <p class="card-text fs-3 text-gray-600">With supporting text below as a
+                                                natural
+                                                lead-in to additional content. With supporting text below. Additional
+                                                content. With supporting text below.</p>
+                                        </div>
+                                        <div class="d-flex customer-info mt-7">
+                                            <img src="{{ asset('assets/media/stock/900x600/81.jpg') }}"
+                                                alt="Customer Image" class="border border-5">
                                             <div>
                                                 <h6>George D. Coffey</h6>
                                                 <p class="mb-0 text-gray-600">Jakarta</p>
                                             </div>
-                                        </div>    
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -80,14 +98,20 @@
                                                 @endif
                                             @endfor
                                         </div>
-                                        <p class="card-text fs-3 text-gray-600">With supporting text below as a natural lead-in to additional content. With supporting text below. Additional content. With supporting text below.</p>
-                                        <div class="d-flex customer-info my-7">
-                                            <img src="{{asset('assets/media/stock/900x600/81.jpg')}}" alt="Customer Image" class="border border-5">
+                                        <div class="happy-customer-card-body">
+                                            <p class="card-text fs-3 text-gray-600">With supporting text below as a
+                                                natural
+                                                lead-in to additional content. With supporting text below. Additional
+                                                content. With supporting text below.</p>
+                                        </div>
+                                        <div class="d-flex customer-info mt-7">
+                                            <img src="{{ asset('assets/media/stock/900x600/81.jpg') }}"
+                                                alt="Customer Image" class="border border-5">
                                             <div>
                                                 <h6>George D. Coffey</h6>
                                                 <p class="mb-0 text-gray-600">Jakarta</p>
                                             </div>
-                                        </div>    
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -105,14 +129,20 @@
                                                 @endif
                                             @endfor
                                         </div>
-                                        <p class="card-text fs-3 text-gray-600">With supporting text below as a natural lead-in to additional content. With supporting text below. Additional content. With supporting text below.</p>
-                                        <div class="d-flex customer-info my-7">
-                                            <img src="{{asset('assets/media/stock/900x600/81.jpg')}}" alt="Customer Image" class="border border-5">
+                                        <div class="happy-customer-card-body">
+                                            <p class="card-text fs-3 text-gray-600">With supporting text below as a
+                                                natural
+                                                lead-in to additional content. With supporting text below. Additional
+                                                content. With supporting text below.</p>
+                                        </div>
+                                        <div class="d-flex customer-info mt-7">
+                                            <img src="{{ asset('assets/media/stock/900x600/81.jpg') }}"
+                                                alt="Customer Image" class="border border-5">
                                             <div>
                                                 <h6>George D. Coffey</h6>
                                                 <p class="mb-0 text-gray-600">Jakarta</p>
                                             </div>
-                                        </div>    
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -125,25 +155,22 @@
 </div>
 
 @push('scripts')
-<script>
-   $(document).ready(function(){
-    $('.testimonial-slider').slick({
-        slidesToShow: 2,
-        slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed: 2000,
-        arrows: false,
-        dots: false,
-        responsive: [
-            {
-                breakpoint: 992,
-                settings: {
-                    slidesToShow: 1
-                }
-            }
-        ]
-    });
-});
-      
-</script>
+    <script>
+        $(document).ready(function() {
+            $('.testimonial-slider').slick({
+                slidesToShow: 2,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 2000,
+                arrows: false,
+                dots: false,
+                responsive: [{
+                    breakpoint: 992,
+                    settings: {
+                        slidesToShow: 1
+                    }
+                }]
+            });
+        });
+    </script>
 @endpush
