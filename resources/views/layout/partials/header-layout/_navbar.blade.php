@@ -10,7 +10,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
                     <a class="navbar-brand" href="{{ route('landing') }}">
-                        <img src="{{ config('settings.KT_THEME_ASSETS.favicon') }}" alt="Logo" width="35"
+                        <img src="{{ asset(config('settings.KT_THEME_ASSETS.favicon')) }}" alt="Logo" width="35"
                             height="28" class="d-inline-block align-text-top mb-1 me-1">
                         <span>{{ config('app.name') }}</span>
                     </a>
