@@ -20,35 +20,51 @@
                                 href="/">Home</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle {{ Request::is('products*') ? 'active' : '' }}"
-                                href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Product
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item {{ Request::is('products') ? 'active' : '' }}"
-                                        href="{{ route('products.index') }}">List Product</a></li>
-                                @if (Auth::check())
-                                    <li><a class="dropdown-item {{ Request::is('products/create') ? 'active' : '' }}"
-                                            href="{{ route('products.create') }}">Add Product</a></li>
-                                @endif
-                                {{-- <li><hr class="dropdown-divider"></li> --}}
-                                {{-- <li><a class="dropdown-item" href="#">Something else here</a></li> --}}
-                            </ul>
+                            @auth
+                                <a class="nav-link dropdown-toggle {{ request()->routeIs('products.*') ? 'active' : '' }}"
+                                    href="#" role="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    Product
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a class="dropdown-item {{ request()->routeIs('products.index') ? 'active' : '' }}"
+                                            href="{{ route('products.index') }}">
+                                            List Product
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item {{ request()->routeIs('products.create') ? 'active' : '' }}"
+                                            href="{{ route('products.create') }}">
+                                            Add Product
+                                        </a>
+                                    </li>
+                                </ul>
+                            @endauth
+
+                            @guest
+                                <a class="nav-link {{ request()->routeIs('products.*') ? 'active' : '' }}"
+                                    href="{{ route('products.index') }}" aria-disabled="true">
+                                    Product
+                                </a>
+                            @endguest
                         </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle {{ Request::is('category*') ? 'active' : '' }}"
-                                href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Category
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item {{ Request::is('category') ? 'active' : '' }}"
-                                        href="{{ route('category.index') }}">List Category</a></li>
-                                @if (Auth::check())
-                                    <li><a class="dropdown-item {{ Request::is('category/create') ? 'active' : '' }}"
-                                            href="{{ route('category.create') }}">Add Category</a></li>
-                                @endif
-                            </ul>
-                        </li>
+                        @if (Auth::check())
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle {{ Request::is('category*') ? 'active' : '' }}"
+                                    href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Category
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item {{ Request::is('category') ? 'active' : '' }}"
+                                            href="{{ route('category.index') }}">List Category</a></li>
+                                    @if (Auth::check())
+                                        <li><a class="dropdown-item {{ Request::is('category/create') ? 'active' : '' }}"
+                                                href="{{ route('category.create') }}">Add Category</a></li>
+                                    @endif
+                                </ul>
+                            </li>
+                        @endif
                         <li class="nav-item">
                             <a class="nav-link {{ Request::is('about-us') ? 'active' : '' }}" href="/about-us">About
                                 Us</a>

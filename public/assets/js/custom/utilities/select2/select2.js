@@ -144,7 +144,6 @@ function handleSelect2(
             }
         });
 
-    // If selectedValue is provided, set it as selected
     if (selectedValue) {
         $.ajax({
             url: url + "/" + selectedValue,

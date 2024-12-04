@@ -1,4 +1,4 @@
-<div class="container-fluid p-0">
+<div class="container-fluid p-0 mb-15 mb-md-auto">
     @php
         $nr = 4.2;
     @endphp
@@ -8,7 +8,7 @@
                 <img src="{{ asset('assets/media/stock/900x600/77.jpg') }}" class="card-img rounded-0 hero-section"
                     alt="...">
                 <div class="row card-img-overlay align-items-center g-0">
-                    <div class="col-md-3 d-flex d-md-block justify-content-center container fs-2hx fs-md-4hx text-white fw-bolder mb-md-6 animate"
+                    <div class="col-md-3 d-flex d-md-block justify-content-center container fs-2hx fs-md-4hx fw-bolder mb-3 mb-md-6 text-white animate"
                         data-animate="bottom">
                         <p class="mb-0">Our</p>
                         <p class="mb-0 ms-2 ms-md-0">Happy</p>
@@ -160,14 +160,15 @@
             $('.testimonial-slider').slick({
                 slidesToShow: 2,
                 slidesToScroll: 1,
-                autoplay: true,
+                // autoplay: true,
                 autoplaySpeed: 2000,
                 arrows: false,
                 dots: false,
                 responsive: [{
                     breakpoint: 992,
                     settings: {
-                        slidesToShow: 1
+                        slidesToShow: 1,
+                        autoplaySpeed: 5000,
                     }
                 }]
             });

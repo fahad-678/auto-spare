@@ -33,23 +33,23 @@
                 </div>
                 <div class="row pb-2 ps-2">
                     <strong>Category:</strong>
-                    <p>{{ $product->subCategory->category?->name }}</p>
+                    <p>{{ $product->subCategory?->category?->name ?? 'N/A' }}</p>
                 </div>
                 <div class="row pb-2 ps-2">
                     <strong>Sub Category:</strong>
-                    <p>{{ $product->subCategory?->name }}</p>
+                    <p>{{ $product->subCategory?->name ?? 'N/A' }}</p>
                 </div>
                 <div class="row pb-2 ps-2">
                     <strong>Brand:</strong>
-                    <p>{{ $product->brand?->name }}</p>
+                    <p>{{ $product->brand?->name ?? 'N/A' }}</p>
                 </div>
                 <div class="row pb-2 ps-2">
                     <strong>Stock:</strong>
-                    <p>{{ $product->stock }}</p>
+                    <p>{{ $product->stock ?? 'N/A' }}</p>
                 </div>
                 <div class="row pb-2 ps-2">
                     <strong>Status:</strong>
-                    <p>{{ $product->status }}</p>
+                    <p>{{ $product->status ?? 'N/A' }}</p>
                 </div>
             </div>
             <div class="col-6 card">

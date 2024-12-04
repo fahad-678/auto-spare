@@ -123,7 +123,7 @@
     <script>
         $(document).ready(function() {
             handleSelect2('#category_id', "{{ route('category.index') }}", "Category",
-                {{ $product->subCategory->category_id }}, false);
+                {{ $product->subCategory ? json_encode($product->subCategory->category_id) : 'null' }}, false);
             handleSelect2('#brand_id', "{{ route('brand.index') }}", 'Brand', {{ $product->brand_id }});
 
             var $categorySelect = $('select[name="category_id"]');
