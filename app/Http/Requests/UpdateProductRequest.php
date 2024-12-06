@@ -25,7 +25,7 @@ class UpdateProductRequest extends FormRequest
             'name' => 'sometimes|required|string|max:255',
             'part_number' => 'sometimes|nullable|string|max:255',
             'oem' => 'sometimes|nullable|string|max:255',
-            'description' => 'sometimes|nullable|string|max:1000',
+            'description' => 'sometimes|nullable|string|max:255',
             'price' => 'sometimes|nullable|numeric|min:0',
             'discount' => 'sometimes|nullable|numeric|min:0|max:100',
             'sub_category_id' => 'sometimes|nullable|exists:sub_categories,id',

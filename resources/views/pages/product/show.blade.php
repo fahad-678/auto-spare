@@ -6,7 +6,7 @@
             <div class="col-6 card">
                 <h2 class="card-header my-4">{{ $product->name }}</h2>
                 <div class="row pb-2 ps-2">
-                    <strong>Part Name:</strong>
+                    <strong>Part Number:</strong>
                     <p>{{ $product->part_number }}</p>
                 </div>
                 <div class="row pb-2 ps-2">
