@@ -25,10 +25,8 @@ class ProductController extends Controller
 
         if ($request->filled('category_id')) {
             $categoryId = $request->category_id;
-            $query->whereHas('subCategory', function ($subQuery) use ($categoryId) {
-                $subQuery->where('category_id', $categoryId);
-            });
-            $sub_categories_query->where('category_id', $categoryId);
+            $query->where('category_id', $categoryId);
+            $sub_categories_query->where('category_id', $categoryId)->orWhere('is_universal', 1);
         }
 
         if ($request->filled('sub_category_id')) {
@@ -49,7 +47,7 @@ class ProductController extends Controller
 
         $products = $query->orderBy('created_at', 'desc')->paginate(12);
         $sub_categories = $sub_categories_query->get();
-
+        // dd($sub_categories);
         return view('pages.product.list', compact('products', 'sub_categories'));
     }
 

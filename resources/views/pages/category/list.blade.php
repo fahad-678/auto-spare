@@ -29,9 +29,9 @@
         </div>
 
         <!-- Pagination Controls -->
-        {{-- <div class="d-flex justify-content-end my-4 align-items-center">
+        <div class="d-flex justify-content-end my-4 align-items-center">
             {{ $categories->appends(request()->input())->links('pagination::bootstrap-5') }}
-        </div> --}}
+        </div>
     </div>
 @endsection
 

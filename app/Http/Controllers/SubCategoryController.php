@@ -18,7 +18,7 @@ class SubCategoryController extends Controller
         $query = SubCategory::query();
 
         if ($request->filled('category_id')) {
-            $query->where('category_id', $request->category_id);
+            $query->where('category_id', $request->category_id)->orWhere('is_universal', 1);
         }
 
         $subCategories = $query->get();
@@ -72,7 +72,7 @@ class SubCategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(SubCategory $subCategory, $id)
+    public function destroy($id)
     {
         SubCategory::find($id)->delete();
         return response()->json(['success' => true]);

@@ -29,6 +29,7 @@ class UpdateProductRequest extends FormRequest
             'price' => 'sometimes|nullable|numeric|min:0',
             'discount' => 'sometimes|nullable|numeric|min:0|max:100',
             'sub_category_id' => 'sometimes|nullable|exists:sub_categories,id',
+            'category_id' => 'sometimes|nullable|exists:categories,id',
             'brand_id' => 'sometimes|nullable|exists:brands,id',
             'stock' => 'sometimes|nullable|integer|min:0',
             'image' => 'sometimes|nullable|image|mimes:jpeg,png,jpg,gif|max:2048',

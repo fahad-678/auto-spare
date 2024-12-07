@@ -23,7 +23,8 @@ class StoreSubCategoryRequest extends FormRequest
     {
         return [
             "name" => "required|unique:sub_categories,name|max:255",
-            "category_id" => "required|exists:categories,id"
+            "category_id" => "nullable|exists:categories,id",
+            "is_universal"  => "required|boolean",
         ];
     }
 }

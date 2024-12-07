@@ -61,7 +61,9 @@
 
 @include('layout.partials.header-layout._navbar')
 
-@yield('content')
+<div class="content">
+    @yield('content')
+</div>
 
 @include('layout.partials.footer-layout._footer')
 @include('layout.partials._whatsapp')

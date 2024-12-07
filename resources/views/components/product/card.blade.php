@@ -5,7 +5,7 @@
         <a href="{{ $route == 'category' ? route('products.index') : route($route . '.show', $product->id) }}"
             class="text-decoration-none"
             @if ($route == 'category') onclick="event.preventDefault(); window.location.href=this.href + '?category_id={{ $product->id }}';" @endif>
-            <img src="{{ file_exists(public_path('storage/products/' . basename($product->image))) ? asset('storage/products/' . basename($product->image)) : asset('assets/media/img/noimgfind.jpeg') }}"
+            <img src="{{ $product->image && file_exists(public_path('storage/products/' . basename($product->image))) ? asset('storage/products/' . basename($product->image)) : asset('assets/media/img/noimgfind.jpeg') }}"
                 class="card-img-top {{ $viewType === 'new_arrival' ? '' : ($viewType === 'list' ? 'list-img' : '') }}"
                 {{ $viewType === 'hot_item' ? 'height=135 width=200' : 'height=205 width=305' }}
                 alt="{{ $product->name }}">

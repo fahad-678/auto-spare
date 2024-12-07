@@ -122,8 +122,9 @@
     </script>
     <script>
         $(document).ready(function() {
+            const category = {{ json_encode($product->category_id) }};
             handleSelect2('#category_id', "{{ route('category.index') }}", "Category",
-                {{ $product->subCategory ? json_encode($product->subCategory->category_id) : 'null' }}, false);
+                category, false);
             handleSelect2('#brand_id', "{{ route('brand.index') }}", 'Brand', {{ $product->brand_id }});
 
             var $categorySelect = $('select[name="category_id"]');
@@ -131,9 +132,11 @@
             var subCategoryUrl = "{{ route('sub-category.index') }}";
 
             populateSubCategory($categorySelect, $subCategorySelect, subCategoryUrl,
-                {{ $product->sub_category_id }});
+                {{ json_encode($product->sub_category_id) }}, true, true);
 
             $('#sub_category_id').select2();
+            $categorySelect.trigger("change");
+
         });
     </script>
 @endpush

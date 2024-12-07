@@ -217,16 +217,25 @@ function populateSubCategory(
     $subCategorySelect,
     url,
     selectedValue = null,
-    showExtraOptions = true
+    showExtraOptions = true,
+    showUniversalSubCategory = false
 ) {
     $categorySelect.on("change", function () {
         var categoryId = $(this).val();
         $subCategorySelect.empty();
+        if (showUniversalSubCategory) {
+            categoryId = "all";
+        }
         if (categoryId) {
             $subCategorySelect
                 .select2({
                     placeholder: "Select a SubCategory",
-                    ajax: fetchData(url, "SubCategory", showExtraOptions, categoryId),
+                    ajax: fetchData(
+                        url,
+                        "SubCategory",
+                        showExtraOptions,
+                        categoryId
+                    ),
                     templateResult: function (data) {
                         if (data.bold) {
                             return $(
@@ -243,22 +252,55 @@ function populateSubCategory(
                     if (selected.id === "create" && showExtraOptions) {
                         Swal.fire({
                             title: `Create new SubCategory`,
-                            input: "text",
-                            inputLabel: `Enter SubCategory name`,
+                            html: `
+                                <div class="mb-3">
+                                    <input id="subcategory-name" class="form-control" placeholder="Enter SubCategory Name">
+                                </div>
+                                <div class="form-check form-switch form-check-custom form-check-solid d-flex justify-content-between">
+                                    <input type="hidden" name="subcategory-universal" value="0" />
+                                    <label class="form-check-label" for="subcategory-universal">
+                                        Available for All
+                                    </label>
+                                    <input 
+                                        type="checkbox" 
+                                        class="form-check-input" 
+                                        name="subcategory-universal" 
+                                        id="subcategory-universal" 
+                                        />
+                                </div>
+                            `,
                             showCancelButton: true,
-                            inputValidator: (value) => {
-                                if (!value) {
-                                    return "You need to write something!";
+                            preConfirm: () => {
+                                const name =
+                                    document.getElementById(
+                                        "subcategory-name"
+                                    ).value;
+                                const isUniversal = document.getElementById(
+                                    "subcategory-universal"
+                                ).checked
+                                    ? 1
+                                    : 0;
+                                if (!name) {
+                                    Swal.showValidationMessage(
+                                        "You need to write something!"
+                                    );
+                                    return false;
                                 }
+
+                                return { name, isUniversal };
                             },
                         }).then((result) => {
                             if (result.isConfirmed) {
+                                const { name, isUniversal } = result.value;
                                 $.ajax({
                                     url: url,
                                     method: "POST",
                                     data: {
-                                        category_id: categoryId,
-                                        name: result.value,
+                                        category_id: isUniversal
+                                            ? null
+                                            : categoryId,
+                                        name: name,
+                                        is_universal: isUniversal,
                                         _token: $(
                                             'meta[name="csrf-token"]'
                                         ).attr("content"),
