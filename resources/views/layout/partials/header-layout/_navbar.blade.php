@@ -22,8 +22,7 @@
                         <li class="nav-item dropdown">
                             @auth
                                 <a class="nav-link dropdown-toggle {{ request()->routeIs('products.*') ? 'active' : '' }}"
-                                    href="#" role="button" data-bs-toggle="dropdown"
-                                    aria-expanded="false">
+                                    href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Product
                                 </a>
                                 <ul class="dropdown-menu">
@@ -43,8 +42,8 @@
                             @endauth
 
                             @guest
-                                <a class="nav-link {{ request()->routeIs('products.*') ? 'active' : '' }}"
-                                    href="{{ route('products.index') }}" aria-disabled="true">
+                                <a class="nav-link {{ request()->routeIs('products.*') || request()->routeIs('category.*') ? 'active' : '' }}"
+                                    href="{{ route('category.index') }}" aria-disabled="true">
                                     Product
                                 </a>
                             @endguest
@@ -58,10 +57,8 @@
                                 <ul class="dropdown-menu">
                                     <li><a class="dropdown-item {{ Request::is('category') ? 'active' : '' }}"
                                             href="{{ route('category.index') }}">List Category</a></li>
-                                    @if (Auth::check())
-                                        <li><a class="dropdown-item {{ Request::is('category/create') ? 'active' : '' }}"
-                                                href="{{ route('category.create') }}">Add Category</a></li>
-                                    @endif
+                                    <li><a class="dropdown-item {{ Request::is('category/create') ? 'active' : '' }}"
+                                            href="{{ route('category.create') }}">Add Category</a></li>
                                 </ul>
                             </li>
                         @endif

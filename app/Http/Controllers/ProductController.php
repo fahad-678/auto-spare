@@ -125,6 +125,8 @@ class ProductController extends Controller
     {
         $query = $request->get('query');
         $products = Product::where('name', 'LIKE', "%{$query}%")
+            ->orWhere('oem', 'LIKE', "%{$query}%")
+            ->orWhere('part_number', 'LIKE', "%{$query}%")
             ->take(5)
             ->get();
 

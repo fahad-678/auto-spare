@@ -33,7 +33,7 @@
                 </div>
                 <div class="row pb-2 ps-2">
                     <strong>Category:</strong>
-                    <p>{{ $product->subCategory?->category?->name ?? 'N/A' }}</p>
+                    <p>{{ $product->category?->name ?? 'N/A' }}</p>
                 </div>
                 <div class="row pb-2 ps-2">
                     <strong>Sub Category:</strong>

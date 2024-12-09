@@ -223,10 +223,7 @@ function populateSubCategory(
     $categorySelect.on("change", function () {
         var categoryId = $(this).val();
         $subCategorySelect.empty();
-        if (showUniversalSubCategory) {
-            categoryId = "all";
-        }
-        if (categoryId) {
+        if (categoryId || showUniversalSubCategory) {
             $subCategorySelect
                 .select2({
                     placeholder: "Select a SubCategory",
@@ -234,7 +231,7 @@ function populateSubCategory(
                         url,
                         "SubCategory",
                         showExtraOptions,
-                        categoryId
+                        categoryId ? categoryId : "all"
                     ),
                     templateResult: function (data) {
                         if (data.bold) {
