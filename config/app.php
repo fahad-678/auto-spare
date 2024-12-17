@@ -213,5 +213,6 @@ return [
         // 'ExampleClass' => App\Example\ExampleClass::class,
         'Debugbar' => Barryvdh\Debugbar\Facade::class,
     ])->toArray(),
-
+    
+    'currency' => env('CURRENCY'),
 ];

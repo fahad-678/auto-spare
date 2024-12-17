@@ -413,7 +413,7 @@ if (!function_exists('image')) {
      */
     function image($path)
     {
-        return asset('assets/media/'.$path);
+        return asset('assets/media/' . $path);
     }
 }
 
@@ -429,5 +429,12 @@ if (!function_exists('getIcon')) {
     function getIcon($name, $class = '', $type = '', $tag = 'span')
     {
         return theme()->getIcon($name, $class, $type, $tag);
+    }
+}
+
+if (!function_exists('formatePrice')) {
+    function formatePrice($price = 0, $decimal = 2)
+    {
+        return number_format($price, $decimal) . ' ' . config('app.currency');
     }
 }

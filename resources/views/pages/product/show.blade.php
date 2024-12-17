@@ -21,7 +21,7 @@
                     <strong>Price:</strong>
                     <p>
                         @if ($product->price > 0)
-                            ${{ number_format($product->price, 2) }}
+                            {{ formatePrice($product->price) }}
                         @else
                             N/A
                         @endif
