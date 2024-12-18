@@ -4,11 +4,13 @@ function fetchData(url, name, showExtraOptions, categoryId = null) {
         dataType: "json",
         delay: 250,
         data: function (params) {
-            if (categoryId) {
-                return {
-                    category_id: categoryId,
-                };
+            const query = {
+                query: params.term || ''
             }
+            if (categoryId) {
+                query.categoryId = categoryId;
+            }
+            return query;
         },
         processResults: function (data) {
             let items = $.map(data, function (item) {

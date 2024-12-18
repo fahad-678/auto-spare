@@ -5,17 +5,19 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreBrandRequest;
 use App\Http\Requests\UpdateBrandRequest;
 use App\Models\Brand;
+use Illuminate\Http\Request;
 
 class BrandController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $brands = Brand::all();
+        $brands = Brand::where('name', 'LIKE', "%{$request['query']}%")
+            ->take(10)
+            ->get();
         return response()->json($brands);
-
     }
 
     /**

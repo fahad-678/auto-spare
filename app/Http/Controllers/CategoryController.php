@@ -15,8 +15,10 @@ class CategoryController extends Controller
      */
     public function index(Request $request)
     {
-        if (request()->ajax()) {
-            $categories = Category::all();
+        if (request()->ajax()) { 
+            $categories = Category::where('name', 'LIKE', "%{$request['query']}%")
+                ->take(10)
+                ->get();
             return response()->json($categories);
         }
         

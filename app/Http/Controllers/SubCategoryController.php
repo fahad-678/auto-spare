@@ -18,9 +18,10 @@ class SubCategoryController extends Controller
         $query = SubCategory::query();
 
         if ($request->filled('category_id')) {
-            $query->where('category_id', $request->category_id)->orWhere('is_universal', 1);
+            $query->where('category_id', $request->category_id)
+                ->orWhere('is_universal', 1);
         }
-
+        $query->where('name', 'LIKE', "%{$request['query']}%");
         $subCategories = $query->get();
 
         return response()->json($subCategories);
@@ -41,7 +42,7 @@ class SubCategoryController extends Controller
     {
         $validatedData = $request->validated();
         $subCategory = SubCategory::create($validatedData);
-        
+
         return response()->json($subCategory);
     }
 
