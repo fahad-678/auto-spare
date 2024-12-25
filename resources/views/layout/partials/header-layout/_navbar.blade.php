@@ -71,7 +71,7 @@
                                 href="/contact-us">Contact US</a>
                         </li>
                     </ul>
-                    <form class="d-flex" role="search" action="{{ route('products.index') }}" method="GET">
+                    <form class="d-flex" role="search" action="{{ route('category.index') }}" method="GET">
                         <div class="position-relative">
                             <input type="text" id="searchInputNav" name="nav_search" class="form-control"
                                 placeholder="Search products..." value="{{ request('nav_search') }}">
@@ -94,7 +94,7 @@
                 var query = $(this).val();
                 if (query != '') {
                     $.ajax({
-                        url: "{{ route('products.autocomplete') }}",
+                        url: "{{ route('category.autocomplete') }}",
                         method: 'GET',
                         data: {
                             query: query
@@ -115,7 +115,7 @@
             });
         }
 
-        setupAutocomplete('searchInput', 'autocompleteResults', 'products.autocomplete');
-        setupAutocomplete('searchInputNav', 'autocompleteResultsNav', 'products.autocomplete');
+        setupAutocomplete('searchInput', 'autocompleteResults', 'category.autocomplete');
+        setupAutocomplete('searchInputNav', 'autocompleteResultsNav', 'category.autocomplete');
     });
 </script>

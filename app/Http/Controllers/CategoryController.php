@@ -24,7 +24,7 @@ class CategoryController extends Controller
         
         $query = Category::query();
 
-        $searchTerm = $request->category_search;
+        $searchTerm = $request->filled('nav_search') ? $request->nav_search : $request->category_search;
         if ($searchTerm) {
             $query->where(function ($q) use ($searchTerm) {
                 $q->where('name', 'LIKE', "%{$searchTerm}%");
