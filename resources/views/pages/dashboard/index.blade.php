@@ -10,14 +10,16 @@
         <!-- Carousel Section -->
         <div id="carouselExampleSlidesOnly" class="carousel slide hero-section position-relative" data-bs-ride="carousel">
             <div class="position-absolute hero-text text-center text-md-start px-3 px-md-0 text-white">
-                <p class="fs-3 fs-md-2hx fst-italic fw-bold animate text-center text-md-start "
-                    data-animate="left">
+                <p class="fs-3 fs-md-2hx fst-italic fw-bold animate text-center text-md-start " data-animate="left">
                     Welcome to <span class="text-primary">{{ config('app.name') }}</span>
                 </p>
                 <p class="fs-4 fs-md-3x fw-bolder animate">
                     The Best <span class="text-primary">Auto Spare Parts</span> Company
                 </p>
-                <button class="btn btn-primary animate" data-animate="bottom">Explore More</button>
+                <button class="btn btn-primary animate" data-animate="bottom"
+                    onclick="document.getElementById('new-arrival-category').scrollIntoView({ behavior: 'smooth' });">Explore
+                    More</button>
+
             </div>
 
 

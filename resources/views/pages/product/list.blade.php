@@ -108,7 +108,7 @@
                     var query = $(this).val();
                     if (query != '') {
                         $.ajax({
-                            url: "{{ route('products.autocomplete') }}",
+                            url: routeName,
                             method: 'GET',
                             data: {
                                 query: query
@@ -129,8 +129,7 @@
                 });
             }
 
-            setupAutocomplete('searchInput', 'autocompleteResults', 'products.autocomplete');
-            setupAutocomplete('searchInputNav', 'autocompleteResultsNav', 'products.autocomplete');
+            setupAutocomplete('searchInput', 'autocompleteResults', "{{ route('products.autocomplete') }}");
         });
     </script>
 @endpush

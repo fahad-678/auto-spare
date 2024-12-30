@@ -20,33 +20,34 @@
                                 href="/">Home</a>
                         </li>
                         <li class="nav-item dropdown">
-                            @auth
-                                <a class="nav-link dropdown-toggle {{ request()->routeIs('products.*') ? 'active' : '' }}"
-                                    href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Product
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <a class="dropdown-item {{ request()->routeIs('products.index') ? 'active' : '' }}"
-                                            href="{{ route('products.index') }}">
-                                            List Product
-                                        </a>
-                                    </li>
+                            <a class="nav-link dropdown-toggle {{ request()->routeIs('products.*') ? 'active' : '' }}"
+                                href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Products
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item {{ request()->routeIs('products.index') ? 'active' : '' }}"
+                                        href="{{ route('products.index') }}">
+                                        List Product
+                                    </a>
+                                </li>
+                                @auth
                                     <li>
                                         <a class="dropdown-item {{ request()->routeIs('products.create') ? 'active' : '' }}"
                                             href="{{ route('products.create') }}">
                                             Add Product
                                         </a>
                                     </li>
-                                </ul>
-                            @endauth
-
-                            @guest
-                                <a class="nav-link {{ request()->routeIs('products.*') || request()->routeIs('category.*') ? 'active' : '' }}"
-                                    href="{{ route('category.index') }}" aria-disabled="true">
-                                    Product
-                                </a>
-                            @endguest
+                                @endauth
+                                @guest
+                                    <li>
+                                        <a class="dropdown-item {{ request()->routeIs('category.index') ? 'active' : '' }}"
+                                            href="{{ route('category.index') }}">
+                                            Category
+                                        </a>
+                                    </li>
+                                @endguest
+                            </ul>
                         </li>
                         @if (Auth::check())
                             <li class="nav-item dropdown">
@@ -71,7 +72,8 @@
                                 href="/contact-us">Contact US</a>
                         </li>
                     </ul>
-                    <form class="d-flex" role="search" action="{{ route('category.index') }}" method="GET">
+                    <form class="d-flex" id="searchFormNav" role="search" action="{{ route('category.index') }}"
+                        method="GET">
                         <div class="position-relative">
                             <input type="text" id="searchInputNav" name="nav_search" class="form-control"
                                 placeholder="Search products..." value="{{ request('nav_search') }}">
@@ -94,7 +96,7 @@
                 var query = $(this).val();
                 if (query != '') {
                     $.ajax({
-                        url: "{{ route('category.autocomplete') }}",
+                        url: routeName,
                         method: 'GET',
                         data: {
                             query: query
@@ -111,11 +113,18 @@
 
             $(document).on('click', '#' + resultsId + ' .autocomplete-item', function() {
                 $('#' + inputId).val($(this).text());
+
+                if ($(this).data('type') == 'category') {
+                    $("#searchFormNav").attr("action", "{{ route('category.index') }}");
+                } else {
+                    $("#searchFormNav").attr("action", "{{ route('products.index') }}");
+                }
+
                 $('#' + resultsId).hide();
+                $('#' + inputId).trigger('change');
             });
         }
+        setupAutocomplete('searchInputNav', 'autocompleteResultsNav', "{{ route('category.autocomplete') }}");
 
-        setupAutocomplete('searchInput', 'autocompleteResults', 'category.autocomplete');
-        setupAutocomplete('searchInputNav', 'autocompleteResultsNav', 'category.autocomplete');
     });
 </script>

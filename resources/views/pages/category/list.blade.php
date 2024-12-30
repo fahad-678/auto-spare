@@ -74,7 +74,7 @@
                     var query = $(this).val();
                     if (query != '') {
                         $.ajax({
-                            url: "{{ route('category.autocomplete') }}",
+                            url: routeName,
                             method: 'GET',
                             data: {
                                 query: query
@@ -95,8 +95,7 @@
                 });
             }
 
-            setupAutocomplete('searchInput', 'autocompleteResults', 'category.autocomplete');
-            setupAutocomplete('searchInputNav', 'autocompleteResultsNav', 'category.autocomplete');
+            setupAutocomplete('searchInput', 'autocompleteResults', "{{ route('category.autocomplete') }}");
         });
     </script>
 @endpush

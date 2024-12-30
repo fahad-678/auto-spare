@@ -4,16 +4,17 @@
             <div class="new-arrival-text animate" data-animate="bottom">
                 <p class="fs-3x text-white fw-bolder">Car Parts That Exceed Your</p>
                 <p class="fs-3x text-white fw-bolder">Expectations</p>
-                <button class="btn btn-primary animate mt-3" data-animate="bounce">Go To Shop!</button>
+                <button class="btn btn-primary animate mt-3" data-animate="bounce"
+                    onclick="window.location.href='{{ route('products.index') }}'">Go To Shop!</button>
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active" data-bs-interval="3000">
-                    <img src="{{ asset('assets/media/new-arrival/image0.jpg') }}" class="d-block w-100 new-arrival-img img-dark"
-                        alt="New Arrival 1">
+                    <img src="{{ asset('assets/media/new-arrival/image0.jpg') }}"
+                        class="d-block w-100 new-arrival-img img-dark" alt="New Arrival 1">
                 </div>
                 <div class="carousel-item" data-bs-interval="3000">
-                    <img src="{{ asset('assets/media/new-arrival/image1.jpg') }}" class="d-block w-100 new-arrival-img img-dark"
-                        alt="New Arrival 2">
+                    <img src="{{ asset('assets/media/new-arrival/image1.jpg') }}"
+                        class="d-block w-100 new-arrival-img img-dark" alt="New Arrival 2">
                 </div>
             </div>
         </div>
@@ -52,7 +53,7 @@
             </div>
         </div>
     </div>
-    <div class="text-center container mt-10">
+    <div class="text-center container mt-10 " id="new-arrival-category">
         <p class="fs-2qx fw-bolder animate" data-animate="left">New Arrivals Parts</p>
         <div class="row mb-3 animate">
             @foreach ($categories as $category)

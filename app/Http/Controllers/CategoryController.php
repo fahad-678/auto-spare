@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
 use App\Models\Category;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -15,13 +16,13 @@ class CategoryController extends Controller
      */
     public function index(Request $request)
     {
-        if (request()->ajax()) { 
+        if (request()->ajax()) {
             $categories = Category::where('name', 'LIKE', "%{$request['query']}%")
                 ->take(10)
                 ->get();
             return response()->json($categories);
         }
-        
+
         $query = Category::query();
 
         $searchTerm = $request->filled('nav_search') ? $request->nav_search : $request->category_search;
@@ -115,9 +116,20 @@ class CategoryController extends Controller
             ->take(5)
             ->get();
 
+        $remainingSlots = 5 - $categories->count();
+
+        $products = Product::where('name', 'LIKE', "%{$query}%")
+            ->orWhere('oem', 'LIKE', "%{$query}%")
+            ->orWhere('part_number', 'LIKE', "%{$query}%")
+            ->take($remainingSlots)
+            ->get();
+
         $output = '';
         foreach ($categories as $category) {
-            $output .= '<div class="autocomplete-item p-2 border-bottom">' . $category->name . '</div>';
+            $output .= '<div class="autocomplete-item p-2 border-bottom" data-type=category > ' . $category->name . '</div>';
+        }
+        foreach ($products as $product) {
+            $output .= '<div class="autocomplete-item p-2 border-bottom" data-type=product >' . $product->name . '</div>';
         }
 
         return $output;
