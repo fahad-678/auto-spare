@@ -16,26 +16,34 @@
                     <div class="col-md-8">
                         <div class="card-body pt-4">
                             <h5 class="card-header text-center fs-2 fw-bolder">Company Description</h5>
-                            <div class="d-flex">
-                                <p class="card-text pe-3">Welcome to {{ config('app.name') }}, your trusted source for
-                                    top-quality auto parts in Dubai. Since 2014, we've been dedicated to supplying genuine
-                                    parts
-                                    for Nissan and Toyota vehicles, ensuring peak performance and reliability. Alongside our
-                                    original parts, we proudly offer a wide range of aftermarket products under our renowned
-                                    NK
-                                    brand, catering to SUBARU, SUZUKI, DAIHATSU, KIA, NISSAN, HYUNDAI, HONDA, MITSUBISHI,
-                                    MAZDA,
-                                    and TOYOTA.</p>
-                                <img src="{{ asset('assets/media/logos/oldnklogo.png') }}" class="mt-5 rounded-start"
-                                    width="200px" height="130px" alt="...">
+                            <div class="row d-flex flex-column-reverse flex-md-row">
+                                <div class="col-md-8">
+                                    <p class="fs-5">Welcome to {{ config('app.name') }}, your trusted source for
+                                        top-quality auto parts in Dubai. Since 2014, we've been dedicated to supplying
+                                        genuine
+                                        parts
+                                        for Nissan and Toyota vehicles, ensuring peak performance and reliability. Alongside
+                                        our
+                                        original parts, we proudly offer a wide range of aftermarket products under our
+                                        renowned
+                                        NK
+                                        brand, catering to SUBARU, SUZUKI, DAIHATSU, KIA, NISSAN, HYUNDAI, HONDA,
+                                        MITSUBISHI,
+                                        MAZDA,
+                                        and TOYOTA.</p>
+                                </div>
+                                <div class="col-md-4">
+                                    <img src="{{ asset('assets/media/logos/oldnklogo.png') }}"
+                                        class="img-fluid mt-md-5 rounded-start" alt="...">
+                                </div>
                             </div>
-                            <p class="card-text">At {{ config('app.name') }}, our commitment to customer satisfaction
+                            <p class="fs-5">At {{ config('app.name') }}, our commitment to customer satisfaction
                                 and product excellence is unmatched. Whether you're a mechanic, auto enthusiast, or business
                                 owner, we meet your needs with competitive pricing, fast delivery, and exceptional service.
                                 Our reputation as a trusted brand is built on years of reliability, expertise, and a genuine
                                 passion for automobiles.</p>
-                            <p class="card-text">Discover our extensive inventory online or visit our showroom to see why
-                               {{ config('app.name') }} is the preferred choice for auto parts in Dubai and beyond.
+                            <p class="fs-5">Discover our extensive inventory online or visit our showroom to see why
+                                {{ config('app.name') }} is the preferred choice for auto parts in Dubai and beyond.
                                 Join us in driving excellence and reliability on every road.</p>
                             {{-- <p class="card-text">Experience the Gaolian difference today and discover why we are the preferred choice for auto parts in Dubai. Let us assist you in finding the perfect solution for all of your automotive needs.</p> --}}
                         </div>
@@ -250,28 +258,44 @@
         <section class="mb-5 card shadow p-4">
             <h2 class="fs-2 fw-bolder card-header">Message from CEO/Founder</h2>
             <blockquote class="blockquote">
-                <p class="fs-4 fw-bold">
+                <p class="fs-4 fw-bold text-center text-md-start">
                     A Commitment to Quality and Excellence
                 </p>
-                <p>
-                    Welcome to {{ config('app.name') }}. I am Obaid Khan, and I am honored to serve as the CEO of
-                    this esteemed company. Since our inception in 2014, our mission has been clear: to provide our customers
-                    with the highest quality auto parts, ensuring their vehicles perform at their best.
-                </p>
-                <p>
-                    At {{ config('app.name') }}, we understand the crucial role that reliable auto parts play in the
-                    performance and safety of your vehicle. That's why we've dedicated ourselves to offering a comprehensive
-                    range of original parts for Nissan and Toyota, alongside our premium aftermarket brand, NK. Our NK
-                    products cater to a variety of vehicles, including SUBARU, SUZUKI, DAIHATSU, KIA, NISSAN, HYUNDAI,
-                    HONDA, MITSUBISHI, MAZDA, and TOYOTA.
-                </p>
-                <p>
-                    Our journey has been marked by a relentless pursuit of excellence. We prioritize quality in every aspect
-                    of our operations, from product selection to customer service. Each part we offer undergoes stringent
-                    quality control measures to ensure it meets our exacting standards. This commitment to quality has
-                    earned us the trust and loyalty of our customers, making us a leading name in the automotive parts
-                    industry.
-                </p>
+                <div class="row d-flex flex-column-reverse flex-md-row">
+                    <div class="col-md-8">
+                        <p>
+                            Welcome to {{ config('app.name') }}. I am Obaid Khan, and I am honored to serve as the CEO of
+                            this esteemed company. Since our inception in 2014, our mission has been clear: to provide our
+                            customers
+                            with the highest quality auto parts, ensuring their vehicles perform at their best.
+                        </p>
+                        <p>
+                            At {{ config('app.name') }}, we understand the crucial role that reliable auto parts play in the
+                            performance and safety of your vehicle. That's why we've dedicated ourselves to offering a
+                            comprehensive
+                            range of original parts for Nissan and Toyota, alongside our premium aftermarket brand, NK. Our
+                            NK
+                            products cater to a variety of vehicles, including SUBARU, SUZUKI, DAIHATSU, KIA, NISSAN,
+                            HYUNDAI,
+                            HONDA, MITSUBISHI, MAZDA, and TOYOTA.
+                        </p>
+                        <p>
+                            Our journey has been marked by a relentless pursuit of excellence. We prioritize quality in
+                            every
+                            aspect
+                            of our operations, from product selection to customer service. Each part we offer undergoes
+                            stringent
+                            quality control measures to ensure it meets our exacting standards. This commitment to quality
+                            has
+                            earned us the trust and loyalty of our customers, making us a leading name in the automotive
+                            parts
+                            industry.
+                        </p>
+                    </div>
+                    <div class="col-md-4 pe-md-10">
+                        <img src="{{ asset('assets/media/about-us/img.png') }}" class="img-fluid rounded" alt="...">
+                    </div>
+                </div>
                 <p>
                     In addition to quality, we believe in providing value. Our products are competitively priced, ensuring
                     you get the best possible parts without breaking the bank. We also understand the importance of timely
