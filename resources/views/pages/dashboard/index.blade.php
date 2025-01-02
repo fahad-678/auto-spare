@@ -25,20 +25,20 @@
 
             <div class="carousel-inner h-100">
                 <div class="carousel-item h-100 active" data-bs-interval="3000">
-                    <img src="{{ asset('assets/media/hero-section/simage0.jpg') }}" class="d-block w-100 img-dark h-100"
-                        alt="...">
+                    <img src="{{ asset('assets/media/hero-section/simage0.webp') }}" class="d-block w-100 img-dark h-100"
+                        alt="..." fetchpriority="high">
                 </div>
                 <div class="carousel-item h-100" data-bs-interval="3000">
-                    <img src="{{ asset('assets/media/hero-section/simage1.jpg') }}" class="d-block w-100 img-dark h-100"
-                        alt="...">
+                    <img src="{{ asset('assets/media/hero-section/simage1.webp') }}" class="d-block w-100 img-dark h-100"
+                        alt="..." loading="lazy">
                 </div>
                 <div class="carousel-item h-100" data-bs-interval="3000">
-                    <img src="{{ asset('assets/media/hero-section/simage2.jpg') }}" class="d-block w-100 img-dark h-100"
-                        alt="...">
+                    <img src="{{ asset('assets/media/hero-section/simage2.webp') }}" class="d-block w-100 img-dark h-100"
+                        alt="..." loading="lazy">
                 </div>
                 <div class="carousel-item h-100" data-bs-interval="3000">
-                    <img src="{{ asset('assets/media/hero-section/simage3.jpg') }}" class="d-block w-100 img-dark h-100"
-                        alt="...">
+                    <img src="{{ asset('assets/media/hero-section/simage3.webp') }}" class="d-block w-100 img-dark h-100"
+                        alt="..." loading="lazy">
                 </div>
             </div>
         </div>

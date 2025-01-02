@@ -3,7 +3,7 @@
         <div class="col-12">
             <div class="card text-bg-dark">
                 <img src="{{ asset('assets/media/stock/900x600/81.jpg') }}" class="card-img flash-sale-img"
-                    alt="Flash Sale Background">
+                    alt="Flash Sale Background" loading="lazy">
                 <div class="card-img-overlay p-0 d-flex flex-column flash-sale-overlay">
                     <div class="row g-0 h-md-100">
                         <div class="col-12 col-md-2 mb-3 mb-md-0 text-bg-dark py-7 py-md-0 d-md-flex align-items-center justify-content-center px-md-4 rounded">

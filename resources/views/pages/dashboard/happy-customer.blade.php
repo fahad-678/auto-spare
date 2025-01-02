@@ -6,7 +6,7 @@
         <div class="col-md-12 p-0">
             <div class="card text-bg-dark border-0 rounded-0">
                 <img src="{{ asset('assets/media/stock/900x600/77.jpg') }}" class="card-img rounded-0 hero-section"
-                    alt="...">
+                    alt="..." loading="lazy">
                 <div class="row card-img-overlay align-items-center g-0">
                     <div class="col-md-3 d-flex d-md-block justify-content-center container fs-2hx fs-md-4hx fw-bolder mb-3 mb-md-6 text-white animate"
                         data-animate="bottom">
@@ -42,7 +42,7 @@
                                         </div>
                                         <div class="d-flex customer-info mt-3 mt-md-7">
                                             <img src="{{ asset('assets/media/stock/900x600/81.jpg') }}"
-                                                alt="Customer Image" class="border border-5">
+                                                alt="Customer Image" class="border border-5" loading="lazy">
                                             <div>
                                                 <h6>Zaman</h6>
                                                 <p class="mb-0 text-gray-600">Ghana</p>
@@ -78,7 +78,7 @@
                                         </div>
                                         <div class="d-flex customer-info mt-3 mt-md-7">
                                             <img src="{{ asset('assets/media/stock/900x600/81.jpg') }}"
-                                                alt="Customer Image" class="border border-5">
+                                                alt="Customer Image" class="border border-5" loading="lazy">
                                             <div>
                                                 <h6>George D. Coffey</h6>
                                                 <p class="mb-0 text-gray-600">Jakarta</p>
@@ -112,7 +112,7 @@
                                         </div>
                                         <div class="d-flex customer-info mt-3 mt-md-7">
                                             <img src="{{ asset('assets/media/stock/900x600/81.jpg') }}"
-                                                alt="Customer Image" class="border border-5">
+                                                alt="Customer Image" class="border border-5" loading="lazy">
                                             <div>
                                                 <h6>George D. Coffey</h6>
                                                 <p class="mb-0 text-gray-600">Jakarta</p>
@@ -146,7 +146,7 @@
                                         </div>
                                         <div class="d-flex customer-info mt-3 mt-md-7">
                                             <img src="{{ asset('assets/media/stock/900x600/81.jpg') }}"
-                                                alt="Customer Image" class="border border-5">
+                                                alt="Customer Image" class="border border-5" loading="lazy">
                                             <div>
                                                 <h6>George D. Coffey</h6>
                                                 <p class="mb-0 text-gray-600">Jakarta</p>

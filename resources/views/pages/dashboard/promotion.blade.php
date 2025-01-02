@@ -16,7 +16,7 @@
     <div class="card mb-3">
         <div class="row g-0">
             <div class="col-md-6 position-relative animate" data-animate="left">
-                <img src="{{ asset('assets/media/promotion/image0.jpg') }}" class="img-fluid rounded-start" alt="...">
+                <img src="{{ asset('assets/media/promotion/image0.jpg') }}" class="img-fluid rounded-start" alt="..." loading="lazy">
                 <div class="img-fluid position-absolute top-0 start-0 m-5 w-25 shadow-lg text-center bg-white py-3 animate"
                     data-animate="top" alt="...">
                     <div class="fs-3hx fw-bolder d-flex justify-content-center text-primary">
@@ -38,7 +38,7 @@
                                 <div class="row g-0">
                                     <div class="col-md-2">
                                         <img src="{{ asset('assets/media/promotion/image1.jpg') }}" class="img-fluid"
-                                            alt="...">
+                                            alt="..." loading="lazy">
                                     </div>
                                     <div class="col ps-4 d-flex align-items-center">
                                         <div class="card-body p-1 pt-5 text-center text-md-start">
@@ -55,7 +55,7 @@
                                 <div class="row g-0">
                                     <div class="col-md-2">
                                         <img src="{{ asset('assets/media/promotion/image2.jpg') }}" class="img-fluid"
-                                            alt="...">
+                                            alt="..." loading="lazy">
                                     </div>
                                     <div class="col ps-4 d-flex align-items-center">
                                         <div class="card-body p-1 pt-5 text-center text-md-start">
@@ -91,7 +91,7 @@
                         <p class="fs-2 p-4 m-0 {{ $class }}"
                             data-animate="{{ $rowIndex == 0 ? 'left' : 'bottom' }}">
                             <img src="{{ asset('assets/media/brands-we-deal-in/' . $brand[0] . '.png') }}"
-                                width="150" alt="{{ $brand[0] }}" class="img-fluid">
+                                width="150" alt="{{ $brand[0] }}" class="img-fluid" loading="lazy">
                         </p>
                     </div>
                 @endforeach

@@ -14,7 +14,7 @@
           </ul>
         </div>
         <div class="col-lg-6 position-relative">
-          <img src="{{asset('assets/media/why-choose-us/image9l.jpg')}}" alt="Mechanic working on car" class="img-fluid animate">
+          <img src="{{asset('assets/media/why-choose-us/image9l.jpg')}}" alt="Mechanic working on car" class="img-fluid animate" loading="lazy">
             {{-- <img src="{{asset('assets/media/why-choose-us/image8s.jpg')}}" alt="Mechanics discussing" class="img-fluid position-absolute border border-5 animate" data-animate="bottom" style="bottom: -35px; left: -50px; width: 50%;"> --}}
         </div>
       </div>

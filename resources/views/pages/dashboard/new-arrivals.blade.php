@@ -10,11 +10,11 @@
             <div class="carousel-inner">
                 <div class="carousel-item active" data-bs-interval="3000">
                     <img src="{{ asset('assets/media/new-arrival/image0.jpg') }}"
-                        class="d-block w-100 new-arrival-img img-dark" alt="New Arrival 1">
+                        class="d-block w-100 new-arrival-img img-dark" alt="New Arrival 1" loading="lazy">
                 </div>
                 <div class="carousel-item" data-bs-interval="3000">
                     <img src="{{ asset('assets/media/new-arrival/image1.jpg') }}"
-                        class="d-block w-100 new-arrival-img img-dark" alt="New Arrival 2">
+                        class="d-block w-100 new-arrival-img img-dark" alt="New Arrival 2" loading="lazy">
                 </div>
             </div>
         </div>

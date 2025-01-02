@@ -8,7 +8,7 @@
             <img src="{{ $product->image && file_exists(public_path('storage/products/' . basename($product->image))) ? asset('storage/products/' . basename($product->image)) : asset('assets/media/img/noimgfind.jpeg') }}"
                 class="card-img-top {{ $viewType === 'new_arrival' ? '' : ($viewType === 'list' ? 'list-img' : '') }}"
                 {{ $viewType === 'hot_item' ? 'height=135 width=200' : 'height=205 width=305' }}
-                alt="{{ $product->name }}">
+                alt="{{ $product->name }}" loading="lazy">
         </a>
         @if ($product->discount > 0)
             <span class="position-absolute top-0 end-0 p-2 badge text-bg-warning">
