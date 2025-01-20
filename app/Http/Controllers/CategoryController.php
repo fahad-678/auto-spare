@@ -109,29 +109,33 @@ class CategoryController extends Controller
         return redirect()->route('category.index')->with('success', 'Category deleted successfully.');
     }
 
-    public function autocomplete(Request $request)
+    public function search(Request $request)
     {
         $query = $request->get('query');
+        $page = $request->get('page', 1);
+
+        $perPage = 5;
+
         $categories = Category::where('name', 'LIKE', "%{$query}%")
-            ->take(5)
+            ->select('id', 'name')
+            ->skip(($page - 1) * $perPage)
+            ->take($perPage)
             ->get();
 
-        $remainingSlots = 5 - $categories->count();
+        $output = [];
 
-        $products = Product::where('name', 'LIKE', "%{$query}%")
-            ->orWhere('oem', 'LIKE', "%{$query}%")
-            ->orWhere('part_number', 'LIKE', "%{$query}%")
-            ->take($remainingSlots)
-            ->get();
-
-        $output = '';
         foreach ($categories as $category) {
-            $output .= '<div class="autocomplete-item p-2 border-bottom" data-type=category > ' . $category->name . '</div>';
-        }
-        foreach ($products as $product) {
-            $output .= '<div class="autocomplete-item p-2 border-bottom" data-type=product >' . $product->name . '</div>';
+            $output[] = [
+                'id' => $category->id,
+                'text' => $category->name,
+            ];
         }
 
-        return $output;
+        return response()->json([
+            'items' => $output,
+            'pagination' => [
+                'more' => $categories->count() == $perPage
+            ]
+        ]);
     }
 }

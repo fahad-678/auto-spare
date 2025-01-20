@@ -40,11 +40,15 @@ Route::middleware(['auth'])->group(function () {
 
 Route::middleware(['web'])->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('landing');
-    Route::get('/products/autocomplete', [ProductController::class, 'autocomplete'])->name('products.autocomplete');
+    Route::get('/globalSearch', [DashboardController::class, 'globalSearch'])->name('dashboard.globalSearch');
+
+    Route::get('/products/search', [ProductController::class, 'search'])->name('products.search');
     Route::get('/products', [ProductController::class, 'index'])->name('products.index');
     Route::get('/products/{product}', [ProductController::class, 'show'])->name('products.show');
-    Route::get('/category/autocomplete', [CategoryController::class, 'autocomplete'])->name('category.autocomplete');
+
+    Route::get('/category/search', [CategoryController::class, 'search'])->name('category.search');
     Route::resource('/category', CategoryController::class);
+
     Route::get('/about-us', [DashboardController::class, 'aboutUs'])->name('about-us');
     Route::get('/contact-us', [DashboardController::class, 'contactUs'])->name('contact-us');
 });

@@ -72,17 +72,9 @@
                                 href="/contact-us">Contact US</a>
                         </li>
                     </ul>
-                    <form class="d-flex" id="searchFormNav" role="search" action="{{ route('category.index') }}"
-                        method="GET">
-                        <div class="position-relative">
-                            <input type="text" id="searchInputNav" name="nav_search" class="form-control"
-                                placeholder="Search products..." value="{{ request('nav_search') }}">
-                            <div id="autocompleteResultsNav"
-                                class="position-absolute w-100 bg-white border rounded-bottom"
-                                style="display:none; z-index: 1000;"></div>
-                        </div>
-                        <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form>
+                    <div>
+                        <select class="form-control form-select" id="searchInputNav" name="nav_search"></select>
+                    </div>
                 </div>
             </div>
         </nav>
@@ -91,40 +83,35 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script>
     $(document).ready(function() {
-        function setupAutocomplete(inputId, resultsId, routeName) {
-            $('#' + inputId).on('input', function() {
-                var query = $(this).val();
-                if (query != '') {
-                    $.ajax({
-                        url: routeName,
-                        method: 'GET',
-                        data: {
-                            query: query
-                        },
-                        success: function(data) {
-                            $('#' + resultsId).html(data);
-                            $('#' + resultsId).show();
+        $('#searchInputNav').select2({
+            placeholder: 'Search Products',
+
+            ajax: {
+                url: "{{ route('dashboard.globalSearch') }}",
+                dataType: 'json',
+                delay: 250,
+                data: function(params) {
+                    return {
+                        query: params.term,
+                        page: params.page || 1,
+                    };
+                },
+                processResults: function(data) {
+                    return {
+                        results: data.items,
+                        pagination: {
+                            more: data.pagination.more
                         }
-                    });
-                } else {
-                    $('#' + resultsId).hide();
-                }
-            });
-
-            $(document).on('click', '#' + resultsId + ' .autocomplete-item', function() {
-                $('#' + inputId).val($(this).text());
-
-                if ($(this).data('type') == 'category') {
-                    $("#searchFormNav").attr("action", "{{ route('category.index') }}");
-                } else {
-                    $("#searchFormNav").attr("action", "{{ route('products.index') }}");
-                }
-
-                $('#' + resultsId).hide();
-                $('#' + inputId).trigger('change');
-            });
-        }
-        setupAutocomplete('searchInputNav', 'autocompleteResultsNav', "{{ route('category.autocomplete') }}");
-
-    });
+                    };
+                },
+                cache: true,
+            },
+        });
+        $('#searchInputNav').on('select2:select', function(e) {
+            var selectedValue = e.params.data;
+            if (selectedValue.type && selectedValue.id) {
+                window.location.href = '/' + selectedValue.type + '?nav_search=' + selectedValue.text;
+            }
+        })
+    })
 </script>

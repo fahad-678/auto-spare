@@ -27,12 +27,7 @@
                     </select>
                 </div>
                 <div class="col-md-2 col-6">
-                    <div class="position-relative">
-                        <input type="text" id="searchInput" name="product_search" class="form-control"
-                            placeholder="Search products..." value="{{ request('product_search') }}">
-                        <div id="autocompleteResults" class="position-absolute w-100 bg-white border rounded-bottom"
-                            style="display:none; z-index: 1000;"></div>
-                    </div>
+                    <select class="form-control form-select" id="searchInput" name="product_search"></select>
                 </div>
                 <div class="col-md-1 col-3 mt-3 mt-md-0">
                     <button type="submit" id="filterButton" class="btn btn-primary">Search</button>
@@ -103,33 +98,36 @@
     </script>
     <script>
         $(document).ready(function() {
-            function setupAutocomplete(inputId, resultsId, routeName) {
-                $('#' + inputId).on('input', function() {
-                    var query = $(this).val();
-                    if (query != '') {
-                        $.ajax({
-                            url: routeName,
-                            method: 'GET',
-                            data: {
-                                query: query
-                            },
-                            success: function(data) {
-                                $('#' + resultsId).html(data);
-                                $('#' + resultsId).show();
+            $('#searchInput').select2({
+                placeholder: 'Search Products',
+
+                ajax: {
+                    url: "{{ route('products.search') }}",
+                    dataType: 'json',
+                    delay: 250,
+                    data: function(params) {
+                        return {
+                            query: params.term,
+                            page: params.page || 1,
+                        };
+                    },
+                    processResults: function(data) {
+                        return {
+                            results: data.items,
+                            pagination: {
+                                more: data.pagination.more
                             }
-                        });
-                    } else {
-                        $('#' + resultsId).hide();
-                    }
-                });
-
-                $(document).on('click', '#' + resultsId + ' .autocomplete-item', function() {
-                    $('#' + inputId).val($(this).text());
-                    $('#' + resultsId).hide();
-                });
-            }
-
-            setupAutocomplete('searchInput', 'autocompleteResults', "{{ route('products.autocomplete') }}");
+                        };
+                    },
+                    cache: true,
+                },
+            });
+            $('#searchInput').on('select2:select', function(e) {
+                var selectedValue = e.params.data;
+                if (selectedValue.id) {
+                    window.location.href = '/products/' + selectedValue.id;
+                }
+            })
         });
     </script>
 @endpush
