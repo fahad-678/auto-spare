@@ -20,7 +20,6 @@ class Product extends Model
         'sub_category_id',
         'brand_id',
         'stock',
-        'image',
         'status',
     ];
 
@@ -29,7 +28,7 @@ class Product extends Model
     {
         return $this->belongsTo(SubCategory::class);
     }
-    
+
     public function category()
     {
         return $this->belongsTo(Category::class);
@@ -38,5 +37,19 @@ class Product extends Model
     public function brand()
     {
         return $this->belongsTo(Brand::class);
+    }
+    public function images()
+    {
+        return $this->hasMany(ProductImage::class);
+    }
+
+    public function primaryImageUrl()
+    {
+        return $this->images->first()?->image_url ?? asset('assets/media/img/noimgfind.jpeg');
+    }
+
+    public function hasDiscount(): bool
+    {
+        return $this->discount > 0;
     }
 }

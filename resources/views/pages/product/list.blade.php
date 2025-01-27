@@ -37,7 +37,7 @@
 
         <div class="row">
             @foreach ($products as $product)
-                <x-product.card :product="$product" viewType="list" />
+                <x-product.card_list :product="$product" />
                 @if ($loop->iteration % 4 == 0)
         </div>
         <div class="row">

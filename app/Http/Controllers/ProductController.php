@@ -47,7 +47,7 @@ class ProductController extends Controller
 
         $products = $query->orderBy('created_at', 'desc')->paginate(12);
         $sub_categories = $sub_categories_query->get();
-        // dd($sub_categories);
+
         return view('pages.product.list', compact('products', 'sub_categories'));
     }
 
@@ -66,12 +66,13 @@ class ProductController extends Controller
     public function store(StoreProductRequest $request)
     {
         $validatedData = $request->validated();
-        if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('products', 'public');
-            $validatedData['image'] = $imagePath;
-        }
 
-        Product::create($validatedData);
+        $product = Product::create($validatedData);
+
+        foreach ($validatedData['images'] as $image) {
+            $imagePath = $image->store('products', 'public');
+            $product->images()->create(['image_path' => $imagePath]);
+        }
 
         return redirect()->route('products.index')->with('success', 'Product Added successfully.');
     }
@@ -81,7 +82,7 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        $product->load('subCategory.category');
+        $product->load(['subCategory', 'category']);
         return view('pages.product.show')->with('product', $product);
     }
 
@@ -90,7 +91,7 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        $product->load('subCategory');
+        $product->load(['subCategory', 'images']);
         return view('pages.product.edit')->with('product', $product);
     }
 
@@ -100,13 +101,33 @@ class ProductController extends Controller
     public function update(UpdateProductRequest $request, Product $product)
     {
         $validatedData = $request->validated();
-        if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('products', 'public');
-            $validatedData['image'] = $imagePath;
+        $imageIds = array_map('intval', $validatedData['imageIds'] ?? []);
+
+        $imagesToDelete = $product->images()->whereNotIn('id', $imageIds)->get();
+
+        foreach ($imagesToDelete as $image) {
+            if (Storage::disk('public')->exists($image->image_path)) {
+                Storage::disk('public')->delete($image->image_path);
+            }
+
+            $image->delete();
         }
+
+        if ($request->hasFile('images')) {
+            foreach ($request->file('images') as $image) {
+                $originalName = pathinfo($image->getClientOriginalName(), PATHINFO_FILENAME);
+                $uploadedId = (int) $originalName;
+
+                if (!in_array($uploadedId, $imageIds)) {
+                    $imagePath = $image->store('products', 'public');
+                    $product->images()->create(['image_path' => $imagePath]);
+                }
+            }
+        }
+
         $product->update($validatedData);
 
-        return redirect()->route('products.index')->with('success', 'Product Updated successfully.');
+        return redirect()->route('products.index')->with('success', 'Product updated successfully.');
     }
 
     /**
