@@ -91,14 +91,24 @@
                     <div class="d-flex justify-content-between align-items-center mb-3">
                         <span class="h4 mb-0 fw-bold text-dark">
                             @if ($product->price > 0)
-                                {{ formatePrice($product->price) }}
+                                <span
+                                    class="{{ $product->hasDiscount() ? 'text-muted text-decoration-line-through' : '' }} me-2">
+                                    {{ formatePrice($product->price) }}
+                                </span>
+
+                                @if ($product->hasDiscount())
+                                    <span class="text-danger">
+                                        {{ formatePrice($product->discounted_price) }}
+                                    </span>
+                                @endif
                             @else
                                 <a href="https://wa.me/{{ env('WHATSAPP_NUMBER') }}" class="btn btn-primary btn-sm">
                                     <i class="fas fa-comment-alt me-2"></i>Request Price
                                 </a>
                             @endif
                         </span>
-                        @if ($product->discount)
+
+                        @if ($product->hasDiscount())
                             <span class="badge bg-success fs-6">
                                 {{ $product->discount }}% OFF
                             </span>

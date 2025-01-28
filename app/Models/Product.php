@@ -22,6 +22,7 @@ class Product extends Model
         'stock',
         'status',
     ];
+    protected $appends = ['discounted_price'];
 
 
     public function subCategory()
@@ -51,5 +52,13 @@ class Product extends Model
     public function hasDiscount(): bool
     {
         return $this->discount > 0;
+    }
+
+    public function getDiscountedPriceAttribute()
+    {
+        if (!$this->hasDiscount()) {
+            return $this->price;
+        }
+        return $this->price - ($this->price * $this->discount / 100);
     }
 }

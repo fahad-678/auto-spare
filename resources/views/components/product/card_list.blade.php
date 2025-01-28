@@ -43,7 +43,6 @@
     .product-card:hover {
         transform: scale(1.05);
         z-index: 10;
-        /* Ensure the card is above others when scaled */
     }
 
     .product-image {
