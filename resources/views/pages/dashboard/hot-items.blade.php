@@ -3,7 +3,7 @@
         <!-- Hot Items Section -->
         <div class="mb-5">
             <div class="section-title text-center">
-                <h2 class="display-6 fw-bold">Flash <span>ITEMS</span></h2>
+                <h2 class="display-6 fw-bold animate" data-animate="bounceIn">Hot <span>ITEMS</span></h2>
             </div>
 
             <div class="hot-items-slider">
@@ -26,11 +26,13 @@
         <!-- Flash Sale Section -->
         <div class="mt-5">
             <div class="section-title text-center">
-                <h2 class="display-6 fw-bold">Flash <span style="-webkit-text-fill-color: var(--bs-red);">SALE</span>
+                <h2 class="display-6 fw-bold animate" data-animate="bottom">Flash <span
+                        style="-webkit-text-fill-color: var(--bs-red);" class="animate"
+                        data-animate="bounceIn">SALE</span>
                 </h2>
                 <div class="timer-wrapper mt-3">
                     <i class="bi bi-clock"></i>
-                    <span class="countdown">00:30:00</span>
+                    <span class="countdown animate" data-animate="bounceIn">00:30:00</span>
                 </div>
             </div>
 
@@ -139,11 +141,16 @@
             const countdownEl = document.querySelector('.countdown');
             if (!countdownEl) return;
 
+            function setNewTimer() {
+                const newEndTime = Date.now() + duration * 1000;
+                localStorage.setItem("countdownEndTime", newEndTime);
+                return newEndTime;
+            }
+
             let endTime = localStorage.getItem("countdownEndTime");
 
-            if (!endTime) {
-                endTime = Date.now() + duration * 1000;
-                localStorage.setItem("countdownEndTime", endTime);
+            if (!endTime || isNaN(endTime) || Date.now() > parseInt(endTime, 10)) {
+                endTime = setNewTimer();
             } else {
                 endTime = parseInt(endTime, 10);
             }
@@ -162,6 +169,7 @@
                 if (timeLeft <= 0) {
                     clearInterval(timerInterval);
                     localStorage.removeItem("countdownEndTime");
+                    startTimer(duration);
                 }
             }
 
@@ -169,8 +177,6 @@
             const timerInterval = setInterval(updateTimer, 1000);
         }
 
-    
         startTimer(1800);
-
     });
 </script>

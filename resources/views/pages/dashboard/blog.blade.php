@@ -1,5 +1,5 @@
 <div class="container my-10">
-    <h1 class="text-center fs-2tx fw-bolder mb-4 animate" data-animate="bottom">Who Are We</h1>
+    <h1 class="text-center fs-2tx fw-bolder mb-4 animate" data-animate="bottom">Who We Are</h1>
     {{-- <p class="text-center text-gray-600 mb-7 fs-5 animate" data-animate="bottom">
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper<br>
       mattis, pulvinar dapibus leo.
