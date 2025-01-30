@@ -4,25 +4,24 @@
         <div class="row mb-3 justify-content-center">
             <div class="col-md-3 text-center text-md-start">
                 <h5 class="mb-4 text-primary ">{{ config('app.name', 'Laravel') }}</h5>
-                
             </div>
             <div class="col-md-3 text-center text-md-start">
-                <h5 class="mb-4 text-white fw-bold fs-6">Customer Service</h5>
+                <h5 class="mb-4 text-white fw-bold fs-6">Soofi Autos</h5>
                 <ul class="list-unstyled footer-links">
-                    <li><a href="#" class="text-white">Help Center</a></li>
-                    <li><a href="#" class="text-white">Track My Order</a></li>
-                    <li><a href="#" class="text-white">Shipping & Returns</a></li>
-                    <li><a href="#" class="text-white">Store Location</a></li>
+                    <li><i class="fas fa-map-marker-alt text-primary"></i> 19 - Jan Plaza, Peshawar Cantt</li>
+                    <li><i class="fas fa-phone text-primary"></i> +92-317-8333672 | +92-321-9101241</li>
+                    <li><i class="fas fa-phone text-primary"></i> +92-91-5277774</li>
+                    <li><i class="fas fa-fax text-primary"></i> +92-91-5270016</li>
+                    <li><i class="fas fa-envelope text-primary"></i> sapp_786@hotmail.com</li>
                 </ul>
             </div>
             <div class="col-md-3 text-center text-md-start">
-                <h5 class="mb-4 text-white fw-bold fs-6">Information</h5>
+                <h5 class="mb-4 text-white fw-bold fs-6">Ubaid Motors</h5>
                 <ul class="list-unstyled footer-links">
-                    <li><a href="/about-us" class="text-white">About Us</a></li>
-                    <li><a href="#" class="text-white">Legal Notice</a></li>
-                    <li><a href="#" class="text-white">Customer Reviews</a></li>
-                    <li><a href="#" class="text-white">Guides & Articles</a></li>
-                    <li><a href="#" class="text-white">Coupon Codes</a></li>
+                    <li><i class="fas fa-map-marker-alt text-primary"></i> Cantonment Plaza, Khoram Road, Peshawar</li>
+                    <li><i class="fas fa-phone text-primary"></i> 091-5277775</li>
+                    <li><i class="fas fa-envelope text-primary"></i> shoaibkhan7719@gmail.com</li>
+                    <li><i class="fa-brands fa-whatsapp text-primary fs-4"></i> +92-300-5961283 (Shoaib)</li>
                 </ul>
             </div>
             <div class="col-md-3 text-center text-md-start">
@@ -32,8 +31,7 @@
                     <li><i class="fas fa-envelope text-primary"></i> info@nkautopart.com</li>
                     <li><i class="fas fa-phone text-primary"></i> {{ env('LANDLINE_NUMBER') }}</li>
                     <li><i class="fa-brands fa-whatsapp text-primary fs-4"></i> {{ env('WHATSAPP_NUMBER') }}</li>
-                    <li><i class="fas fa-clock text-primary"></i> 8:30 am to 1:30 pm <br /> <span class="ms-5">4:00 pm
-                            to 8:30 pm</span> </li>
+                    <li><i class="fas fa-clock text-primary"></i> 8:30 am to 1:30 pm <br /> <span class="ms-5">4:00 pm to 8:30 pm</span> </li>
                 </ul>
             </div>
         </div>

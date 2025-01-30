@@ -1,5 +1,5 @@
 @props(['product'])
-<div class="col-lg-3 col-md-4 col-6 mb-4 position-relative product-list-card">
+<div class="col-md-12 mb-4 position-relative product-card">
     <div class="card h-100 pt-1 border-2 text-center shadow-sm">
         <a href="{{ route('products.show', $product->id) }}" class="text-decoration-none position-relative d-block">
             <img src="{{ $product->primaryImageUrl() }}" class="img-fluid product-image rounded" alt="{{ $product->name }}"
@@ -19,29 +19,15 @@
                     {{ $product->name }}
                 </a>
             </h5>
-
-            @auth
-                <div class="mt-auto pt-2">
-                    <div class="d-grid gap-2">
-                        <a href="{{ route('products.edit', $product->id) }}" class="btn btn-outline-secondary btn-sm">
-                            <i class="fas fa-edit me-1"></i>Edit
-                        </a>
-                        <button type="button" class="btn btn-outline-primary btn-sm delete-product" data-bs-toggle="modal"
-                            data-bs-target="#deleteModal" data-product-id="{{ $product->id }}">
-                            <i class="fas fa-trash me-1"></i>Delete
-                        </button>
-                    </div>
-                </div>
-            @endauth
         </div>
     </div>
 </div>
 <style>
-    .product-list-card {
+    .product-card {
         transition: transform 0.3s ease;
     }
 
-    .product-list-card:hover {
+    .product-card:hover {
         transform: scale(1.05);
         z-index: 10;
     }
@@ -52,7 +38,7 @@
 </style>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        const productCards = document.querySelectorAll('.product-list-card');
+        const productCards = document.querySelectorAll('.product-card');
 
         productCards.forEach(card => {
             const image = card.querySelector('.product-image');

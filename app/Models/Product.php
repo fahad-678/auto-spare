@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -24,6 +25,13 @@ class Product extends Model
     ];
     protected $appends = ['discounted_price'];
 
+    public function getDiscountedPriceAttribute()
+    {
+        if (!$this->hasDiscount()) {
+            return $this->price;
+        }
+        return $this->price - ($this->price * $this->discount / 100);
+    }
 
     public function subCategory()
     {
@@ -54,11 +62,9 @@ class Product extends Model
         return $this->discount > 0;
     }
 
-    public function getDiscountedPriceAttribute()
+    public function scopeGetDiscountProduct(Builder $query)
     {
-        if (!$this->hasDiscount()) {
-            return $this->price;
-        }
-        return $this->price - ($this->price * $this->discount / 100);
+        return $query->whereNotNull('discount');
     }
+
 }

@@ -13,7 +13,28 @@ class DashboardController extends Controller
     {
         $categories = Category::orderBy('created_at', 'desc')->paginate(8);
         $hotItems = Category::where('hot_item', 1)->orderBy('created_at', 'desc')->get();
-        return view('pages/dashboard.index')->with(['categories' => $categories, 'hotItems' => $hotItems]);
+
+        $productsOnSale = Product::getDiscountProduct()->orderBy('discount', 'desc')->get();
+
+        if ($hotItems->count() < 3) {
+            $additionalItems = Category::whereNotIn('id', $hotItems->pluck('id'))
+                ->take(3 - $hotItems->count())
+                ->get();
+            $hotItems = $hotItems->merge($additionalItems);
+        }
+
+        if ($productsOnSale->count() < 3) {
+            $additionalProducts = Product::whereNotIn('id', $productsOnSale->pluck('id'))
+                ->take(3 - $productsOnSale->count())
+                ->get();
+            $productsOnSale = $productsOnSale->merge($additionalProducts);
+        }
+
+        return view('pages/dashboard.index')->with([
+            'categories' => $categories,
+            'hotItems' => $hotItems,
+            'productsOnSale' => $productsOnSale
+        ]);
     }
 
     public function globalSearch(Request $request)

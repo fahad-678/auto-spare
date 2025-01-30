@@ -1,34 +1,58 @@
-<div class="container px-0">
-    <div class="row g-0">
-        <div class="col-12">
-            <div class="card text-bg-dark">
-                <img src="{{ asset('assets/media/stock/900x600/81.jpg') }}" class="card-img flash-sale-img"
-                    alt="Flash Sale Background" loading="lazy">
-                <div class="card-img-overlay p-0 d-flex flex-column flash-sale-overlay">
-                    <div class="row g-0 h-md-100">
-                        <div class="col-12 col-md-2 mb-3 mb-md-0 text-bg-dark py-7 py-md-0 d-md-flex align-items-center justify-content-center px-md-4 rounded">
-                            <div
-                                class="flash-sale-content d-flex d-md-block flex-column align-items-center justify-content-center">
-                                <h2 class="fs-2x fw-bolder animate text-white" data-animate="bounceIn">Flash <span
-                                        class="text-primary">SALE</span></h2>
-                                <p class="fs-4">Get the best offer on our exclusive Part</p>
-                                <div class="bg-primary p-2 text-white d-inline-block text-center text-md-start">
-                                    <p class="mb-0 fw-bold">NK BEST</p>
-                                    <p class="mb-0">RUNNING ITEMS</p>
-                                </div>
+<div class="flash-section">
+    <div class="container">
+        <!-- Hot Items Section -->
+        <div class="mb-5">
+            <div class="section-title text-center">
+                <h2 class="display-6 fw-bold">Flash <span>ITEMS</span></h2>
+            </div>
+
+            <div class="hot-items-slider">
+                @foreach ($hotItems as $item)
+                    <div class="px-2"
+                        onclick="event.preventDefault(); window.location.href='{{ route('products.index') }}' + '?category_id={{ $item->id }}';">
+                        <div class="card product-card">
+                            <div class="product-img-wrapper">
+                                <img src="{{ $item->image_url }}" class="product-img" alt="{{ $item->name }}">
                             </div>
-                        </div>
-                        <div class="col-12 col-md-10 d-md-flex align-items-center px-2 px-md-0">
-                            <div class="hot-items-slider mt-7 mt-md-0 px-md-7">
-                                @foreach ($hotItems as $item)
-                                    <div class="slider-item">
-                                        <x-product.card :product="$item" viewType="hot_item" route="category" />
-                                    </div>
-                                @endforeach
+                            <div class="card-body">
+                                <h5 class="card-title">{{ $item->name }}</h5>
                             </div>
                         </div>
                     </div>
+                @endforeach
+            </div>
+        </div>
+
+        <!-- Flash Sale Section -->
+        <div class="mt-5">
+            <div class="section-title text-center">
+                <h2 class="display-6 fw-bold">Flash <span style="-webkit-text-fill-color: var(--bs-red);">SALE</span>
+                </h2>
+                <div class="timer-wrapper mt-3">
+                    <i class="bi bi-clock"></i>
+                    <span class="countdown">00:30:00</span>
                 </div>
+            </div>
+
+            <div class="flash-sale-slider overflow-x-auto">
+                @foreach ($productsOnSale as $product)
+                    <div class="px-2" onclick="window.location.href='{{ route('products.show', $product->id) }}';">
+                        <div class="card product-card">
+                            <div class="product-img-wrapper">
+                                <img src="{{ $product->primaryImageUrl() }}" class="product-img"
+                                    alt="{{ $product->name }}">
+                                <div class="discount-badge">-{{ $product->discount }}%</div>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">{{ $product->name }}</h5>
+                                <div class="d-flex align-items-center gap-2">
+                                    <span class="text-primary fw-bolder fs-5">{{ $product->discounted_price }}</span>
+                                    <span class="text-muted text-decoration-line-through">{{ $product->price }}</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
             </div>
         </div>
     </div>
@@ -36,21 +60,117 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        if (window.innerWidth >= 768) {
-            $('.hot-items-slider').slick({
-                slidesToShow: 4,
-                slidesToScroll: 1,
-                autoplay: true,
-                autoplaySpeed: 2000,
-                arrows: false,
-                dots: false,
-                responsive: [{
+        var productCount = <?php echo count($productsOnSale); ?>;
+        var hotItemsCount = <?php echo count($hotItems); ?>;
+
+        function getMaxSlides(count) {
+            return count >= 4 ? 4 : count;
+        }
+
+        $('.hot-items-slider').slick({
+            slidesToShow: getMaxSlides(hotItemsCount),
+            slidesToScroll: 1,
+            autoplay: true,
+            autoplaySpeed: 3000,
+            prevArrow: '<button type="button" class="slick-prev"><i class="bi bi-chevron-left"></i></button>',
+            nextArrow: '<button type="button" class="slick-next"><i class="bi bi-chevron-right"></i></button>',
+            responsive: [{
+                    breakpoint: 1200,
+                    settings: {
+                        slidesToShow: getMaxSlides(hotItemsCount)
+                    }
+                },
+                {
                     breakpoint: 992,
                     settings: {
-                        slidesToShow: 2
+                        slidesToShow: Math.min(3, hotItemsCount)
                     }
-                }]
-            });
+                },
+                {
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: Math.min(2, hotItemsCount)
+                    }
+                },
+                {
+                    breakpoint: 576,
+                    settings: {
+                        slidesToShow: Math.min(1, hotItemsCount)
+                    }
+                }
+            ]
+        });
+
+        $('.flash-sale-slider').slick({
+            slidesToShow: getMaxSlides(productCount),
+            slidesToScroll: 1,
+            autoplay: true,
+            autoplaySpeed: 3000,
+            prevArrow: '<button type="button" class="slick-prev"><i class="bi bi-chevron-left"></i></button>',
+            nextArrow: '<button type="button" class="slick-next"><i class="bi bi-chevron-right"></i></button>',
+            responsive: [{
+                    breakpoint: 1200,
+                    settings: {
+                        slidesToShow: getMaxSlides(productCount)
+                    }
+                },
+                {
+                    breakpoint: 992,
+                    settings: {
+                        slidesToShow: Math.min(3, productCount)
+                    }
+                },
+                {
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: Math.min(2, productCount)
+                    }
+                },
+                {
+                    breakpoint: 576,
+                    settings: {
+                        slidesToShow: Math.min(1, productCount)
+                    }
+                }
+            ]
+        });
+
+        function startTimer(duration) {
+            const countdownEl = document.querySelector('.countdown');
+            if (!countdownEl) return;
+
+            let endTime = localStorage.getItem("countdownEndTime");
+
+            if (!endTime) {
+                endTime = Date.now() + duration * 1000;
+                localStorage.setItem("countdownEndTime", endTime);
+            } else {
+                endTime = parseInt(endTime, 10);
+            }
+
+            function updateTimer() {
+                const now = Date.now();
+                let timeLeft = Math.max(0, Math.floor((endTime - now) / 1000));
+
+                let hours = Math.floor(timeLeft / 3600);
+                let minutes = Math.floor((timeLeft % 3600) / 60);
+                let seconds = timeLeft % 60;
+
+                countdownEl.textContent =
+                    `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+
+                if (timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    localStorage.removeItem("countdownEndTime");
+                }
+            }
+
+            updateTimer();
+            const timerInterval = setInterval(updateTimer, 1000);
         }
+
+    
+        startTimer(1800);
+
     });
 </script>
