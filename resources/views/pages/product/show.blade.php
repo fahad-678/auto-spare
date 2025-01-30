@@ -10,7 +10,7 @@
                     <div class="swiper-wrapper">
                         @foreach ($product->images as $image)
                             <div class="swiper-slide">
-                                <img class="swiper-main-img img-fluid" src="{{ asset('storage/' . $image->image_path) }}"
+                                <img class="swiper-main-img img-fluid" src="{{ $image->image_url }}"
                                     alt="Product image">
                             </div>
                         @endforeach

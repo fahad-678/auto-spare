@@ -1,6 +1,6 @@
 @props(['product'])
 <div class="col-lg-3 col-md-4 col-6 mb-4 position-relative product-list-card">
-    <div class="card h-100 pt-1 border-2 text-center shadow-sm">
+    <div class="card h-100 border border-2 text-center shadow-sm">
         <a href="{{ route('products.show', $product->id) }}" class="text-decoration-none position-relative d-block">
             <img src="{{ $product->primaryImageUrl() }}" class="img-fluid product-image rounded" alt="{{ $product->name }}"
                 loading="lazy" style="object-fit: cover; width: 100%; height: 300px;"
