@@ -25,6 +25,8 @@
 
         .logo {
             margin-right: 20px;
+            height: 50px;
+            width: 50px;
         }
 
         h1 {
