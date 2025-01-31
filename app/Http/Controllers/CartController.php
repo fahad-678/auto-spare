@@ -108,7 +108,7 @@ class CartController extends Controller
             ];
         }
 
-        Mail::to('fake1236565@gmail.com')->send(new ProductEnquiryMail(
+        Mail::to(config('mail.company_email'))->send(new ProductEnquiryMail(
             $validatedData['username'],
             $validatedData['email'],
             $validatedData['phone'],
