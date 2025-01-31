@@ -25,8 +25,6 @@
 
         .logo {
             margin-right: 20px;
-            height: 50px;
-            width: 50px;
         }
 
         h1 {
@@ -79,7 +77,7 @@
 <body>
     <div class="header">
         <div class="logo">
-            <img src="{{ asset(config('settings.KT_THEME_ASSETS.favicon')) }}" alt="Company Logo">
+            <img src="{{ asset(config('settings.KT_THEME_ASSETS.favicon')) }}" width="50" height="50" alt="Company Logo">
         </div>
         <h1>Product Enquiry</h1>
     </div>
