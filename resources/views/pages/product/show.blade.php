@@ -4,25 +4,29 @@
     <div class="container mt-md-20 mt-10 card p-4 mb-3">
         <div class="row">
             <div class="row mb-5">
-                <h1 class="h2 mb-4 fw-bold text-primary border-bottom pb-3">{{ $product->name }}</h1>
+                <div class="d-flex justify-content-between align-items-center border-bottom pb-3">
+                    <h1 class="fw-bold text-primary">{{ $product->name }}</h1>
+                    <button type="button" class="btn btn-primary add-to-cart" data-id="{{ $product->id }}">
+                        <i class="fas fa-shopping-cart me-1"></i>Add to Cart
+                    </button>
+                </div>
 
                 <div class="swiper mySwiper2 rounded-3 overflow-hidden">
                     <div class="swiper-wrapper">
                         @foreach ($product->images as $image)
                             <div class="swiper-slide">
-                                <img class="swiper-main-img img-fluid" src="{{ $image->image_url }}"
-                                    alt="Product image">
+                                <img class="swiper-main-img img-fluid" src="{{ $image->image_url }}" alt="Product image">
                             </div>
                         @endforeach
                     </div>
-                    <div class="swiper-button-next bg-white p-5 rounded-circle shadow"></div>
-                    <div class="swiper-button-prev bg-white p-5 rounded-circle shadow"></div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
                 </div>
                 @if (count($product->images) > 1)
                     <div class="swiper mySwiper">
                         <div class="swiper-wrapper">
                             @foreach ($product->images as $image)
-                                <div class="swiper-slide cursor-pointer">
+                                <div class="swiper-slide cursor-pointer shadow-sm">
                                     <img class="swiper-thumb-img" src="{{ asset('storage/' . $image->image_path) }}"
                                         alt="Product thumbnail">
                                 </div>
@@ -40,7 +44,8 @@
                                 @if ($product->part_number)
                                     {{ $product->part_number }}
                                 @else
-                                    <a href="https://wa.me/{{ env('WHATSAPP_NUMBER') }}" class="text-decoration-none small">
+                                    <a href="https://wa.me/{{ env('WHATSAPP_NUMBER') }}" target="_blank"
+                                        class="text-decoration-none small">
                                         Request Part Number
                                     </a>
                                 @endif
@@ -51,7 +56,8 @@
                                 @if ($product->oem)
                                     {{ $product->oem }}
                                 @else
-                                    <a href="https://wa.me/{{ env('WHATSAPP_NUMBER') }}" class="text-decoration-none small">
+                                    <a href="https://wa.me/{{ env('WHATSAPP_NUMBER') }}" target="_blank"
+                                        class="text-decoration-none small">
                                         Request OEM
                                     </a>
                                 @endif
@@ -66,7 +72,8 @@
                                 @if ($product->category?->name)
                                     {{ $product->category->name }}
                                 @else
-                                    <a href="https://wa.me/{{ env('WHATSAPP_NUMBER') }}" class="text-decoration-none small">
+                                    <a href="https://wa.me/{{ env('WHATSAPP_NUMBER') }}" target="_blank"
+                                        class="text-decoration-none small">
                                         Request Category
                                     </a>
                                 @endif
@@ -77,7 +84,7 @@
                                 @if ($product->brand?->name)
                                     {{ $product->brand->name }}
                                 @else
-                                    <a href="https://wa.me/{{ env('WHATSAPP_NUMBER') }}"
+                                    <a href="https://wa.me/{{ env('WHATSAPP_NUMBER') }}" target="_blank"
                                         class="text-decoration-none small">
                                         Request Brand
                                     </a>
@@ -91,18 +98,18 @@
                     <div class="d-flex justify-content-between align-items-center mb-3">
                         <span class="h4 mb-0 fw-bold text-dark">
                             @if ($product->price > 0)
-                                <span
-                                    class="{{ $product->hasDiscount() ? 'text-muted text-decoration-line-through' : '' }} me-2">
-                                    {{ formatePrice($product->price) }}
-                                </span>
-
                                 @if ($product->hasDiscount())
                                     <span class="text-danger">
                                         {{ formatePrice($product->discounted_price) }}
                                     </span>
                                 @endif
+                                <span
+                                    class="{{ $product->hasDiscount() ? 'text-muted text-decoration-line-through' : '' }} me-2">
+                                    {{ formatePrice($product->price) }}
+                                </span>
                             @else
-                                <a href="https://wa.me/{{ env('WHATSAPP_NUMBER') }}" class="btn btn-primary btn-sm">
+                                <a href="https://wa.me/{{ env('WHATSAPP_NUMBER') }}" target="_blank"
+                                    class="btn btn-primary btn-sm">
                                     <i class="fas fa-comment-alt me-2"></i>Request Price
                                 </a>
                             @endif
@@ -154,6 +161,7 @@
 
 
 @push('scripts')
+    <script src="{{ asset('assets/js/cart.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
         var totalImages = {{ count($product->images) }};
@@ -161,7 +169,7 @@
 
         if (totalImages > 1) {
             swiper = new Swiper(".mySwiper", {
-                spaceBetween: 2,
+                spaceBetween: 5,
                 direction: "vertical",
                 slidesPerView: totalImages,
                 freeMode: true,
@@ -204,5 +212,20 @@
             });
         });
     </script>
-    <script></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.add-to-cart').forEach(button => {
+                button.addEventListener('click', function() {
+                    const productId = this.getAttribute('data-id');
+
+                    const product = {
+                        id: parseInt(productId),
+                        quantity: 1
+                    };
+
+                    addToCart(product, "{{ route('cart.store') }}", "{{ csrf_token() }}");
+                });
+            });
+        });
+    </script>
 @endpush

@@ -49,6 +49,10 @@
                                 @endguest
                             </ul>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ request()->routeIs('cart.index') ? 'active' : '' }}"
+                                aria-current="page" href="{{ route('cart.index') }}">Cart</a>
+                        </li>
                         @if (Auth::check())
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle {{ Request::is('category*') ? 'active' : '' }}"

@@ -2,6 +2,8 @@
 
 return [
 
+    'currency' => env('CURRENCY', 'AED'),
+
     'KT_THEME_BOOTSTRAP' => [
         'default' => \App\Core\Bootstrap\BootstrapDefault::class,
         'auth' => \App\Core\Bootstrap\BootstrapAuth::class,

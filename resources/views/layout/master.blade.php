@@ -98,6 +98,29 @@
     <!--end::Javascript-->
 
     <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            toastr.options = {
+                "closeButton": true,
+                "progressBar": true
+            };
+
+            @if (session('success'))
+                toastr.success("{{ session('success') }}");
+            @endif
+
+            @if (session('error'))
+                toastr.error("{{ session('error') }}");
+            @endif
+
+            @if (session('warning'))
+                toastr.warning("{{ session('warning') }}");
+            @endif
+
+            @if (session('info'))
+                toastr.info("{{ session('info') }}");
+            @endif
+        });
+
         document.addEventListener('livewire:init', () => {
             Livewire.on('success', (message) => {
                 toastr.success(message);

@@ -49,6 +49,8 @@
 @endsection
 
 @push('scripts')
+    <script src="{{ asset('assets/js/cart.js') }}"></script>
+    <script src="{{ asset('assets/js/card_list.js') }}"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const deleteButtons = document.querySelectorAll('.delete-product');
@@ -124,6 +126,22 @@
                     window.location.href = '/products/' + selectedValue.id;
                 }
             })
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelectorAll('.add-to-cart').forEach(button => {
+                button.addEventListener('click', function() {
+                    const productId = this.getAttribute('data-id');
+
+                    const product = {
+                        id: parseInt(productId),
+                        quantity: 1
+                    };
+
+                    addToCart(product, "{{ route('cart.store') }}", "{{ csrf_token() }}");
+                });
+            });
         });
     </script>
 @endpush

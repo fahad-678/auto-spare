@@ -7,6 +7,7 @@ use App\Http\Controllers\Auth\SocialiteController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
@@ -49,6 +50,9 @@ Route::middleware(['web'])->group(function () {
 
     Route::get('/category/search', [CategoryController::class, 'search'])->name('category.search');
     Route::resource('/category', CategoryController::class)->except(['create', 'store', 'edit', 'update', 'destroy']);
+
+    Route::post('/cart/checkout', [CartController::class, 'checkout'])->name('cart.checkout');
+    Route::resource('/cart', CartController::class)->only(['index', 'store']);
 
     Route::get('/about-us', [DashboardController::class, 'aboutUs'])->name('about-us');
     Route::get('/contact-us', [DashboardController::class, 'contactUs'])->name('contact-us');

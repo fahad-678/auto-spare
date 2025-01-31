@@ -465,11 +465,11 @@ footer .footer-container {
 }
 
 .mySwiper2 {
-  width: 80%;
+  width: 90%;
 }
 
 .mySwiper {
-  width: 20%;
+  width: 10%;
   box-sizing: border-box;
   padding: 10px 0;
 }
@@ -496,13 +496,13 @@ footer .footer-container {
   display: block;
   width: 100%;
   height: 100%;
-  object-fit: fill;
+  object-fit: scale-down;
 }
 
 .swiper-button-next,
 .swiper-button-prev {
-  --swiper-navigation-size: 24px;
-  color: #333 !important;
+  --swiper-navigation-size: 30px;
+  --swiper-navigation-color: var(--bs-primary);
 }
 
 .flash-section {
@@ -596,4 +596,17 @@ footer .footer-container {
 
 .slick-next {
   right: -20px;
+}
+
+.product-list-card {
+  transition: transform 0.3s ease;
+}
+
+.product-list-card:hover {
+  transform: scale(1.05);
+  z-index: 10;
+}
+
+.product-image {
+  transition: opacity 0.4s ease;
 }

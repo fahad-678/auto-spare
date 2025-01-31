@@ -62,9 +62,13 @@ class Product extends Model
         return $this->discount > 0;
     }
 
+    public function formattedPrice()
+    {
+        return $this->discounted_price . ' ' . config('settings.currency');
+    }
+
     public function scopeGetDiscountProduct(Builder $query)
     {
         return $query->whereNotNull('discount');
     }
-
 }
