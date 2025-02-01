@@ -16,8 +16,8 @@
                     </div>
                     <div class="col-md-7 container">
                         <div class="testimonial-slider">
-                            <div class="slider-item">
-                                <div class="card border-0 rounded-0">
+                            <div class="slider-item py-5">
+                                <div class="card border-0 rounded-0 product-card">
                                     <div class="card-body testimonial-card shadow-lg">
                                         <div class="rating mb-5">
                                             @for ($i = 0; $i < 5; $i++)
@@ -53,8 +53,8 @@
                             </div>
                             <!-- Repeat the slider-item div for each testimonial -->
                             <!-- For example: -->
-                            <div class="slider-item">
-                                <div class="card border-0 rounded-0">
+                            <div class="slider-item py-5">
+                                <div class="card border-0 rounded-0 product-card">
                                     <div class="card-body testimonial-card shadow-lg">
                                         <div class="rating mb-5">
                                             @for ($i = 0; $i < 5; $i++)
@@ -87,8 +87,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="slider-item">
-                                <div class="card border-0 rounded-0">
+                            <div class="slider-item py-5">
+                                <div class="card border-0 rounded-0 product-card">
                                     <div class="card-body testimonial-card shadow-lg">
                                         <div class="rating mb-5">
                                             @for ($i = 0; $i < 5; $i++)
@@ -121,8 +121,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="slider-item">
-                                <div class="card border-0 rounded-0">
+                            <div class="slider-item py-5">
+                                <div class="card border-0 rounded-0 product-card">
                                     <div class="card-body testimonial-card shadow-lg">
                                         <div class="rating mb-5">
                                             @for ($i = 0; $i < 5; $i++)

@@ -76,7 +76,7 @@
                                 <i class="fas fa-camera"></i> Upload Image
                             </label>
                             <input type="file" class="d-none" id="imageUpload" name="images[]" multiple>
-                            <small class="form-text text-muted">Max 5 images
+                            <small class="form-text text-muted">Max 6 images
                                 allowed.</small>
                         </div>
                     </div>
@@ -105,14 +105,14 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
         let images = [];
-        const maxImages = 5;
+        const maxImages = 6;
         let mainSlider, thumbnailSlider;
 
         function initializeSwipers() {
 
             thumbnailSlider = new Swiper('.mySwiper', {
                 spaceBetween: 10,
-                slidesPerView: 5,
+                slidesPerView: 6,
                 freeMode: true,
                 watchSlidesProgress: true,
             });
@@ -159,7 +159,7 @@
             });
 
             if (filesToAdd.length < files.length) {
-                alert(`Only ${filesToAdd.length} images were added. Maximum of 5 images allowed.`);
+                toastr.error(`Only ${filesToAdd.length} images were added. Maximum of 6 images allowed.`);
             }
         }
 
@@ -192,7 +192,7 @@
 
         document.getElementById('addImage').addEventListener('click', () => {
             if (images.length >= maxImages) {
-                alert('You can only upload up to 5 images.');
+                toastr.error('You can only upload up to 6 images.');
                 return;
             }
 

@@ -3,7 +3,7 @@ function addToCart(product, url, csrf) {
 
     const existingProduct = cart.find((item) => item.id === product.id);
     if (existingProduct) {
-        existingProduct.quantity += 1;
+        existingProduct.quantity  = product.quantity;
     } else {
         cart.push(product);
     }
@@ -12,6 +12,23 @@ function addToCart(product, url, csrf) {
 
     updateCartOnServer(cart, url, csrf, (data) => {
         toastr.success(data.message);
+    });
+}
+
+function getCart(url, csrf, callbackFunction) {
+    $.ajax({
+        url: url,
+        method: "GET",
+        headers: {
+            "X-CSRF-TOKEN": csrf,
+        },
+        success: function (data) {
+            callbackFunction(data);
+        },
+        error: function (xhr, status, error) {
+            console.error("Error:", error);
+            toastr.error("Unexpected Error Occurred");
+        },
     });
 }
 
@@ -55,7 +72,7 @@ function removeFromCart(productId, url, csrf) {
 function updateQuantity(productId, change, url, csrf) {
     let cart = JSON.parse(localStorage.getItem("cart")) || [];
     const existingProduct = cart.find((item) => item.id === productId);
-    debugger;
+
     if (existingProduct) {
         const newQuantity = Math.max(1, existingProduct.quantity + change);
 

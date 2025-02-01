@@ -218,12 +218,35 @@
                 button.addEventListener('click', function() {
                     const productId = this.getAttribute('data-id');
 
-                    const product = {
-                        id: parseInt(productId),
-                        quantity: 1
-                    };
+                    Swal.fire({
+                        title: 'Enter Quantity',
+                        input: 'number',
+                        inputAttributes: {
+                            min: 1,
+                            step: 1
+                        },
+                        inputValue: 1,
+                        showCancelButton: true,
+                        confirmButtonText: 'Add to Cart',
+                        cancelButtonText: 'Cancel'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            const quantity = parseInt(result.value);
 
-                    addToCart(product, "{{ route('cart.store') }}", "{{ csrf_token() }}");
+                            if (!isNaN(quantity) && quantity > 0) {
+                                const product = {
+                                    id: parseInt(productId),
+                                    quantity: quantity
+                                };
+
+                                addToCart(product, "{{ route('cart.store') }}",
+                                    "{{ csrf_token() }}");
+                            } else {
+                                Swal.fire('Invalid Quantity',
+                                    'Please enter a valid quantity.', 'error');
+                            }
+                        }
+                    });
                 });
             });
         });

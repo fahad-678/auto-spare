@@ -33,9 +33,9 @@ class UpdateProductRequest extends FormRequest
             'brand_id' => 'nullable|exists:brands,id',
             'stock' => 'nullable|integer|min:0',
             'images.*' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'images' => 'nullable|array|max:5',
+            'images' => 'nullable|array|max:6',
             'imageIds.*' => 'nullable|integer',
-            'imageIds' => 'nullable|array|max:5',
+            'imageIds' => 'nullable|array|max:6',
             'status' => 'nullable',
         ];
     }

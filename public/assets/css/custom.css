@@ -23,8 +23,101 @@ footer {
   flex-shrink: 0;
 }
 
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -300px;
+  width: 300px;
+  height: 100vh;
+  transition: left 0.3s ease;
+  z-index: 1001;
+  overflow-y: auto;
+}
+
+.sidebar.show {
+  left: 0;
+}
+
+@media (min-width: 1060px) {
+  .sidebar {
+    display: none;
+  }
+}
+
+.menu-item {
+  margin-bottom: 0.5rem;
+}
+
+.menu-link {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  color: #181C32;
+  text-decoration: none;
+  border-radius: 0.475rem;
+}
+
+.menu-link:hover {
+  background-color: #F4F6FA;
+}
+
+.menu-link.active {
+  background-color: #F4F6FA;
+  color: var(--bs-primary);
+}
+
+.menu-sub-accordion {
+  margin-left: 1.75rem;
+}
+
+.navbar-wrapper {
+  z-index: 100;
+}
+
 .navbar {
-  background-color: white;
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  transition: all 0.3s ease;
+  top: 45px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: max-content;
+}
+
+.nav-link {
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: var(--bs-primary);
+}
+
+.form-select {
+  border-radius: 20px;
+  border: 1px solid #e4e6ef;
+  transition: border-color 0.3s ease;
+}
+
+.form-select:focus {
+  border-color: var(--bs-primary);
+  box-shadow: 0 0 0 0.2rem rgba(0, 158, 247, 0.25);
+}
+
+.btn-icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.btn-icon:hover {
+  background-color: #f5f8fa;
+  transform: translateY(-2px);
 }
 
 .navbar .dropdown-item:hover {
@@ -53,19 +146,6 @@ footer {
 
 .navbar-nav .nav-link.active {
   color: var(--bs-primary);
-}
-
-.custom-navbar {
-  @media (min-width: 768px) {
-    position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    top: 20px;
-    width: 100%;
-  }
-
-  z-index: 1;
 }
 
 .hero-section {
@@ -609,4 +689,8 @@ footer .footer-container {
 
 .product-image {
   transition: opacity 0.4s ease;
+}
+
+.ribbon .ribbon-label {
+  z-index: 0;
 }

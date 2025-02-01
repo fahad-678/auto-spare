@@ -31,6 +31,13 @@ class CartController extends Controller
             $products = Product::whereIn('id', $productIds)->get()->keyBy('id');
         }
 
+        if ($request->ajax()) {
+            return response()->json([
+                'cart' => $cart,
+                'products' => $products
+            ]);
+        }
+        
         return view('pages.cart.index', [
             'cart' => $cart,
             'products' => $products

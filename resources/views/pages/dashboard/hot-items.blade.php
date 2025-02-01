@@ -39,11 +39,11 @@
             <div class="flash-sale-slider overflow-x-auto">
                 @foreach ($productsOnSale as $product)
                     <div class="px-2" onclick="window.location.href='{{ route('products.show', $product->id) }}';">
-                        <div class="card product-card">
+                        <div class="card product-card ribbon ribbon-top">
                             <div class="product-img-wrapper">
                                 <img src="{{ $product->primaryImageUrl() }}" class="product-img"
                                     alt="{{ $product->name }}">
-                                <div class="discount-badge">-{{ $product->discount }}%</div>
+                                <div class="ribbon-label">-{{ $product->discount }}%</div>
                             </div>
                             <div class="card-body">
                                 <h5 class="card-title">{{ $product->name }}</h5>
