@@ -1,5 +1,5 @@
 @php
-    $cart = session()->get('cart');
+    $cart = session()->get('cart') ?? [];
 @endphp
 <div class="header-container">
     <!-- Top Bar for Mobile -->
