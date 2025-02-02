@@ -215,4 +215,5 @@ return [
     ])->toArray(),
     
     'currency' => env('CURRENCY'),
+    'license_key' => env('LICENSE_KEY'),
 ];
