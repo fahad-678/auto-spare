@@ -1,14 +1,14 @@
-<div class="container-fluid p-0 mb-20 mb-md-auto">
+<div class="container-fluid p-0">
     @php
         $nr = 4.2;
     @endphp
     <div class="row mt-5 g-0">
         <div class="col-md-12 p-0">
             <div class="card text-bg-dark border-0 rounded-0">
-                <img src="{{ asset('assets/media/stock/900x600/77.jpg') }}" class="card-img rounded-0 hero-section"
+                <img src="{{ asset('assets/media/stock/900x600/77.jpg') }}" class="card-img rounded-0 h-500px"
                     alt="..." loading="lazy">
                 <div class="row card-img-overlay align-items-center g-0">
-                    <div class="col-md-3 d-flex d-md-block justify-content-center container fs-2hx fs-md-4hx fw-bolder mb-3 mb-md-6 text-white animate"
+                    <div class="col-md-3 d-flex d-md-block justify-content-center container fs-2hx fs-md-4hx fw-bolder mb-md-6 text-white animate"
                         data-animate="bottom">
                         <p class="mb-0">Our</p>
                         <p class="mb-0 ms-2 ms-md-0">Happy</p>

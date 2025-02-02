@@ -1,5 +1,5 @@
-<div class="container-fluid bg-light py-20">
-    <div class="container py-10 py-md-0">
+<div class="container-fluid bg-light py-10">
+    <div class="container">
       <div class="row align-items-center ">
         <div class="col-lg-6 pe-15">
           {{-- <p class="text-uppercase small mb-4 fst-italic fs-4 animate" data-animate="bottom">WHY CHOOSE US</p> --}}

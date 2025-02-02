@@ -7,7 +7,7 @@
   
     <div class="row animate mb-4" onclick="window.location.href='/about-us'">
       <div class="col-md-6 cursor-pointer">
-        <div class="card h-100">
+        <div class="card h-100 product-card">
           <img src="{{asset('assets/media/blog/nkasp.jpg')}}" class="card-img-top" alt="AC Compressor" loading="lazy">
           {{-- <div class="position-absolute top-0 end-0 bg-primary text-white px-2 py-1">Auto Maintenance</div> --}}
           <div class="card-body">
@@ -21,7 +21,7 @@
         </div>
       </div>
       <div class="col-md-6 cursor-pointer">
-        <div class="card h-100">
+        <div class="card h-100 product-card">
           <img src="{{asset('assets/media/blog/logo.jpg')}}" class="card-img-top" alt="Recycling Cars" loading="lazy">
           {{-- <div class="position-absolute top-0 end-0 bg-primary text-white px-2 py-1">NK Brand</div> --}}
           <div class="card-body">
